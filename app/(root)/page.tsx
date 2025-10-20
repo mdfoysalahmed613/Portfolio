@@ -1,8 +1,13 @@
+import HeroSection from '@/components/home/hero-section'
+import Skills from '@/components/home/skills'
 import React from 'react'
 
 const Page = () => {
   return (
-    <div>Page</div>
+    <div>
+      <HeroSection />
+      <Skills />
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import Navbar from "@/components/ui/common/nav-bar";
-import { ThemeToggle } from "@/components/ui/common/theme-toggle";
+import Navbar from "@/components/common/nav-bar";
+import { ThemeToggle } from "@/components/common/theme-toggle";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 
