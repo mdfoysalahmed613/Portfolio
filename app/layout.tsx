@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/sonner"
+import { Inter } from "next/font/google";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
-
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
   title: {
@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning >
       <body
-        className={`${inter.variable} antialiased`}
+        className={`${inter.className} antialiased`}
       >
         <Toaster />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
