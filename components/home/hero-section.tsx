@@ -3,6 +3,7 @@ import React from 'react'
 import profilePic from '@/public/profile.jpg'
 import { Button } from '../ui/button'
 import { ChevronDown, Download, Phone } from 'lucide-react'
+import Link from 'next/link'
 const HeroSection = () => {
    return (
       <section className='flex flex-col items-center justify-center min-h-[calc(100vh-6rem)] text-center'>
@@ -22,7 +23,9 @@ const HeroSection = () => {
                </Button>
             </div>
          </div>
-         <ChevronDown className='animate-bounce mt-20' />
+         <Link href="#skills" aria-label="Scroll Down to Skills Section">
+            <ChevronDown className='animate-bounce mt-20' />
+         </Link>  
       </section>
    )
 }
