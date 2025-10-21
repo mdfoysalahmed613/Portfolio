@@ -3,7 +3,7 @@ import React from 'react'
 import { Card, CardContent, CardHeader } from '../ui/card'
 const Skill = ({ name, description, rating, icon }: ISkill) => {
   return (
-    <Card className='bg-background hover:shadow-lg transition-shadow duration-300'>
+    <Card className='hover:shadow-lg transition-shadow duration-300'>
       <CardHeader>
         {React.createElement(icon, { size: 45 })}
       </CardHeader>

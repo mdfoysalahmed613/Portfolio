@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Norican } from "next/font/google";
 import Link from 'next/link';
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { navItems } from '@/config/nav-items';
 import { usePathname } from 'next/dist/client/components/navigation';
 import { cn } from '@/lib/utils';
@@ -14,7 +14,7 @@ const norican = Norican({
    display: "swap",
 });
 
-const navItemVariants = {
+const navItemVariants: Variants = {
    hidden: { opacity: 0, y: -20 },
    visible: (i: number) => ({
       opacity: 1,
@@ -22,7 +22,6 @@ const navItemVariants = {
       transition: {
          delay: 0.1 * i,
          duration: 0.5,
-         ease: "easeOut",
       },
    }),
 };
