@@ -8,8 +8,6 @@ import {
   SiShadcnui,
   SiExpress,
   SiTailwindcss,
-  SiHtml5,
-  SiCss3,
   SiFirebase,
   SiReactquery,
   SiMongoose,
@@ -21,7 +19,7 @@ import { TbBrandFramerMotion } from "react-icons/tb";
 export interface ISkill {
    name: string;
    description: string;
-   icon: any;
+   icon: React.ComponentType;
    rating: number; // Rating out of 5
 }  
 
