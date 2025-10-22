@@ -9,20 +9,20 @@ const inter = Inter({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://foysal-ahmed.vercel.app'),
   title: {
     default: "Md Foysal Ahmed",
     template: `%s | Md Foysal Ahmed`,
   },
   description: "A modern, responsive Next.js portfolio. This is my personal portfolio website showcasing my skills, projects, and experience as a Full Stack Developer.",
-  authors: [{ name: "Md Foysal Ahmed", url: process.env.NEXT_PUBLIC_BASE_URL }],
+  authors: [{ name: "Md Foysal Ahmed", url: process.env.NEXT_PUBLIC_BASE_URL || 'https://foysal-ahmed.vercel.app' }],
   icons: {
     icon: "./favicon.ico",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_BASE_URL,
+    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://foysal-ahmed.vercel.app',
     title: "Md Foysal Ahmed",
     description: "A modern, responsive Next.js portfolio. This is my personal portfolio website showcasing my skills, projects, and experience as a Full Stack Developer.",
     siteName: "Md Foysal Ahmed",
