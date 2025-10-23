@@ -113,7 +113,7 @@ export const skills: ISkill[] = [
   {
     name: "Clerk",
     description:
-      "Experienced in implementing authentication and user management using Clerk.",
+      "Experienced in implementing custom authentication flows and user management using Clerk.",
     icon: SiClerk,
     rating: 4,
   },
