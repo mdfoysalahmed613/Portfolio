@@ -122,13 +122,20 @@ export const skills: ISkill[] = [
     description:
       "Skilled in creating smooth animations and interactive UIs using Framer Motion.",
     icon: TbBrandFramerMotion,
-    rating: 4,
+    rating: 3,
   },
   {
     name: "React Form Hook",
     description:
       "Proficient in managing form state and validation in React applications using React Hook Form.",
     icon: SiReacthookform,
+    rating: 4,
+  },
+  {
+    name: "TipTap",
+    description:
+      "Experienced in building rich text editors and content management features using TipTap.",
+    icon: SiReact,
     rating: 4,
   },
   {
