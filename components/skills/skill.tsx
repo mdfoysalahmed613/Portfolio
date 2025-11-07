@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader } from '../ui/card'
 const Skill = ({ name, description, rating, icon }: ISkill) => {
   const Icon = icon as React.ComponentType<{ size?: number }>;
   return (
-    <Card className='hover:shadow-lg transition-shadow duration-300'>
+    <Card className='hover:shadow-md shadow-2xs transition-shadow duration-300'>
       <CardHeader>
         <Icon size={45} />
       </CardHeader>

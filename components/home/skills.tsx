@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { skills } from '@/config/skills'
 import Skill from '../skills/skill'
 import { Button } from '../ui/button'
