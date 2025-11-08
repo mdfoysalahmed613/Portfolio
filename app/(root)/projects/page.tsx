@@ -1,3 +1,5 @@
+import Project from "@/components/project/project"
+import { projects } from "@/config/projects"
 
 const page = () => {
    return (
@@ -6,9 +8,9 @@ const page = () => {
          <p className='text-muted-foreground'>Showcasing impactful projects and technical achievements.</p>
          <hr className="my-6" />
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 mx-6'>
-            {/* {projects.map((project) => (
-               <Project key={project.name} {...project   } />
-            ))} */}
+            {projects.map((project) => (
+               <Project key={project.name} {...project} />
+            ))}
          </div>
       </div>
    )
