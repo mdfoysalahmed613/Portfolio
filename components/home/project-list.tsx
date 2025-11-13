@@ -13,7 +13,7 @@ const ProjectList = () => {
 
          <div className='flex justify-center gap-4 mt-6'>
             {Projects.map((project) => (
-               <ProjectCard key={project.companyName} project={project} />
+               <ProjectCard key={project.Name} project={project} />
             ))}
          </div>
          <div className='flex justify-center items-center my-6'>
