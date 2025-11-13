@@ -38,23 +38,23 @@
 
 :root {
   --radius: 0.625rem;
-  --background: hsl(40,30%,95%);
-  --foreground: #4D2F19;
-  --card: #F0EBE6;
-  --card-foreground: #4D2F19;
-  --popover: #F6F4EE;
-  --popover-foreground: #4D2F19;
-  --primary: #cc641a;
-  --primary-foreground: #FBFAF8;
-  --secondary: #F0CDC2;
-  --secondary-foreground: #4D2F19;
-  --muted: #EBE6E0;
+  --background: hsl(40, 30%, 95%);
+  --foreground: #4d2f19;
+  --card: #f0ebe6;
+  --card-foreground: #4d2f19;
+  --popover: #f6f4ee;
+  --popover-foreground: #4d2f19;
+  --primary: #c75605;
+  --primary-foreground: #fbfaf8;
+  --secondary: #f0cdc2;
+  --secondary-foreground: #4d2f19;
+  --muted: #ebe6e0;
   --muted-foreground: #856147;
-  --accent: #F0CDC2;
-  --accent-foreground: #4D2F19;
+  --accent: #f0cdc2;
+  --accent-foreground: #4d2f19;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #DBC9BD;
-  --input: #DBC9BD;
+  --border: #dbc9bd;
+  --input: #dbc9bd;
   --ring: oklch(0.708 0 0);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -72,5 +72,8 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
   }
 }

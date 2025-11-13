@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 import profilePic from '@/public/profile.jpg'
 import { Button } from '../ui/button'
 import { ChevronDown, Download, Phone } from 'lucide-react'
@@ -11,24 +10,25 @@ const HeroSection = () => {
             <Image src={profilePic} alt="Foysal Ahmed - Full Stack Developer Portfolio" className='rounded-full w-[60%] object-cover aspect-square max-w-64 border-8 border-primary' />
             <h1 className='font-bold text-4xl md:text-5xl xl:text-6xl'>Md Foysal Ahmed</h1>
             <h3 className='font-bold text-lg md:text-2xl '>Full Stack Developer</h3>
-            <p className='text-muted-foreground md:text-base text-sm'>I am Full Stack Developer. This is my portfolio website where you can find my projects and contact information.</p>
+            <p className='text-muted-foreground md:text-base text-sm'>I am Full Stack Developer. This is my portfolio website where you can find all my information.</p>
             <div className='flex gap-3 md:gap-5 xl:gap-6'>
-               <Link href="/resume.pdf" download={true}>
-                  <Button size='lg'>
+               <Button className='bg-[#c75605]' size='lg' asChild>
+                  <Link href="/resume.pdf" download={true}>
                      <Download />
                      Download Resume
-                  </Button>
-               </Link>
-               
-               <Button size='lg' variant='outline'>
-                  <Phone />
-                  Contact
+                  </Link>
+               </Button>
+               <Button size='lg' variant='outline' asChild>
+                  <Link href="/contact" className='flex items-center gap-2' aria-label={"go to contact page"}>
+                     <Phone />
+                     Contact
+                  </Link>
                </Button>
             </div>
          </div>
-         <Link href="#skills" aria-label="Scroll Down to Skills Section">
+         <Link href="#skills" aria-label="Scroll Down to Skills Section" className='scroll-smooth'>
             <ChevronDown className='animate-bounce mt-20' />
-         </Link>  
+         </Link>
       </section>
    )
 }
