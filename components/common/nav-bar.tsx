@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Norican } from "next/font/google";
 import Link from 'next/link';
 import { motion, Variants } from "framer-motion";
@@ -77,6 +77,11 @@ const Navbar = () => {
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.3 }}
             >
+               <Link href="/" className="mb-4" onClick={() => setShowMenu(false)}>
+                  <span className={`${norican.className} text-2xl`}>
+                     Foysal Ahmed
+                  </span>
+               </Link>
                {navItems?.map((item, index) => (
                   <motion.div
                      key={index}

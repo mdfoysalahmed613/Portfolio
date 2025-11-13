@@ -1,13 +1,12 @@
 import HeroSection from '@/components/home/hero-section'
-import Projects from '@/components/home/projects'
-import Skills from '@/components/home/skills'
-import React from 'react'
+import ProjectsList from '@/components/home/project-list'
+import Skills from '@/components/home/skills-list'
 const Page = () => {
   return (
     <div>
       <HeroSection />
       <Skills />
-      <Projects />
+      <ProjectsList />
     </div>
   )
 }

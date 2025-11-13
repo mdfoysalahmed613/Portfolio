@@ -1,6 +1,6 @@
 
 import { skills } from '@/config/skills'
-import Skill from '../skills/skill'
+import Skill from './skill-card'
 import { Button } from '../ui/button'
 import Link from 'next/dist/client/link'
 import { ChevronDown } from 'lucide-react'
