@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/sonner"
 import { Inter } from "next/font/google";
 
@@ -64,9 +63,7 @@ export default function RootLayout({
         className={`${inter.className} antialiased`}
       >
         <Toaster />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
-        </ThemeProvider>
       </body>
     </html>
   );

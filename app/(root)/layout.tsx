@@ -1,6 +1,5 @@
 import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/nav-bar";
-import { ThemeToggle } from "@/components/common/theme-toggle";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 
@@ -15,7 +14,6 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
                      target="_blank">
                      <FaGithub className="w-5 h-5" /> 
                   </Link>
-               <ThemeToggle />
             </div>
          </header>
          {children}
