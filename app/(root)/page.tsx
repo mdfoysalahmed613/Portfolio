@@ -1,6 +1,6 @@
 import HeroSection from '@/components/home/hero-section'
 import ProjectsList from '@/components/home/project-list'
-import Skills from '@/components/home/skills-list'
+import Skills from '@/components/home/skills'
 const Page = () => {
   return (
     <div>

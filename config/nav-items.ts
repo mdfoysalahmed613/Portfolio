@@ -1,7 +1,7 @@
 export const navItems = [
   {
     title: "Skills",
-    href: "/skills",
+    href: "#skills",
   },
   {
     title: "Projects",
