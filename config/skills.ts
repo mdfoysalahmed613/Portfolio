@@ -145,5 +145,6 @@ export const skills: ISkill[] = [
     icon: SiGit,
     rating: 5,
   },
+  
 ];
    
