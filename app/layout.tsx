@@ -60,12 +60,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning >
-      <body className={`${inter.className} antialiased`}>
-        <div className="flex flex-col max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8">
+      <body className={`${inter.className} antialiased flex flex-col max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8`}>
           <Navbar />
           {children}
           <Footer />
-        </div>
       </body>
     </html>
   );
