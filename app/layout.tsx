@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Footer from "@/components/common/footer";
+import Navbar from "@/components/common/nav";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -58,10 +60,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning >
-      <body
-        className={`${inter.className} antialiased`}
-      >
-        {children}
+      <body className={`${inter.className} antialiased`}>
+        <div className="flex flex-col max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8">
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -32,7 +32,7 @@ const norican = Norican({
 const Navbar = () => {
    const [showMenu, setShowMenu] = useState(false);
    return (
-      <div className="flex justify-between items-center w-full">
+      <div className="flex justify-between items-center py-6 w-full">
          <div className='flex md:gap-10'>
          <Link href="/">
             <span className={`${norican.className} text-2xl`}>
