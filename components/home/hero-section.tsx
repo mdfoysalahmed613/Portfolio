@@ -12,13 +12,13 @@ const HeroSection = () => {
             <h3 className='font-bold text-lg md:text-2xl '>Full Stack Developer</h3>
             <p className='text-muted-foreground md:text-base text-sm'>I am Full Stack Developer. This is my portfolio website where you can find all my information.</p>
             <div className='flex gap-3 md:gap-5 xl:gap-6'>
-               <Button className='bg-[#c75605]' size='lg' asChild>
-                  <Link href="/resume.pdf" download={true}>
-                     <Download />
-                     Download Resume
+               <Button size={"lg"} asChild>
+                  <Link href="#projects" >
+                     <ChevronDown />
+                     View Projects
                   </Link>
                </Button>
-               <Button size='lg' variant='outline' asChild>
+               <Button size={"lg"} variant={"outline"} asChild>
                   <Link href="/contact" className='flex items-center gap-2' aria-label={"go to contact page"}>
                      <Phone />
                      Contact
