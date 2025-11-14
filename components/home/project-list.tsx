@@ -7,8 +7,8 @@ import Link from "next/link"
 const ProjectList = () => {
 
    return (
-      <div className='my-10 p-8' id="projects">
-         <h1 className='font-bold text-center text-2xl md:text-4xl lg:text-5xl'>Projects</h1>
+      <div className='my-10 ' id="projects">
+         <h1 className='font-bold text-center text-4xl lg:text-5xl'>Projects</h1>
          <p className='py-4 text-center'>Showcasing impactful projects and technical achievements.</p>
 
          <div className='flex justify-center gap-4 mt-6'>
