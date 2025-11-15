@@ -38,7 +38,7 @@
 
 :root {
   --radius: 0.5rem;
-  --background: hsl(40, 30%, 95%);
+  --background: #f6f4ee;
   --foreground: #4d2f19;
   --card: #f0ebe6;
   --card-foreground: #4d2f19;
