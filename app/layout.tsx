@@ -9,20 +9,17 @@ const inter = Inter({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://foysal-ahmed.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
   title: {
-    default: "Md Foysal Ahmed",
+    default: "Md Foysal Ahmed | Full Stack Developer",
     template: `%s | Md Foysal Ahmed`,
   },
-  description: "A modern, responsive Next.js portfolio. This is my personal portfolio website showcasing my skills, projects, and experience as a Full Stack Developer.",
-  authors: [{ name: "Md Foysal Ahmed", url: process.env.NEXT_PUBLIC_BASE_URL || 'https://foysal-ahmed.vercel.app' }],
-  icons: {
-    icon: "./favicon.ico",
-  },
+  description: "I am a full-stack developer specializing in Next.js, TypeScript, and modern UI with strong backend skills.",
+  authors: [{ name: "Md Foysal Ahmed", url: process.env.NEXT_PUBLIC_BASE_URL! }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://foysal-ahmed.vercel.app',
+    url: process.env.NEXT_PUBLIC_BASE_URL!,
     title: "Md Foysal Ahmed",
     description: "A modern, responsive Next.js portfolio. This is my personal portfolio website showcasing my skills, projects, and experience as a Full Stack Developer.",
     siteName: "Md Foysal Ahmed",
@@ -37,18 +34,10 @@ export const metadata: Metadata = {
   },
   keywords: [
     "Md Foysal Ahmed",
+    "Foysal Ahmed",
     "Full Stack Developer",
     "Web Developer Portfolio",
     "Next.js developer",
-    "Foysal Ahmed portfolio",
-    "Md Foysal Ahmed portfolio",
-    "Foysal Ahmed developer",
-    "Foysal Ahmed web developer",
-    "Foysal Ahmed projects",
-    "Foysal Ahmed skills",
-    "Foysal Ahmed experience",
-    "Foysal Ahmed personal website",
-    "Foysal Ahmed GitHub",
   ],
   creator: "mdfoysalahmed613",
 };
