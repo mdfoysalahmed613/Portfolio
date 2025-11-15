@@ -1,13 +1,15 @@
-import HeroSection from '@/components/home/hero-section'
-import ProjectsList from '@/components/home/project-list'
+import Contact from '@/components/home/contact'
+import HeroSection from '@/components/home/hero'
+import Projects from '@/components/home/projects'
 import Skills from '@/components/home/skills'
 const Page = () => {
   return (
-    <div>
+    <>
       <HeroSection />
       <Skills />
-      <ProjectsList />
-    </div>
+      <Projects />
+      <Contact />
+    </>
   )
 }
 

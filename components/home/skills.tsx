@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   SiMongodb,
   SiNextdotjs,
@@ -22,7 +23,48 @@ import {
   SiPostman,
 } from "react-icons/si"
 
+
 const Skills = () => {
+  const Tech = ({ icon: Icon, label }: { icon: React.ComponentType<any>; label: string }) => (
+    <span className='inline-flex items-center gap-2 text-lg font-medium text-popover-foreground'>
+      <Icon className='w-4 h-4' />
+      {label}
+    </span>
+  )
+
+  const FRONTEND = [
+    { icon: SiNextdotjs, label: 'Next.js' },
+    { icon: SiReact, label: 'React' },
+    { icon: SiTypescript, label: 'TypeScript' },
+    { icon: SiTailwindcss, label: 'Tailwind CSS' },
+    { icon: SiShadcnui, label: 'Shadcn UI' },
+    { icon: SiReactquery, label: 'TanStack Query' },
+    { icon: SiReacthookform, label: 'React Hook Form' },
+  ]
+
+  const BACKEND = [
+    { icon: SiNodedotjs, label: 'Node.js' },
+    { icon: SiExpress, label: 'Express.js' },
+    { icon: SiFirebase, label: 'Firebase' },
+    { icon: SiClerk, label: 'Clerk' },
+    { icon: SiSupabase, label: 'Supabase' },
+  ]
+
+  const DATABASES = [
+    { icon: SiMongodb, label: 'MongoDB' },
+    { icon: SiMongoose, label: 'Mongoose' },
+    { icon: SiPostgresql, label: 'PostgreSQL' },
+    { icon: SiPrisma, label: 'Prisma' },
+  ]
+
+  const TOOLS = [
+    { icon: SiGit, label: 'Git' },
+    { icon: SiGithub, label: 'GitHub' },
+    { icon: SiPostman, label: 'Postman' },
+    { icon: SiUbuntu, label: 'Ubuntu' },
+    { icon: SiVercel, label: 'Vercel' },
+  ]
+
   return (
     <div className='my-6' id='skills' >
       <h1 className='font-bold text-center text-4xl lg:text-5xl'>Skills</h1>
@@ -35,27 +77,9 @@ const Skills = () => {
           <div className='py-3'>
             <h2 className='font-bold text-2xl text-primary mb-3'>Frontend</h2>
             <div className='flex flex-wrap gap-4'>
-              <span className='inline-flex items-center gap-2 text-lg font-medium text-popover-foreground'>
-                <SiNextdotjs className='w-4 h-4' /> Next.js
-              </span>
-              <span className='inline-flex items-center gap-2 text-lg font-medium text-popover-foreground'>
-                <SiReact className='w-4 h-4' /> React
-              </span>
-              <span className='inline-flex items-center gap-2 text-lg font-medium text-popover-foreground'>
-                <SiTypescript className='w-4 h-4' /> TypeScript
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiTailwindcss className='w-4 h-4' /> Tailwind CSS
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiShadcnui className='w-4 h-4' /> Shadcn UI
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiReactquery className='w-4 h-4' /> TanStack Query
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiReacthookform className='w-4 h-4' /> React Hook Form
-              </span>
+              {FRONTEND.map((t) => (
+                <Tech key={t.label} icon={t.icon} label={t.label} />
+              ))}
             </div>
           </div>
 
@@ -63,42 +87,17 @@ const Skills = () => {
           <div className='py-3'>
             <h3 className='font-bold text-2xl text-primary mb-3'>Backend & Authentication</h3>
             <div className='flex flex-wrap gap-4'>
-              <span className='inline-flex items-center gap-2 text-lg font-medium text-popover-foreground'>
-                <SiNodedotjs className='w-4 h-4' /> Node.js
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiExpress className='w-4 h-4' /> Express.js
-              </span>
-
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiFirebase className='w-4 h-4' /> Firebase
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiClerk className='w-4 h-4' /> Clerk
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiSupabase className='w-4 h-4' /> Supabase
-              </span>
-              
+              {BACKEND.map((t) => (
+                <Tech key={t.label} icon={t.icon} label={t.label} />
+              ))}
             </div>
-          </div>
-
-          { /* Databases & ORMs */}
+          </div>          { /* Databases & ORMs */}
           <div className='space-y-3'>
             <h3 className='font-bold text-2xl text-primary mb-3'>Databases & ORMs</h3>
             <div className='flex flex-wrap gap-4'>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiMongodb className='w-4 h-4' /> MongoDB
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiMongoose className='w-4 h-4' /> Mongoose
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiPostgresql className='w-4 h-4' /> PostgreSQL
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiPrisma className='w-4 h-4' /> Prisma
-              </span>
+              {DATABASES.map((t) => (
+                <Tech key={t.label} icon={t.icon} label={t.label} />
+              ))}
             </div>
           </div>
 
@@ -106,27 +105,13 @@ const Skills = () => {
           <div className='space-y-3'>
             <h3 className='font-bold text-2xl text-primary mb-3'>Tools & Services</h3>
             <div className='flex flex-wrap gap-4'>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiGit className='w-4 h-4' /> Git
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiGithub className='w-4 h-4' /> GitHub
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiPostman className='w-4 h-4' /> Postman
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiUbuntu className='w-4 h-4' /> Ubuntu
-              </span>
-              <span className='inline-flex items-center gap-2  text-lg font-medium text-popover-foreground'>
-                <SiVercel className='w-4 h-4' /> Vercel
-              </span>
-
+              {TOOLS.map((t) => (
+                <Tech key={t.label} icon={t.icon} label={t.label} />
+              ))}
             </div>
           </div>
         </div>
       </div>
-
     </div>
   )
 }

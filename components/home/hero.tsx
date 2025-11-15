@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import profilePic from '@/public/profile.jpg'
 import { Button } from '../ui/button'
-import { ChevronDown, Phone } from 'lucide-react'
+import { Download, Phone } from 'lucide-react'
 import Link from 'next/link'
 const HeroSection = () => {
    return (
@@ -11,11 +11,17 @@ const HeroSection = () => {
          <h3 className='font-bold text-2xl '>Full Stack Developer</h3>
          <p className='text-muted-foreground'>I am Full Stack Developer. This is my portfolio website where you can find all my information.</p>
          <div className='flex gap-5 xl:gap-6'>
-            <Button size={"lg"} asChild>
+            <Button className='hidden md:flex' size={"lg"} asChild>
                <Link href="#projects" >
                   View Projects
                </Link>
             </Button>
+            <Button className='md:hidden' size={"lg"} asChild>
+               <Link href="/resume.pdf" target="_blank" download={true}>
+                  <Download />
+                  Resume
+               </Link>
+            </Button >
             <Button size={"lg"} variant={"outline"} asChild>
                <Link href="#contact" className='flex items-center gap-2' >
                   <Phone />

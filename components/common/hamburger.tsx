@@ -31,12 +31,6 @@ const Hamburger = () => {
                   </div>
 
                ))}
-               <Button className='my-4' size={"lg"} asChild>
-                  <Link href="/resume.pdf" target="_blank" download={true}>
-                     <Download />
-                     Resume
-                  </Link>
-               </Button >
             </div>
          )}
       </>
