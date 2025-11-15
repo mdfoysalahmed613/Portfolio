@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: process.env.NEXT_PUBLIC_BASE_URL!,
     title: "Md Foysal Ahmed",
-    description: "A modern, responsive Next.js portfolio. This is my personal portfolio website showcasing my skills, projects, and experience as a Full Stack Developer.",
+    description: "I am a full-stack developer specializing in Next.js, TypeScript, and modern UI with strong backend skills.",
     siteName: "Md Foysal Ahmed",
     images: [
       {

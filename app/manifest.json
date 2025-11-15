@@ -1,21 +1,22 @@
 {
   "name": "Foysal Ahmed | Full Stack Developer",
-  "short_name": "Foysal",
-  "description": "Portfolio of Foysal Ahmed, a skilled Full Stack Developer specializing in Next.js, React, Node.js, and more.",
-  "theme_color": "#c75605",
-  "background_color": "#f6f4ee",
-  "display": "standalone",
+  "short_name": "Foysal Ahmed",
   "start_url": "/",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/web-app-manifest-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/web-app-manifest-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "theme_color": "#c75605",
+  "background_color": "#f6f4ee",
+  "display": "standalone"
 }

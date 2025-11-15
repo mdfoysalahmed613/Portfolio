@@ -30,20 +30,20 @@ const norican = Norican({
 
 const Navbar = () => {
    return (
-      <nav className="flex justify-between items-center py-6 w-full">
+      <header className="flex justify-between items-center py-6 w-full">
          <div className='flex md:gap-10'>
             <Link href="/" className={`${norican.className} text-2xl font-bold`}>
                Foysal Ahmed
             </Link>
             <div className="hidden gap-6 md:flex items-center">
                {navItems?.map((item, index) => (
-                  <div key={index}>
+                  <nav key={index}>
                      <Link
                         href={item.href}
                         className="flex items-center font-medium text-muted-foreground hover:text-muted-foreground/80">
                         {item.title}
                      </Link>
-                  </div>
+                  </nav>
                ))}
             </div>
          </div>
@@ -54,7 +54,7 @@ const Navbar = () => {
                Resume
             </Link>
          </Button>
-      </nav>
+      </header>
    )
 }
 export default Navbar
