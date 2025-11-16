@@ -5,19 +5,49 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { ArrowLeft, ExternalLink, Github, Calendar, User, Layers } from 'lucide-react'
 import type { Metadata } from 'next'
+import { projects } from '@/lib/projects'
+import { notFound } from 'next/navigation'
 
-export const metadata: Metadata = {
-   title: 'QuickBlog - Modern Blogging Platform | Foysal Ahmed',
-   description: 'A modern blogging platform built with Next.js and MongoDB, featuring real-time updates, user authentication, and a beautiful interface. Case study by Foysal Ahmed.',
-   openGraph: {
-      title: 'QuickBlog - Modern Blogging Platform',
-      description: 'A modern blogging platform built with Next.js and MongoDB, featuring real-time updates and user authentication.',
-      images: ['/QuickBlog.png'],
-      type: 'article',
-   },
+type Props = {
+   params: Promise<{ slug: string }>
 }
 
-export default function QuickBlogProject() {
+export async function generateStaticParams() {
+   return projects.map((project) => ({
+      slug: project.slug,
+   }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+   const { slug } = await params
+   const project = projects.find((p) => p.slug === slug)
+
+   if (!project) {
+      return {
+         title: 'Project Not Found',
+      }
+   }
+
+   return {
+      title: `${project.title} - ${project.category} | Foysal Ahmed`,
+      description: project.description,
+      openGraph: {
+         title: `${project.title} - ${project.category}`,
+         description: project.description,
+         images: [project.image],
+         type: 'article',
+      },
+   }
+}
+
+export default async function ProjectPage({ params }: Props) {
+   const { slug } = await params
+   const project = projects.find((p) => p.slug === slug)
+
+   if (!project) {
+      notFound()
+   }
+
    return (
       <div className='min-h-screen py-20'>
          <div className='max-w-5xl mx-auto'>
@@ -31,37 +61,37 @@ export default function QuickBlogProject() {
 
             {/* Hero Section */}
             <div className='space-y-6 mb-12'>
-               <h1 className='font-bold text-4xl lg:text-5xl'>QuickBlog</h1>
+               <h1 className='font-bold text-4xl lg:text-5xl'>{project.title}</h1>
                <p className='text-xl text-muted-foreground'>
-                  A modern blogging platform built with Next.js and MongoDB, featuring real-time updates and user authentication.
+                  {project.description}
                </p>
 
                {/* Meta Info */}
                <div className='flex flex-wrap gap-4 text-sm text-muted-foreground'>
                   <div className='flex items-center gap-2'>
                      <Calendar className='w-4 h-4' />
-                     <span>2 months</span>
+                     <span>{project.year}</span>
                   </div>
                   <div className='flex items-center gap-2'>
                      <User className='w-4 h-4' />
-                     <span>Full Stack Developer</span>
+                     <span>{project.role}</span>
                   </div>
                   <div className='flex items-center gap-2'>
                      <Layers className='w-4 h-4' />
-                     <span>Full Stack</span>
+                     <span>{project.category}</span>
                   </div>
                </div>
 
                {/* Action Buttons */}
                <div className='flex gap-4'>
                   <Button size='lg' asChild>
-                     <Link href='https://quickblog.foysal.me' target='_blank' rel='noopener noreferrer'>
+                     <Link href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
                         <ExternalLink className='w-4 h-4 mr-2' />
                         View Live Site
                      </Link>
                   </Button>
                   <Button size='lg' variant='outline' asChild>
-                     <Link href='https://github.com/mdfoysalahmed613/quickblog' target='_blank' rel='noopener noreferrer'>
+                     <Link href={project.githubUrl} target='_blank' rel='noopener noreferrer'>
                         <Github className='w-4 h-4 mr-2' />
                         View Code
                      </Link>
@@ -72,8 +102,8 @@ export default function QuickBlogProject() {
             {/* Main Image */}
             <div className='relative aspect-video rounded-lg overflow-hidden mb-12 border'>
                <Image
-                  src='/QuickBlog.png'
-                  alt='QuickBlog Platform Screenshot'
+                  src={project.image}
+                  alt={`${project.title} Platform Screenshot`}
                   fill
                   className='object-cover'
                   priority
@@ -86,7 +116,7 @@ export default function QuickBlogProject() {
                <section>
                   <h2 className='text-2xl font-bold mb-4'>Overview</h2>
                   <p className='text-muted-foreground leading-relaxed'>
-                     QuickBlog is a full-featured blogging platform that allows users to create, edit, and publish blog posts with a modern, intuitive interface. Built with performance and user experience in mind, it leverages the power of Next.js 15 for server-side rendering and optimal performance. The platform features a clean, minimalist design that puts content first while providing all the tools needed for effective blogging.
+                     {project.title} is a full-featured {project.category.toLowerCase()} that allows users to create, edit, and publish content with a modern, intuitive interface. Built with performance and user experience in mind, it leverages the power of Next.js 15 for server-side rendering and optimal performance. The platform features a clean, minimalist design that puts content first while providing all the tools needed for effective content management.
                   </p>
                </section>
 
@@ -96,23 +126,21 @@ export default function QuickBlogProject() {
                   <div className='grid md:grid-cols-2 gap-6'>
                      <Card>
                         <CardContent className='p-6'>
-                           <h3 className='font-semibold mb-3'>Frontend</h3>
+                           <h3 className='font-semibold mb-3'>Technologies Used</h3>
                            <div className='flex flex-wrap gap-2'>
-                              <Badge>Next.js 15</Badge>
-                              <Badge>React</Badge>
-                              <Badge>TypeScript</Badge>
-                              <Badge>Tailwind CSS</Badge>
-                              <Badge>Shadcn UI</Badge>
+                              {project.tags.map((tag, i) => (
+                                 <Badge key={i}>{tag}</Badge>
+                              ))}
                            </div>
                         </CardContent>
                      </Card>
                      <Card>
                         <CardContent className='p-6'>
-                           <h3 className='font-semibold mb-3'>Backend & Database</h3>
-                           <div className='flex flex-wrap gap-2'>
-                              <Badge>Next.js API Routes</Badge>
-                              <Badge>MongoDB</Badge>
-                              <Badge>Mongoose</Badge>
+                           <h3 className='font-semibold mb-3'>Project Details</h3>
+                           <div className='space-y-2 text-sm text-muted-foreground'>
+                              <p><span className='font-medium text-foreground'>Role:</span> {project.role}</p>
+                              <p><span className='font-medium text-foreground'>Timeline:</span> {project.year}</p>
+                              <p><span className='font-medium text-foreground'>Type:</span> {project.category}</p>
                            </div>
                         </CardContent>
                      </Card>
@@ -123,7 +151,7 @@ export default function QuickBlogProject() {
                <section>
                   <h2 className='text-2xl font-bold mb-4'>The Problem</h2>
                   <p className='text-muted-foreground leading-relaxed'>
-                     Many existing blogging platforms are either too complex for beginners or lack modern features and performance optimization. There was a need for a fast, user-friendly blogging solution that provides real-time capabilities, a clean interface, and excellent SEO support without overwhelming users with unnecessary features.
+                     Many existing platforms are either too complex for beginners or lack modern features and performance optimization. There was a need for a fast, user-friendly solution that provides real-time capabilities, a clean interface, and excellent SEO support without overwhelming users with unnecessary features.
                   </p>
                </section>
 
@@ -131,7 +159,7 @@ export default function QuickBlogProject() {
                <section>
                   <h2 className='text-2xl font-bold mb-4'>The Solution</h2>
                   <p className='text-muted-foreground leading-relaxed mb-6'>
-                     I developed QuickBlog using Next.js 15 for optimal performance with server-side rendering and MongoDB for flexible data storage. The platform implements real-time features for instant content updates and provides an intuitive dashboard for content management. The solution focuses on simplicity without sacrificing power, making it easy for anyone to start blogging while offering advanced features for experienced users.
+                     I developed {project.title} using modern web technologies for optimal performance with server-side rendering and flexible data storage. The platform implements real-time features for instant content updates and provides an intuitive dashboard for content management. The solution focuses on simplicity without sacrificing power, making it easy for anyone to start while offering advanced features for experienced users.
                   </p>
                </section>
 
@@ -141,11 +169,11 @@ export default function QuickBlogProject() {
                   <div className='grid md:grid-cols-2 gap-4'>
                      {[
                         'User authentication and authorization with secure session management',
-                        'Rich text editor for creating and formatting blog posts',
+                        'Rich text editor for creating and formatting content',
                         'Real-time content updates and notifications',
                         'Responsive design that works seamlessly across all devices',
                         'SEO-optimized with meta tags and dynamic sitemap generation',
-                        'Comment system for reader engagement',
+                        'Interactive features for user engagement',
                         'Category and tag-based organization',
                         'Search functionality for easy content discovery',
                         'Admin dashboard for content management'
@@ -192,11 +220,11 @@ export default function QuickBlogProject() {
                      </div>
                      <div className='flex items-start gap-3'>
                         <div className='w-2 h-2 rounded-full bg-primary mt-2' />
-                        <p className='text-muted-foreground'>MongoDB schema design and optimization for blog content</p>
+                        <p className='text-muted-foreground'>Database schema design and optimization for content management</p>
                      </div>
                      <div className='flex items-start gap-3'>
                         <div className='w-2 h-2 rounded-full bg-primary mt-2' />
-                        <p className='text-muted-foreground'>Implementing real-time features with efficient polling strategies</p>
+                        <p className='text-muted-foreground'>Implementing real-time features with efficient strategies</p>
                      </div>
                      <div className='flex items-start gap-3'>
                         <div className='w-2 h-2 rounded-full bg-primary mt-2' />
@@ -214,17 +242,17 @@ export default function QuickBlogProject() {
                   <div className='text-center space-y-6'>
                      <h2 className='text-2xl font-bold'>Check It Out</h2>
                      <p className='text-muted-foreground max-w-2xl mx-auto'>
-                        Visit the live site to see QuickBlog in action, or explore the source code on GitHub to see how it's built.
+                        Visit the live site to see {project.title} in action, or explore the source code on GitHub to see how it's built.
                      </p>
                      <div className='flex justify-center gap-4'>
                         <Button size='lg' asChild>
-                           <Link href='https://quickblog.foysal.me' target='_blank' rel='noopener noreferrer'>
+                           <Link href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
                               <ExternalLink className='w-4 h-4 mr-2' />
                               Visit Live Site
                            </Link>
                         </Button>
                         <Button size='lg' variant='outline' asChild>
-                           <Link href='https://github.com/mdfoysalahmed613/quickblog' target='_blank' rel='noopener noreferrer'>
+                           <Link href={project.githubUrl} target='_blank' rel='noopener noreferrer'>
                               <Github className='w-4 h-4 mr-2' />
                               View on GitHub
                            </Link>
