@@ -5,7 +5,7 @@ import { Download, Phone } from 'lucide-react'
 import Link from 'next/link'
 const HeroSection = () => {
    return (
-      <section className='flex flex-col items-center gap-4 md:gap-6 justify-center my-14 mx-auto max-w-3xl text-center'>
+      <section className='flex flex-col items-center gap-4 md:gap-6 justify-center my-20 mx-auto max-w-3xl text-center'>
          <Image src={profilePic} alt="Foysal Ahmed - Full Stack Developer Portfolio" className='rounded-full w-[60%] object-cover aspect-square max-w-64 border-8 border-primary' />
          <h1 className='font-bold text-5xl xl:text-6xl'>Md Foysal Ahmed</h1>
          <h3 className='font-bold text-2xl '>Full Stack Developer</h3>

@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/nav";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -50,6 +51,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
         <Navbar />
         {children}
         <Footer />
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

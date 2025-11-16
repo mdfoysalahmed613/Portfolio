@@ -3,8 +3,10 @@
 import { useState } from 'react'
 import { Button } from '../ui/button'
 import { Card, CardContent } from '../ui/card'
-import { Mail, MapPin, Send } from 'lucide-react'
+import { Mail, MapPin, Send, } from 'lucide-react'
 import Link from 'next/link'
+import { toast } from 'sonner'
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa6'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +26,7 @@ const Contact = () => {
     // Reset form
     setFormData({ name: '', email: '', message: '' })
     setIsSubmitting(false)
-    alert('Message sent! I\'ll get back to you soon.')
+    toast.success('Message sent! I\'ll get back to you soon.')
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -34,8 +36,13 @@ const Contact = () => {
     }))
   }
 
+  const copyEmail = () => {
+    navigator.clipboard.writeText('contact@foysal.me')
+    toast.success('Email copied to clipboard!')
+  }
+
   return (
-    <section className='my-10' id="contact" aria-labelledby="contact-heading">
+    <section className='my-20' id="contact" aria-labelledby="contact-heading">
       <h2 id="contact-heading" className='font-bold text-center text-4xl lg:text-5xl'>Get In Touch</h2>
       <p className='py-4 text-center text-muted-foreground max-w-2xl mx-auto'>
         I'm open for freelance work, collaborations, and internships. Let's work together to create something amazing!
@@ -45,38 +52,64 @@ const Contact = () => {
         {/* Contact Info Cards */}
         <Card className='md:col-span-1'>
           <CardContent className='p-6 space-y-6'>
-            <div className='space-y-2'>
-              <div className='flex items-center gap-3'>
-                <div className='p-2 rounded-lg bg-primary/10'>
-                  <Mail className='w-5 h-5 text-primary' />
-                </div>
-                <div>
-                  <p className='font-semibold text-sm'>Email</p>
-                  <Link
-                    href='mailto:contact@foysal.me'
-                    className='text-sm text-muted-foreground hover:text-primary transition-colors'
-                  >
-                    contact@foysal.me 
-                  </Link>
-                </div>
+            <div className='flex items-center gap-3'>
+              <div className='p-2 rounded-lg bg-primary/10'>
+                <Mail className='w-5 h-5 text-primary' />
+              </div>
+              <div>
+                <p className='font-semibold text-sm'>Email</p>
+                <button
+                  onClick={copyEmail}
+                  className='text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer'
+                >
+                  contact@foysal.me
+                </button>
               </div>
             </div>
 
-            <div className='space-y-2'>
-              <div className='flex items-center gap-3'>
-                <div className='p-2 rounded-lg bg-primary/10'>
-                  <MapPin className='w-5 h-5 text-primary' />
-                </div>
-                <div>
-                  <p className='font-semibold text-sm'>Location</p>
-                  <p className='text-sm text-muted-foreground'>Dhaka, Bangladesh</p>
-                </div>
+            <div className='flex items-center gap-3'>
+              <div className='p-2 rounded-lg bg-primary/10'>
+                <MapPin className='w-5 h-5 text-primary' />
+              </div>
+              <div>
+                <p className='font-semibold text-sm'>Location</p>
+                <p className='text-sm text-muted-foreground'>Dhaka, Bangladesh</p>
               </div>
             </div>
 
             <div className='pt-4 border-t'>
               <p className='text-sm font-semibold mb-2'>Response Time</p>
-              <p className='text-sm text-muted-foreground'>Usually within 24 hours</p>
+              <p className='text-sm text-muted-foreground'>Usually within 12 hours</p>
+            </div>
+
+            <div className='pt-4 border-t'>
+              <p className='text-sm font-semibold mb-4'>Follow Me</p>
+              <div className='flex gap-5'>
+                <Link
+                  href='https://github.com/mdfoysalahmed613'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='GitHub'
+                >
+                  <FaGithub className='w-5 h-5 text-primary' />
+                </Link>
+                <Link
+                  href='https://www.linkedin.com/in/mdfoysalahmed613'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='LinkedIn'
+                >
+                  <FaLinkedin className='w-5 h-5 text-primary' />
+                </Link>
+                <Link
+                  href='https://www.facebook.com/foysal613'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Facebook'
+                >
+                  <FaFacebook className='w-5 h-5 text-primary' />
+                </Link>
+              </div>
             </div>
           </CardContent>
         </Card>

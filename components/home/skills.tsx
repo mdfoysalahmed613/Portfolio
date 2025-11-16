@@ -66,12 +66,12 @@ const Skills = () => {
   ]
 
   return (
-    <section className='my-10' id='skills' >
+    <section className='my-20' id='skills' >
       <h1 className='font-bold text-center text-4xl lg:text-5xl'>Skills</h1>
-      <p className='py-4 text-center'>Key skills that define my professional identity.</p>
+      <p className='py-4 text-center text-muted-foreground'>Key skills that define my professional identity.</p>
 
       {/* All my skills by categorized */}
-      <div className='max-w-7xl mx-auto mt-4 py-8'>
+      <div className='max-w-7xl mx-auto mt-8 py-16'>
         <div className='grid md:grid-cols-2 gap-8'>
           {/* Frontend */}
           <div className='py-3'>

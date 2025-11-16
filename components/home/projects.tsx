@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../ui/button'
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
+import { FaGithub } from 'react-icons/fa6'
 
 const Projects = () => {
    const projects = [
@@ -16,7 +17,7 @@ const Projects = () => {
    ]
 
    return (
-      <section className='my-10' id="projects" aria-labelledby="projects-heading">
+      <section className='my-20' id="projects" aria-labelledby="projects-heading">
          <h2 id="projects-heading" className='font-bold text-center text-4xl lg:text-5xl'>Projects</h2>
          <p className='py-4 text-center text-muted-foreground'>Showcasing impactful projects and technical achievements.</p>
 
@@ -57,19 +58,26 @@ const Projects = () => {
                      </div>
 
                      {/* Action Buttons */}
-                     <div className='flex gap-3 pt-2'>
-                        <Button size='sm' asChild className='flex-1'>
-                           <Link href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
-                              <ExternalLink className='w-4 h-4' />
-                              Live Demo
+                     <div className='flex flex-col gap-3 pt-2'>
+                        <Button size='sm' variant='outline' asChild className='w-full'>
+                           <Link href={`/projects/${project.title.toLowerCase()}`}>
+                              View Case Study
                            </Link>
                         </Button>
-                        <Button size='sm' variant='outline' asChild className='flex-1'>
-                           <Link href={project.githubUrl} target='_blank' rel='noopener noreferrer'>
-                              <Github className='w-4 h-4' />
-                              Code
-                           </Link>
-                        </Button>
+                        <div className='flex gap-3'>
+                           <Button size='sm' asChild className='flex-1'>
+                              <Link href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
+                                 <ExternalLink className='w-4 h-4' />
+                                 Live Demo
+                              </Link>
+                           </Button>
+                           <Button size='sm' variant='outline' asChild className='flex-1'>
+                              <Link href={project.githubUrl} target='_blank' rel='noopener noreferrer'>
+                                 <FaGithub className='w-4 h-4' />
+                                 Code
+                              </Link>
+                           </Button>
+                        </div>
                      </div>
                   </div>
                </article>
