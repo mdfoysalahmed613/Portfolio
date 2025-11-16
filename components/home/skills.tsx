@@ -66,7 +66,7 @@ const Skills = () => {
   ]
 
   return (
-    <div className='my-6' id='skills' >
+    <section className='my-10' id='skills' >
       <h1 className='font-bold text-center text-4xl lg:text-5xl'>Skills</h1>
       <p className='py-4 text-center'>Key skills that define my professional identity.</p>
 
@@ -112,7 +112,7 @@ const Skills = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
