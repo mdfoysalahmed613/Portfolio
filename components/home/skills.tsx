@@ -82,7 +82,8 @@ const Skills = () => {
     visible: {
       opacity: 1,
       y: 0
-    }
+    },
+    
   }
 
   const categoryVariants = {
@@ -90,7 +91,7 @@ const Skills = () => {
     visible: {
       opacity: 1,
       y: 0
-    }
+    },
   }
 
   return (
@@ -119,7 +120,6 @@ const Skills = () => {
         <div className='grid md:grid-cols-2 gap-8'>
           {/* Frontend */}
           <motion.div
-            className='py-3'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -132,7 +132,7 @@ const Skills = () => {
               variants={containerVariants}
             >
               {FRONTEND.map((t) => (
-                <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }}>
+                <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }} >
                   <Tech icon={t.icon} label={t.label} />
                 </motion.div>
               ))}
@@ -141,7 +141,6 @@ const Skills = () => {
 
           {/* Backend */}
           <motion.div
-            className='py-3'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -153,7 +152,7 @@ const Skills = () => {
               className='flex flex-wrap gap-4'
               variants={containerVariants}
             >
-              {BACKEND.map((t, index) => (
+              {BACKEND.map((t) => (
                 <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }}>
                   <Tech icon={t.icon} label={t.label} />
                 </motion.div>
@@ -161,7 +160,6 @@ const Skills = () => {
             </motion.div>
           </motion.div>          { /* Databases & ORMs */}
           <motion.div
-            className='space-y-3'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -173,7 +171,7 @@ const Skills = () => {
               className='flex flex-wrap gap-4'
               variants={containerVariants}
             >
-              {DATABASES.map((t, index) => (
+              {DATABASES.map((t) => (
                 <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }}>
                   <Tech icon={t.icon} label={t.label} />
                 </motion.div>
@@ -183,7 +181,6 @@ const Skills = () => {
 
           {/* Tools & Services */}
           <motion.div
-            className='space-y-3'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -195,7 +192,7 @@ const Skills = () => {
               className='flex flex-wrap gap-4'
               variants={containerVariants}
             >
-              {TOOLS.map((t, index) => (
+              {TOOLS.map((t) => (
                 <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }}>
                   <Tech icon={t.icon} label={t.label} />
                 </motion.div>
