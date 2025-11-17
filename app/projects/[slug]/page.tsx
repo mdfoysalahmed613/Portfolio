@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent } from '@/components/ui/card'
 import { ArrowLeft, ExternalLink, Calendar, User, Layers } from 'lucide-react'
 import type { Metadata } from 'next'
 import { projects } from '@/lib/projects'
@@ -50,7 +49,7 @@ export default async function ProjectPage({ params }: Props) {
    }
 
    return (
-      <div className='min-h-screen py-20'>
+      <div className='min-h-screen pb-20 pt-10'>
          <div className='max-w-5xl mx-auto'>
             {/* Back Button */}
             <Button variant='ghost' size='sm' className='mb-8' asChild>
@@ -123,46 +122,36 @@ export default async function ProjectPage({ params }: Props) {
                {/* Tech Stack */}
                <section>
                   <h2 className='text-2xl font-bold mb-6'>Tech Stack</h2>
-                     <Card>
-                        <CardContent className='p-6'>
-                           <h3 className='font-semibold mb-3'>Technologies Used</h3>
-                           <div className='flex flex-wrap gap-2'>
-                              {project.tags.map((tag, i) => (
-                                 <Badge key={i}>{tag}</Badge>
-                              ))}
-                           </div>
-                        </CardContent>
-                     </Card>
+                  <div className='flex flex-wrap gap-3'>
+                     {project.techstack.map((techstack, i) => (
+                        <Badge
+                           key={i}
+                           variant="secondary"
+                           className='px-4 py-2 text-black text-sm font-medium'
+                        >
+                           {techstack}
+                        </Badge>
+                     ))}
+                  </div>
                </section>
-
-               {/* Problem */}
-               <section>
-                  <h2 className='text-2xl font-bold mb-4'>The Problem</h2>
-                  <p className='text-muted-foreground leading-relaxed'>
-                     {project.problem}
-                  </p>
-               </section>
-
-               {/* Solution */}
-               <section>
-                  <h2 className='text-2xl font-bold mb-4'>The Solution</h2>
-                  <p className='text-muted-foreground leading-relaxed'>
-                     {project.solution}
-                  </p>
-               </section>
-
                {/* Key Features */}
                <section>
                   <h2 className='text-2xl font-bold mb-4'>Key Features</h2>
                   <div className='grid md:grid-cols-2 gap-4'>
                      {project.features.map((feature, i) => (
-                        <Card key={i}>
-                           <CardContent className='p-4'>
-                              <p className='text-sm'>{feature}</p>
-                           </CardContent>
-                        </Card>
+                        <div key={i} className='flex items-start gap-3'>
+                           <div className='w-2 h-2 rounded-full bg-primary mt-2' />
+                           <p>{feature}</p>
+                        </div>
                      ))}
                   </div>
+               </section>
+               {/* Challenges & Solutions */}
+               <section>
+                  <h2 className='text-2xl font-bold mb-4'>Challenges & Solutions</h2>
+                  <p className='text-muted-foreground leading-relaxed'>
+                     {project.challengesAndSolutions}
+                  </p>
                </section>
 
                {/* Results */}
@@ -185,7 +174,7 @@ export default async function ProjectPage({ params }: Props) {
                      {project.learnings.map((learning, i) => (
                         <div key={i} className='flex items-start gap-3'>
                            <div className='w-2 h-2 rounded-full bg-primary mt-2' />
-                           <p className='text-muted-foreground'>{learning}</p>
+                           <p>{learning}</p>
                         </div>
                      ))}
                   </div>

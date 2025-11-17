@@ -11,8 +11,7 @@ export interface Project {
   year: string;
   category: string;
   overview: string;
-  problem: string;
-  solution: string;
+  challengesAndSolutions: string;
   features: string[];
   results: string[];
   learnings: string[];
@@ -55,10 +54,8 @@ export const projects: Project[] = [
       "Search functionality for easy content discovery",
       "Admin dashboard for content management",
     ],
-    problem:
-      "Many existing blogging platforms are either too complex for beginners or lack modern features and performance optimization. There was a need for a fast, user-friendly blogging solution that provides real-time capabilities, a clean interface, and excellent SEO support without overwhelming users with unnecessary features.",
-    solution:
-      "I developed QuickBlog using Next.js 15 for optimal performance with server-side rendering and MongoDB for flexible data storage. The platform implements real-time features for instant content updates and provides an intuitive dashboard for content management. The solution focuses on simplicity without sacrificing power, making it easy for anyone to start blogging while offering advanced features for experienced users.",
+    challengesAndSolutions:
+      "Many existing blogging platforms are either too complex for beginners or lack modern features and performance optimization. There was a need for a fast, user-friendly blogging solution that provides real-time capabilities, a clean interface, and excellent SEO support without overwhelming users with unnecessary features. I developed QuickBlog using Next.js 15 for optimal performance with server-side rendering and MongoDB for flexible data storage. The platform implements real-time features for instant content updates and provides an intuitive dashboard for content management. The solution focuses on simplicity without sacrificing power, making it easy for anyone to start blogging while offering advanced features for experienced users.",
 
     results: [
       "Achieved 95+ Lighthouse performance score",
