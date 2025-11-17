@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import {
   SiMongodb,
@@ -22,6 +23,7 @@ import {
   SiVercel,
   SiPostman,
 } from "react-icons/si"
+import { motion } from 'framer-motion'
 
 
 const Skills = () => {
@@ -65,51 +67,141 @@ const Skills = () => {
     { icon: SiVercel, label: 'Vercel' },
   ]
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0
+    }
+  }
+
+  const categoryVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0
+    }
+  }
+
   return (
     <section className='my-20' id='skills' >
-      <h1 className='font-bold text-center text-4xl lg:text-5xl'>Skills</h1>
-      <p className='py-4 text-center text-muted-foreground'>Key skills that define my professional identity.</p>
+      <motion.h1
+        className='font-bold text-center text-4xl lg:text-5xl'
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        Skills
+      </motion.h1>
+      <motion.p
+        className='py-4 text-center text-muted-foreground'
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
+        Key skills that define my professional identity.
+      </motion.p>
 
       {/* All my skills by categorized */}
       <div className='max-w-7xl mx-auto mt-8 py-16'>
         <div className='grid md:grid-cols-2 gap-8'>
           {/* Frontend */}
-          <div className='py-3'>
+          <motion.div
+            className='py-3'
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={categoryVariants}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className='font-bold text-2xl text-primary mb-3'>Frontend</h2>
-            <div className='flex flex-wrap gap-4'>
+            <motion.div
+              className='flex flex-wrap gap-4'
+              variants={containerVariants}
+            >
               {FRONTEND.map((t) => (
-                <Tech key={t.label} icon={t.icon} label={t.label} />
+                <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }}>
+                  <Tech icon={t.icon} label={t.label} />
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Backend */}
-          <div className='py-3'>
+          <motion.div
+            className='py-3'
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={categoryVariants}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             <h3 className='font-bold text-2xl text-primary mb-3'>Backend & Authentication</h3>
-            <div className='flex flex-wrap gap-4'>
-              {BACKEND.map((t) => (
-                <Tech key={t.label} icon={t.icon} label={t.label} />
+            <motion.div
+              className='flex flex-wrap gap-4'
+              variants={containerVariants}
+            >
+              {BACKEND.map((t, index) => (
+                <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }}>
+                  <Tech icon={t.icon} label={t.label} />
+                </motion.div>
               ))}
-            </div>
-          </div>          { /* Databases & ORMs */}
-          <div className='space-y-3'>
+            </motion.div>
+          </motion.div>          { /* Databases & ORMs */}
+          <motion.div
+            className='space-y-3'
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={categoryVariants}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <h3 className='font-bold text-2xl text-primary mb-3'>Databases & ORMs</h3>
-            <div className='flex flex-wrap gap-4'>
-              {DATABASES.map((t) => (
-                <Tech key={t.label} icon={t.icon} label={t.label} />
+            <motion.div
+              className='flex flex-wrap gap-4'
+              variants={containerVariants}
+            >
+              {DATABASES.map((t, index) => (
+                <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }}>
+                  <Tech icon={t.icon} label={t.label} />
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Tools & Services */}
-          <div className='space-y-3'>
+          <motion.div
+            className='space-y-3'
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={categoryVariants}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <h3 className='font-bold text-2xl text-primary mb-3'>Tools & Services</h3>
-            <div className='flex flex-wrap gap-4'>
-              {TOOLS.map((t) => (
-                <Tech key={t.label} icon={t.icon} label={t.label} />
+            <motion.div
+              className='flex flex-wrap gap-4'
+              variants={containerVariants}
+            >
+              {TOOLS.map((t, index) => (
+                <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }}>
+                  <Tech icon={t.icon} label={t.label} />
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

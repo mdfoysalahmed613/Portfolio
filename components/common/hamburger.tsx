@@ -1,7 +1,6 @@
 "use client"
 import { useState } from 'react'
-import { Button } from '../ui/button';
-import { Download, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { navItems } from './nav';
 
@@ -10,10 +9,12 @@ const Hamburger = () => {
    return (
       <>
          <button
-            className="md:hidden"
+            className="md:hidden transition-transform duration-200 hover:scale-110 active:scale-95"
             onClick={() => setShowMenu(!showMenu)}
          >
-            {showMenu ? <X /> : <Menu />}
+            <div className={showMenu ? "rotate-90 transition-transform duration-300" : "transition-transform duration-300"}>
+               {showMenu ? <X /> : <Menu />}
+            </div>
          </button>
          {showMenu && (
             <div
