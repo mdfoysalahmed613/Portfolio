@@ -1,22 +1,44 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../ui/button'
 import { ExternalLink, ArrowRight, FileText } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa6'
 import { projects } from '@/lib/projects'
-
+import { motion } from 'framer-motion'
 const Projects = () => {
 
    return (
       <section className='my-20' id="projects" aria-labelledby="projects-heading">
-         <h2 id="projects-heading" className='font-bold text-center text-4xl lg:text-5xl'>Projects</h2>
-         <p className='py-4 text-center text-muted-foreground'>Showcasing impactful projects and technical achievements.</p>
+         <motion.h2
+            id="projects-heading"
+            className='font-bold text-center text-4xl lg:text-5xl'
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+         >
+            Projects
+         </motion.h2>
+         <motion.p
+            className='py-4 text-center text-muted-foreground'
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+         >
+            Showcasing impactful projects and technical achievements.
+         </motion.p>
 
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8 max-w-7xl mx-auto justify-items-center'>
-            {projects.map((project) => (
-               <article
+            {projects.map((project, index) => (
+               <motion.article
                   key={project.slug}
                   className='group border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 w-full max-w-md'
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                >
                   {/* Project Image - Clickable */}
                   <Link
@@ -104,7 +126,7 @@ const Projects = () => {
                         </div>
                      </div>
                   </div>
-               </article>
+               </motion.article>
             ))}
          </div>
       </section>
