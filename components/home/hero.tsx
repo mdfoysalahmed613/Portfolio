@@ -35,8 +35,8 @@ const HeroSection = () => {
          
          <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }} className='flex gap-5 xl:gap-6'>
             <Button className='hidden md:flex' size={"lg"} asChild>
-               <Link href="#projects" >
-                  View Projects
+               <Link href="https://wa.me/+8801687069581" target='_blank' >
+                  Hire Me
                </Link>
             </Button>
             <Button className='md:hidden' size={"lg"} asChild>

@@ -43,7 +43,7 @@ const Contact = () => {
   }
 
   return (
-    <section className='my-20' id="contact" aria-labelledby="contact-heading">
+    <section className='py-20' id="contact" aria-labelledby="contact-heading">
       <motion.h2
         id="contact-heading"
         className='font-bold text-center text-4xl lg:text-5xl'

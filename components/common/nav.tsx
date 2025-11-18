@@ -12,12 +12,12 @@ export const navItems = [
       href: "#skills",
    },
    {
-      title: "Projects",
-      href: "#projects",
+      title: "Services",
+      href: "#services",
    },
    {
-      title: "About",
-      href: "#about",
+      title: "Projects",
+      href: "#projects",
    },
    {
       title: "Contact",

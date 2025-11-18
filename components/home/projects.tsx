@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 const Projects = () => {
 
    return (
-      <section className='my-20' id="projects" aria-labelledby="projects-heading">
+      <section className='py-20' id="projects" aria-labelledby="projects-heading">
          <motion.h2
             id="projects-heading"
             className='font-bold text-center text-4xl lg:text-5xl'

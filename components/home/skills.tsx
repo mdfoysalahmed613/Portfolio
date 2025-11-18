@@ -95,7 +95,7 @@ const Skills = () => {
   }
 
   return (
-    <section className='my-20' id='skills' >
+    <section className='py-20' id='skills' >
       <motion.h1
         className='font-bold text-center text-4xl lg:text-5xl'
         initial={{ opacity: 0, y: 20 }}
