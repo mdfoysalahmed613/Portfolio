@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/nav";
 import { Toaster } from "sonner";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -49,6 +49,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
     <html lang="en" suppressHydrationWarning >
       <body className={`${inter.className} antialiased flex flex-col max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8`}>
         <Navbar />
+        <SpeedInsights />
         {children}
         <Footer />
         <Toaster position="top-center" richColors />
