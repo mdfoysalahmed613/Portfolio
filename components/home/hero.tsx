@@ -20,7 +20,7 @@ const HeroSection = () => {
          <motion.h1 initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-            className='font-bold text-5xl xl:text-6xl'>Md Foysal Ahmed</motion.h1>
+            className='font-bold text-4xl xl:text-6xl'>Md Foysal Ahmed</motion.h1>
          
          <motion.h3
             initial={{ y: 20, opacity: 0 }}
