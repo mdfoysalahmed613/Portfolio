@@ -98,7 +98,7 @@ const Services = () => {
                      viewport={{ once: true }}
                      transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                     <Card className='h-full hover:shadow-lg transition-all duration-300 hover:border-primary/50'>
+                     <Card className='h-full shadow-md hover:shadow-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 border-2'>
                         <CardHeader>
                            <div className='w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-2'>
                               <IconComponent className='w-6 h-6 text-primary' />
