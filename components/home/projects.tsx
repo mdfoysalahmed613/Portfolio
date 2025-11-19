@@ -34,7 +34,7 @@ const Projects = () => {
             {projects.map((project, index) => (
                <motion.article
                   key={project.slug}
-                  className='group border-2 border-border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 w-full'
+                  className='group border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 w-full'
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
