@@ -11,38 +11,61 @@ const inter = Inter({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://foysal.me'),
   title: {
     default: "Md Foysal Ahmed | Full Stack Developer",
     template: `%s | Md Foysal Ahmed`,
   },
-  description: "I am a full-stack developer specializing in Next.js, TypeScript, and modern UI with strong backend skills.",
-  authors: [{ name: "Md Foysal Ahmed", url: process.env.NEXT_PUBLIC_BASE_URL! }],
+  description: "Full-stack developer specializing in Next.js, TypeScript, React, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
+  authors: [{ name: "Md Foysal Ahmed", url: "https://foysal.me" }],
+  creator: "Md Foysal Ahmed",
+  publisher: "Md Foysal Ahmed",
   manifest: "/manifest.json",
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_BASE_URL!,
-    title: "Md Foysal Ahmed",
-    description: "I am a full-stack developer specializing in Next.js, TypeScript, and modern UI with strong backend skills.",
+    url: "https://foysal.me",
+    title: "Md Foysal Ahmed | Full Stack Developer",
+    description: "Full-stack developer specializing in Next.js, TypeScript, React, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
     siteName: "Md Foysal Ahmed",
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: "Md Foysal Ahmed",
+        alt: "Md Foysal Ahmed - Full Stack Developer",
       },
     ],
   },
-
   keywords: [
     "Md Foysal Ahmed",
     "Foysal Ahmed",
+    "Foysal Ahmed Developer",
+    "Foysal Ahmed BD",
+    "Foysal Ahmed Portfolio",
     "Full Stack Developer",
     "Web Developer Portfolio",
     "Next.js developer",
+    "React Developer",
+    "TypeScript Developer",
+    "Node.js Developer",
+    "Frontend Developer",
+    "Backend Developer",
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children, }: { children: React.ReactNode }) {
