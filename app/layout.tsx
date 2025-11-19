@@ -5,7 +5,8 @@ import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/nav";
 import ScrollToTop from "@/components/common/scroll-to-top";
 import { Toaster } from "sonner";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import GoogleAnalytics from "@/components/common/google-analytics";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -65,6 +66,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning >
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body className={`${inter.className} antialiased flex flex-col max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8`}>
         <Navbar />
         <SpeedInsights />
