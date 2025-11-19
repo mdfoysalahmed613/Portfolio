@@ -66,10 +66,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning >
-      <head>
-        <GoogleAnalytics />
-      </head>
       <body className={`${inter.className} antialiased flex flex-col max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8`}>
+        <GoogleAnalytics />
         <Navbar />
         <SpeedInsights />
         {children}
