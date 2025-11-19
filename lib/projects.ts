@@ -26,7 +26,7 @@ export const projects: Project[] = [
     image: "/QuickBlog.png",
     liveUrl: "https://quickblog.foysal.me",
     githubUrl: "https://github.com/mdfoysalahmed613/quickblog",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
+    tags: ["Next.js", "TypeScript", "MongoDB", "Clerk"],
     techstack: [
       "Next.js",
       "TypeScript",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
       "Shadcn UI",
     ],
     role: "Full Stack Developer",
-    year: "2024-2025",
+    year: "2024",
     category: "Web Application",
     overview:
       "QuickBlog is a full-featured blogging platform that allows users to create, edit, and publish blog posts with a modern, intuitive interface. Built with performance and user experience in mind, it leverages the power of Next.js 15 for server-side rendering and optimal performance. The platform features a clean, minimalist design that puts content first while providing all the tools needed for effective blogging.",

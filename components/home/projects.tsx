@@ -30,11 +30,11 @@ const Projects = () => {
             Showcasing impactful projects and technical achievements.
          </motion.p>
 
-         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8 max-w-7xl mx-auto justify-items-center'>
+         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8 max-w-6xl mx-auto'>
             {projects.map((project, index) => (
                <motion.article
                   key={project.slug}
-                  className='group border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 w-full max-w-md'
+                  className='group border-2 border-border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 w-full'
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -56,7 +56,7 @@ const Projects = () => {
                   </Link>
 
                   {/* Project Content */}
-                  <div className='p-6 space-y-4'>
+                  <div className='p-6 space-y-4 bg-card'>
                      <div>
                         <Link href={`/projects/${project.slug}`}>
                            <h3 className='font-bold text-xl group-hover:text-primary transition-colors'>
@@ -64,10 +64,8 @@ const Projects = () => {
                            </h3>
                         </Link>
                         {/* Metadata */}
-                        <div className='flex flex-wrap items-center gap-2 mt-2 text-xs text-muted-foreground'>
-                           <span>{project.role}</span>
-                           <span>•</span>
-                           <span>{project.year}</span>
+                        <div className='flex items-center gap-2 mt-2 text-xs text-muted-foreground'>
+                           <span className='font-medium'>{project.year}</span>
                            <span>•</span>
                            <span>{project.category}</span>
                         </div>
