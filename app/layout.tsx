@@ -19,6 +19,23 @@ export const metadata: Metadata = {
   description: "Full-stack developer specializing in Next.js, TypeScript, React, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
   authors: [{ name: "Md Foysal Ahmed", url: "https://foysal.me" }],
   creator: "Md Foysal Ahmed",
+  openGraph: {
+    title: "Md Foysal Ahmed",
+    description:
+      "Full-stack developer specializing in Next.js, TypeScript, React, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
+    url: "https://foysal.me",
+    siteName: "Md Foysal Ahmed",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Md Foysal Ahmed | Full Stack Developer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
   keywords: [
     "Md Foysal Ahmed",
     "Foysal Ahmed",
