@@ -5,7 +5,6 @@ import { Download } from 'lucide-react';
 import { Button } from '../ui/button';
 import Hamburger from './hamburger';
 import { motion } from 'framer-motion';
-import { init } from "next/dist/compiled/webpack/webpack";
 export const navItems = [
    {
       title: "Skills",
@@ -18,6 +17,10 @@ export const navItems = [
    {
       title: "Projects",
       href: "#projects",
+   },
+   {
+      title: "Working Process",
+      href: "#working-process",
    },
    {
       title: "Contact",

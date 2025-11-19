@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/nav";
+import ScrollToTop from "@/components/common/scroll-to-top";
 import { Toaster } from "sonner";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  
+
   keywords: [
     "Md Foysal Ahmed",
     "Foysal Ahmed",
@@ -52,6 +53,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
         <SpeedInsights />
         {children}
         <Footer />
+        <ScrollToTop />
         <Toaster position="top-center" richColors />
       </body>
     </html>
