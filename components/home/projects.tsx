@@ -40,7 +40,6 @@ const Projects = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                >
-                  {/* Project Image - Clickable */}
                   <Link
                      href={`/projects/${project.slug}`}
                      className='relative aspect-video overflow-hidden bg-muted block'

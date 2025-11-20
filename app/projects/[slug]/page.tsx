@@ -27,7 +27,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
          title: 'Project Not Found',
       }
    }
-
    return {
       title: `${project.title} - ${project.category} | Foysal Ahmed`,
       description: project.description,
@@ -51,21 +50,17 @@ export default async function ProjectPage({ params }: Props) {
    return (
       <div className='min-h-screen pb-20 pt-10'>
          <div className='max-w-5xl mx-auto'>
-            {/* Back Button */}
             <Button variant='ghost' size='sm' className='mb-8' asChild>
                <Link href='/#projects'>
                   <ArrowLeft className='w-4 h-4 mr-2' />
                   Back to Projects
                </Link>
             </Button>
-            {/* Hero Section */}
             <div className='flex flex-col gap-6 mb-12'>
                <h1 className='font-bold text-4xl lg:text-5xl'>{project.title}</h1>
                <p className='text-xl text-muted-foreground'>
                   {project.description}
                </p>
-
-               {/* Meta Info */}
                <div className='flex flex-wrap gap-4 text-sm text-muted-foreground'>
                   <div className='flex items-center gap-2'>
                      <Calendar className='w-4 h-4' />
@@ -80,8 +75,6 @@ export default async function ProjectPage({ params }: Props) {
                      <span>{project.category}</span>
                   </div>
                </div>
-
-               {/* Action Buttons */}
                <div className='flex gap-4'>
                   <Button size='lg' asChild>
                      <Link href={project.liveUrl} target='_blank' rel='noopener noreferrer'>
@@ -97,8 +90,6 @@ export default async function ProjectPage({ params }: Props) {
                   </Button>
                </div>
             </div>
-
-            {/* Main Image */}
             <div className='relative aspect-video rounded-lg overflow-hidden mb-12 border'>
                <Image
                   src={project.image}
@@ -108,18 +99,13 @@ export default async function ProjectPage({ params }: Props) {
                   priority
                />
             </div>
-
-            {/* Content Sections */}
             <div className='flex flex-col gap-12'>
-               {/* Overview */}
                <section>
                   <h2 className='text-2xl font-bold mb-4'>Overview</h2>
                   <p className='text-muted-foreground leading-relaxed'>
                      {project.overview}
                   </p>
                </section>
-
-               {/* Tech Stack */}
                <section>
                   <h2 className='text-2xl font-bold mb-6'>Tech Stack</h2>
                   <div className='flex flex-wrap gap-3'>
@@ -134,7 +120,6 @@ export default async function ProjectPage({ params }: Props) {
                      ))}
                   </div>
                </section>
-               {/* Key Features */}
                <section>
                   <h2 className='text-2xl font-bold mb-4'>Key Features</h2>
                   <div className='grid md:grid-cols-2 gap-4'>
@@ -146,15 +131,12 @@ export default async function ProjectPage({ params }: Props) {
                      ))}
                   </div>
                </section>
-               {/* Challenges & Solutions */}
                <section>
                   <h2 className='text-2xl font-bold mb-4'>Challenges & Solutions</h2>
                   <p className='text-muted-foreground leading-relaxed'>
                      {project.challengesAndSolutions}
                   </p>
                </section>
-
-               {/* Results */}
                <section>
                   <h2 className='text-2xl font-bold mb-4'>Results & Impact</h2>
                   <div className='space-y-3'>
@@ -166,8 +148,6 @@ export default async function ProjectPage({ params }: Props) {
                      ))}
                   </div>
                </section>
-
-               {/* Learnings */}
                <section>
                   <h2 className='text-2xl font-bold mb-4'>What I Learned</h2>
                   <div className='space-y-3'>
@@ -179,8 +159,6 @@ export default async function ProjectPage({ params }: Props) {
                      ))}
                   </div>
                </section>
-
-               {/* CTA */}
                <section className='border-t pt-12'>
                   <div className='text-center space-y-6'>
                      <h2 className='text-2xl font-bold'>Check It Out</h2>
