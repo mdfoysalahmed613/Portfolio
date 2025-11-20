@@ -78,7 +78,7 @@ const WorkingProcess = () => {
                   >
                      <div className='bg-card border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 h-full'>
                         {/* Step Number Badge */}
-                        <div className='absolute -top-3 -left-3 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg shadow-lg'>
+                        <div className='absolute -top-3 left-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg shadow-lg'>
                            {process.step}
                         </div>
 
@@ -95,9 +95,9 @@ const WorkingProcess = () => {
                      </div>
 
                      {/* Connector Line (hidden on mobile and last items in rows) */}
-                     {index < processSteps.length - 1 && (
+                     {/* {index < processSteps.length - 1 && (
                         <div className='hidden lg:block absolute top-16 -right-4 w-8 h-0.5 bg-border group-hover:bg-primary/30 transition-colors duration-300 lg:last:hidden [&:nth-child(3n)]:hidden' />
-                     )}
+                     )} */}
                   </motion.div>
                )
             })}

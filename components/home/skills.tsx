@@ -24,6 +24,7 @@ import {
   SiPostman,
 } from "react-icons/si"
 import { motion } from 'framer-motion'
+import { TbBrandFramerMotion } from 'react-icons/tb'
 
 
 const Skills = () => {
@@ -41,7 +42,7 @@ const Skills = () => {
     { icon: SiTailwindcss, label: 'Tailwind CSS' },
     { icon: SiShadcnui, label: 'Shadcn UI' },
     { icon: SiReactquery, label: 'TanStack Query' },
-    { icon: SiReacthookform, label: 'React Hook Form' },
+    { icon: TbBrandFramerMotion , label: 'Motion' },
   ]
 
   const BACKEND = [
