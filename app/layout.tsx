@@ -67,10 +67,8 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
     <html lang="en" suppressHydrationWarning >
       <body className={`${inter.className} antialiased flex flex-col max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8`}>
         <GoogleAnalytics />
-        <Navbar />
         <SpeedInsights />
         {children}
-        <Footer />
         <Toaster position="top-center" richColors />
       </body>
     </html>
