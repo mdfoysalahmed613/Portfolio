@@ -1,6 +1,7 @@
 "use client"
 import { motion } from 'framer-motion'
 import { MessageSquare, FileSearch, Code2, TestTube, Rocket, HeadphonesIcon } from 'lucide-react'
+import Link from 'next/link'
 
 const processSteps = [
    {
@@ -112,9 +113,9 @@ const WorkingProcess = () => {
          >
             <p className='text-muted-foreground'>
                Ready to start your project?{' '}
-               <a href="#contact" className='text-primary font-semibold hover:underline'>
+               <Link href="https://wa.me/+8801687069581" className='text-primary font-semibold hover:underline'>
                   Let's talk
-               </a>
+               </Link>
             </p>
          </motion.div>
       </section>
