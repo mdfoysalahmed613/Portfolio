@@ -19,6 +19,10 @@ export const navItems = [
       href: "#projects",
    },
    {
+      title: "Blog",
+      href: "/blog",
+   },
+   {
       title: "Working Process",
       href: "#working-process",
    },
