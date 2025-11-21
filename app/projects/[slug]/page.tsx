@@ -8,7 +8,9 @@ import { projects } from '@/lib/projects'
 import { notFound } from 'next/navigation'
 import { FaGithub } from 'react-icons/fa6'
 
-
+type Props = {
+   params: Promise<{ slug: string }>
+}
 export async function generateStaticParams() {
    return projects.map((project) => ({
       slug: project.slug,
@@ -36,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
    }
 }
 
-export default async function ProjectPage({ params }: { params: Promise<{ slug: string}> }) {
+export default async function ProjectPage({ params }: Props ) {
    const { slug } = await params
    const project = projects.find((p) => p.slug === slug)
 
