@@ -23,8 +23,8 @@ export const navItems = [
       href: "/blog",
    },
    {
-      title: "Working Process",
-      href: "#working-process",
+      title: "WorkFlow",
+      href: "#workflow",
    },
    {
       title: "Contact",

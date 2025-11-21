@@ -44,7 +44,7 @@ const processSteps = [
 
 const WorkingProcess = () => {
    return (
-      <section className='py-20' id='working-process'>
+      <section className='py-20' id='workflow'>
          <motion.h1
             className='font-bold text-center text-4xl lg:text-5xl'
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ const WorkingProcess = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
          >
-            Working Process
+            Work Flow
          </motion.h1>
          <motion.p
             className='py-4 text-center text-muted-foreground max-w-2xl mx-auto'
