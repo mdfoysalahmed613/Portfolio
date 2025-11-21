@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { navItems } from './nav';
+import { navItems } from '@/lib/nav-items';
 
 const Hamburger = () => {
    const [showMenu, setShowMenu] = useState(false);

@@ -76,9 +76,9 @@ const WorkingProcess = () => {
                      viewport={{ once: true }}
                      transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                     <div className='bg-card border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 h-full'>
+                     <div className='bg-card border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 h-full overflow-x-visible'>
                         {/* Step Number Badge */}
-                        <div className='absolute -top-3 left-0 lg:-left-4 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg shadow-lg'>
+                        <div className='absolute -top-3 -left-3 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg shadow-lg'>
                            {process.step}
                         </div>
 

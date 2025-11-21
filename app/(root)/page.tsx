@@ -3,7 +3,7 @@ import HeroSection from '@/components/home/hero'
 import Projects from '@/components/home/projects'
 import Services from '@/components/home/services'
 import Skills from '@/components/home/skills'
-import WorkingProcess from '@/components/home/working-proccess'
+import WorkingProcess from '@/components/home/work-flow'
 const Page = () => {
   return (
     <>

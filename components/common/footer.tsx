@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { FaLinkedin } from 'react-icons/fa6'
 import { SiFacebook, SiGithub } from 'react-icons/si'
 import { MdEmail } from 'react-icons/md'
-
+import { navItems } from '@/lib/nav-items'
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
@@ -26,36 +26,15 @@ const Footer = () => {
               Quick Links
             </h4>
             <nav className='flex flex-col space-y-2'>
-              <Link
-                href='/#about'
-                className='text-sm text-foreground/80 hover:text-foreground transition-colors'
-              >
-                About
-              </Link>
-              <Link
-                href='/#projects'
-                className='text-sm text-foreground/80 hover:text-foreground transition-colors'
-              >
-                Projects
-              </Link>
-              <Link
-                href='/#skills'
-                className='text-sm text-foreground/80 hover:text-foreground transition-colors'
-              >
-                Skills
-              </Link>
-              <Link
-                href="#workflow"
-                className='text-sm text-foreground/80 hover:text-foreground transition-colors'
-              >
-                Workflow
-              </Link>
-              <Link
-                href='/#contact'
-                className='text-sm text-foreground/80 hover:text-foreground transition-colors'
-              >
-                Contact
-              </Link>
+              {navItems?.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className='text-sm text-foreground/80 hover:text-foreground transition-colors'
+                >
+                  {item.title}
+                </Link>
+              ))}
             </nav>
           </div>
 

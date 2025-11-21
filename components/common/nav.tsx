@@ -5,32 +5,7 @@ import { Download } from 'lucide-react';
 import { Button } from '../ui/button';
 import Hamburger from './hamburger';
 import { motion } from 'framer-motion';
-export const navItems = [
-   {
-      title: "Skills",
-      href: "#skills",
-   },
-   {
-      title: "Services",
-      href: "#services",
-   },
-   {
-      title: "Projects",
-      href: "#projects",
-   },
-   {
-      title: "Blog",
-      href: "/blog",
-   },
-   {
-      title: "WorkFlow",
-      href: "#workflow",
-   },
-   {
-      title: "Contact",
-      href: "#contact",
-   },
-];
+import { navItems } from '@/lib/nav-items';
 const norican = Norican({
    weight: ["400"],
    style: ["normal"],
