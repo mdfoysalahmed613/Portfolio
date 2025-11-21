@@ -45,6 +45,12 @@ const Footer = () => {
                 Skills
               </Link>
               <Link
+                href="#workflow"
+                className='text-sm text-foreground/80 hover:text-foreground transition-colors'
+              >
+                Workflow
+              </Link>
+              <Link
                 href='/#contact'
                 className='text-sm text-foreground/80 hover:text-foreground transition-colors'
               >
