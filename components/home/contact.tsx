@@ -6,7 +6,7 @@ import { Card, CardContent } from '../ui/card'
 import { Mail, MapPin, Send, } from 'lucide-react'
 import Link from 'next/link'
 import { toast } from 'sonner'
-import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa6'
+import { FaFacebook, FaGithub, FaLinkedin, FaSquareWhatsapp } from 'react-icons/fa6'
 import { motion } from 'framer-motion'
 
 const Contact = () => {
@@ -111,7 +111,7 @@ const Contact = () => {
                   <Link
                     href='https://github.com/mdfoysalahmed613'
                     target='_blank'
-                    rel='noopener noreferrer'
+                    rel='noopener'
                     aria-label='GitHub'
                   >
                     <FaGithub className='w-5 h-5 text-primary' />
@@ -119,7 +119,7 @@ const Contact = () => {
                   <Link
                     href='https://www.linkedin.com/in/mdfoysalahmed613'
                     target='_blank'
-                    rel='noopener noreferrer'
+                    rel='noopener'
                     aria-label='LinkedIn'
                   >
                     <FaLinkedin className='w-5 h-5 text-primary' />
@@ -127,7 +127,7 @@ const Contact = () => {
                   <Link
                     href='https://www.facebook.com/foysal613'
                     target='_blank'
-                    rel='noopener noreferrer'
+                    rel='noopener'
                     aria-label='Facebook'
                   >
                     <FaFacebook className='w-5 h-5 text-primary' />

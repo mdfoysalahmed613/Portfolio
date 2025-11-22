@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 
 const HeroSection = () => {
    return (
-      <section className='flex flex-col items-center gap-4 md:gap-6 justify-center my-20 mx-auto max-w-3xl text-center'>
+      <section className='flex flex-col items-center gap-4 md:gap-6 justify-center my-20 mx-auto text-center'>
          <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -20,18 +20,18 @@ const HeroSection = () => {
          <motion.h1 initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-            className='font-bold text-4xl xl:text-6xl'>Md Foysal Ahmed</motion.h1>
+            className='font-bold text-4xl xl:text-6xl'>Foysal Ahmed</motion.h1>
          
          <motion.h3
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-            className='font-bold text-2xl '>Full Stack Developer</motion.h3>
+            className='font-bold text-xl md:text-2xl'>Full Stack Developer</motion.h3>
          
          <motion.p initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
-            className='text-muted-foreground'>I am Full Stack Developer. This is my portfolio website where you can find all my information.</motion.p>
+            className='text-muted-foreground max-w-2xl'>I am Full Stack Developer. This is my portfolio website where you can find all my information.</motion.p>
          
          <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }} className='flex gap-5 xl:gap-6'>
             <Button className='hidden md:flex' size={"lg"} asChild>
