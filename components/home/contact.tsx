@@ -43,7 +43,7 @@ const Contact = () => {
   }
 
   return (
-    <section className='py-20' id="contact" aria-labelledby="contact-heading">
+    <section className='py-20 overflow-hidden' id="contact" aria-labelledby="contact-heading">
       <motion.h2
         id="contact-heading"
         className='font-bold text-center text-4xl lg:text-5xl'
@@ -64,7 +64,7 @@ const Contact = () => {
         I'm open for freelance work, collaborations, and internships. Let's work together to create something amazing!
       </motion.p>
 
-      <div className='max-w-5xl mx-auto mt-8 grid md:grid-cols-3 gap-6'>
+      <div className='max-w-5xl mx-auto mt-8 grid md:grid-cols-3 gap-6 px-4'>
         {/* Contact Info Cards */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
