@@ -36,7 +36,7 @@ const Navbar = () => {
                   >
                      <Link
                         href={item.href}
-                        className="flex items-center font-medium text-muted-foreground hover:text-muted-foreground/80">
+                        className="flex items-center font-medium text-muted-foreground text-sm hover:text-muted-foreground/80">
                         {item.title}
                      </Link>
                   </motion.nav>

@@ -9,19 +9,19 @@ const inter = Inter({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://foysal.me'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
   title: {
     default: "Md Foysal Ahmed | Full Stack Developer",
     template: `%s | Md Foysal Ahmed`,
   },
   description: "Full-stack developer specializing in Next.js, TypeScript, React, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
-  authors: [{ name: "Md Foysal Ahmed", url: "https://foysal.me" }],
+  authors: [{ name: "Md Foysal Ahmed", url: process.env.NEXT_PUBLIC_BASE_URL! }],
   creator: "Md Foysal Ahmed",
   openGraph: {
     title: "Md Foysal Ahmed",
     description:
       "Full-stack developer specializing in Next.js, TypeScript, React, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
-    url: "https://foysal.me",
+    url: process.env.NEXT_PUBLIC_BASE_URL!,
     siteName: "Md Foysal Ahmed",
     locale: "en_US",
     type: "website",

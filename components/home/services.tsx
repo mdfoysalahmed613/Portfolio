@@ -128,6 +128,13 @@ const Services = () => {
                   </motion.div>
                )
             })}
+            <motion.p initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.5, delay: 0.1 }}
+               className='text-sm text-center text-muted-foreground mt-4 md:col-span-2 lg:col-span-4'>
+               Note: Prices are estimates and may vary based on project complexity and specific requirements. <Link href="https://wa.me/+8801687069581" target='_blank' className='text-primary font-semibold hover:underline'>Contact me</Link> for a detailed quote.
+            </motion.p>
          </div>
       </section>
    )
