@@ -1,81 +1,103 @@
-# Getting Started with Next.js 15
-
-_Published on January 15, 2024 • 5 min read_
-
 ---
 
-Next.js 15 brings powerful new features that make building modern web applications easier than ever. In this guide, we'll explore the key features and how to get started.
+Your portfolio should feel like you. Mine needed to reflect the way I think about system design: purposeful architecture, smooth interactions, and fast feedback loops. This post is a full breakdown of how I shipped the new version of my site using Next.js 16, React 19, Tailwind CSS 4, and a lean component system that keeps content flexible without sacrificing performance.
 
-## What's New in Next.js 15?
+## Project Goals
 
-Next.js 15 introduces several groundbreaking features:
+- **Instant clarity** – Highlight who I am, key services, and flagship projects above the fold.
+- **Editorial flexibility** – Write case studies and blog posts in MDX without touching application logic.
+- **Performance-first** – Hit Core Web Vitals targets on desktop and mobile, even with rich imagery.
+- **Maintainable DX** – Keep folder structure, data models, and tooling predictable so future updates take minutes, not days.
 
-- **React Server Components** - Write components that run on the server
-- **Improved Performance** - Faster builds and better runtime performance
-- **Enhanced Developer Experience** - Better error messages and debugging tools
-- **Turbopack** - The new Rust-based bundler for lightning-fast development
+## Core Stack & Why It Works
 
-## Getting Started
+| Layer     | Choice                                                 | Reason                                                                            |
+| --------- | ------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| Framework | Next.js 16 (App Router)                                | Server Components for data-heavy sections, file-based routing for marketing pages |
+| UI        | React 19 + Shadcn UI + Tailwind 4                      | Type-safe components with utility styling and accessible primitives               |
+| Motion    | Framer Motion + Lucide + React Icons                   | Adds micro-interactions (see `components/home/hero.tsx` and `projects.tsx`)       |
+| Content   | MDX (`assets/blogs/*`) + structured JSON in `lib/*.ts` | Keeps copy in plain text while components stay reusable                           |
+| Tooling   | pnpm, ESLint, Turbopack dev server                     | Fast installs, lint-on-save, hot reloads that mirror production                   |
 
-First, create a new Next.js project:
+## Information Architecture
 
-```bash
-npx create-next-app@latest my-app
-cd my-app
-npm run dev
+The App Router gives me composable layouts and route groups, keeping marketing pages isolated from case-study detail views. The trimmed structure below mirrors what ships in `app/`:
+
+```text
+app/
+├─ (root)/
+│  ├─ page.tsx          # Landing page assembling Hero, Services, Skills, Projects, Contact
+│  ├─ blog/
+│  │  ├─ page.tsx       # Blog index fed by `lib/blogs.ts`
+│  │  └─ [slug]/page.tsx# Dynamic MDX rendering per article
+│  └─ projects/
+│     └─ [slug]/page.tsx# Long-form case studies sourced from `lib/projects.ts`
+└─ layout.tsx           # Global metadata, fonts, analytics hooks
 ```
 
-## React Server Components
+Each route layer stays server-first unless interactivity demands it. For example, `components/home/projects.tsx` uses `"use client"` so I can hydrate Framer Motion timelines and keep hover states buttery smooth, while static sections like `app/(root)/page.tsx` render server-side for instant Time to First Byte (TTFB).
 
-Server Components allow you to render components on the server, reducing the JavaScript bundle size sent to the client:
+## Designing the Experience
 
-```tsx
-// This is a Server Component by default
-export default function Page() {
-  const data = await fetch("https://api.example.com/data");
-  const json = await data.json();
+### Color + Typography
 
-  return <div>{json.title}</div>;
-}
-```
+- Palette: `#cc641a` primary, warm beige background, and deep brown text (`README.md` has the full palette) to convey warmth and trust.
+- Typography: The global layout wires custom fonts through `app/layout.tsx`, and Tailwind tokens keep headings and body copy consistent across sections.
 
-## Key Benefits
+### Hero & Services Modules
 
-1. **Better Performance** - Less JavaScript shipped to the client
-2. **Improved SEO** - Server-rendered content is immediately available
-3. **Enhanced Security** - Sensitive operations stay on the server
-4. **Simplified Data Fetching** - No need for useEffect or state management
+- `HeroSection` animates the profile image and call-to-action buttons with Framer Motion so the page feels alive within the first render.
+- `components/home/services.tsx` pairs iconography from Lucide with concise service descriptions, keeping the grid responsive via Tailwind’s breakpoint utilities.
 
-## Client Components
+### Projects Grid
 
-When you need interactivity, use the `"use client"` directive:
+- Data lives in `lib/projects.ts`, so I can add a project by editing an object instead of touching JSX.
+- Each card shows category, year, tags, and quick actions (live demo, GitHub, detailed case study). The combination of `<Button>` primitives from Shadcn UI and `next/image`’s optimized loading keeps the grid sharp and accessible.
 
-```tsx
-"use client";
+### Skills & Workflow
 
-import { useState } from "react";
+- Skills are grouped by discipline and rendered as badges (`components/ui/badge.tsx`), mirroring how I talk about my stack in interviews.
+- The workflow section outlines discovery → design → build → launch, and acts as social proof that there’s a repeatable process behind the visuals.
 
-export default function Counter() {
-  const [count, setCount] = useState(0);
+## Content Pipeline with MDX + Structured Data
 
-  return <button onClick={() => setCount(count + 1)}>Count: {count}</button>;
-}
-```
+### Blogs
 
-## App Router
+1. Draft an MDX file inside `assets/blogs/<slug>/index.mdx`.
+2. Export it through `assets/blogs/index.ts` and register metadata inside `lib/blogs.ts`.
+3. The blog index (`app/(root)/blog/page.tsx`) maps over `blogs`, while `[slug]/page.tsx` renders the MDX component directly. No extra MDX compiler setup is required thanks to Next.js’ native MDX support in the app directory.
 
-The new App Router is built on Server Components and supports:
+### Projects
 
-- Layouts and nested routing
-- Loading states
-- Error boundaries
-- Parallel routes
-- Intercepting routes
+- `lib/projects.ts` holds everything from hero images to tech stacks and URLs, which means the `app/(root)/projects/[slug]/page.tsx` file can focus solely on layout.
+- Because the data layer is plain TypeScript, type errors catch mismatched fields long before deployment.
 
-## Conclusion
+## Performance, SEO, and Accessibility
 
-Next.js 15 represents a major leap forward in web development. By embracing Server Components and the new App Router, you can build faster, more efficient applications with less code.
+- **Images** – Every showcase image funnels through `next/image`, leveraging responsive `sizes` attributes to ship the smallest necessary assets.
+- **Animations** – Motion components only render on the client and use `viewport={{ once: true }}` so scroll-triggered effects run a single time, reducing layout thrash.
+- **SEO** – Route files export `generateMetadata` helpers (see `app/sitemap.ts` and `app/robots.txt`) ensuring canonical URLs, dynamic Open Graph tags, and crawler-friendly routes.
+- **Analytics + Utilities** – `components/common/google-analytics.tsx` and helpers in `lib/utils.ts` keep telemetry and className concatenation reusable.
+- **Accessibility** – Navigation landmarks, `aria-label`s on project links, and focus-visible outlines come from a mix of semantic HTML and Tailwind presets.
 
-Ready to dive deeper? Check out the [official documentation](https://nextjs.org/docs) to learn more!
+## Tooling & Deployment
 
+- **pnpm** keeps install times low and ensures lockfile determinism (`pnpm-lock.yaml`).
+- **ESLint + TypeScript** (see `eslint.config.mjs` and `tsconfig.json`) power editor feedback, catching unused imports or invalid props before a commit.
+- **Turbopack dev server** (`pnpm dev`) mirrors production bundling, so hydration surprises are rare.
+- **Vercel** handles CI/CD; pushing to `main` auto-builds, runs linting, and deploys globally. Environment variables such as `NEXT_PUBLIC_BASE_URL` stay in `.env.local` during local development.
 
+## Lessons Learned
+
+1. **Content belongs close to content authors.** Locating MDX files under `assets/blogs/` keeps Git diffs surgical and empowers future collaborators.
+2. **Animations should guide, not distract.** Framer Motion eased meaningful transitions (hero entrance, project hover) while keeping CPU usage low.
+3. **Design tokens beat ad-hoc values.** Leaning on Tailwind’s theme ensures consistent spacing and typography whether I’m coding a new section or updating the footer.
+4. **Ship instrumentation early.** Adding analytics + sitemap + robots files up front prevented SEO debt later.
+
+## What’s Next?
+
+- Build an RSS feed so new articles syndicate automatically.
+- Layer in light/dark themes via CSS variables and `next-themes`.
+- Expand case studies with embedded metrics (load times, conversion lifts) sourced from actual project analytics.
+
+Thanks for following along! If you have questions about any part of this build, reach out via the contact section or ping me on GitHub.

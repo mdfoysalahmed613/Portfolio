@@ -49,7 +49,7 @@ export default async function BlogPost({ params }: Props) {
    }
    const Content = blog.content;
    return (
-      <article className="max-w-6xl mx-auto py-16 overflow-x-hidden">
+      <article className="max-w-5xl mx-auto py-16">
          {/* Header */}
          <header className="mb-12">
             {/* Title */}
@@ -89,7 +89,7 @@ export default async function BlogPost({ params }: Props) {
          </div>
 
          {/* Content */}
-         <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-muted prose-pre:border prose-pre:border-border prose-img:rounded-lg prose-hr:border-border">
+         <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-muted prose-pre:border prose-pre:border-border prose-pre:overflow-x-auto prose-pre:max-w-[calc(100vw-3rem)] prose-img:rounded-lg prose-hr:border-border">
             <Content />
          </div>
 
