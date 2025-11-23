@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import GoogleAnalytics from "@/components/common/google-analytics";
+import Navbar from "@/components/common/nav";
+import Footer from "@/components/common/footer";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -66,7 +68,9 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
       <body className={`${inter.className} antialiased flex flex-col max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8`}>
         <GoogleAnalytics />
         <SpeedInsights />
+        <Navbar />
         {children}
+        <Footer />
         <Toaster position="top-center" richColors />
       </body>
     </html>

@@ -1,3 +1,4 @@
+import ScrollToTop from '@/components/common/scroll-to-top'
 import Contact from '@/components/home/contact'
 import HeroSection from '@/components/home/hero'
 import Projects from '@/components/home/projects'
@@ -13,6 +14,7 @@ const Page = () => {
       <Projects />
       <WorkingProcess />
       <Contact />
+      <ScrollToTop />
     </>
   )
 }

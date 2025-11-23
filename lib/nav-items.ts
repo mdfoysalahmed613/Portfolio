@@ -1,26 +1,22 @@
 export const navItems = [
   {
     title: "Skills",
-    href: "#skills",
+    href: "/#skills",
   },
   {
     title: "Services",
-    href: "#services",
+    href: "/#services",
   },
   {
     title: "Projects",
-    href: "#projects",
+    href: "/#projects",
   },
   {
     title: "Blog",
     href: "/blog",
   },
   {
-    title: "WorkFlow",
-    href: "#workflow",
-  },
-  {
     title: "Contact",
-    href: "#contact",
+    href: "/#contact",
   },
 ];

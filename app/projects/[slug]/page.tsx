@@ -57,12 +57,6 @@ export default async function ProjectPage({ params }: Props ) {
    return (
       <article className='min-h-screen pb-20 pt-10'>
          <div className='max-w-5xl mx-auto'>
-            <Button variant='ghost' size='sm' className='mb-8' asChild>
-               <Link href='/#projects'>
-                  <ArrowLeft className='w-4 h-4 mr-2' />
-                  Back to Projects
-               </Link>
-            </Button>
             <div className='flex flex-col gap-6 mb-12'>
                <h1 className='font-bold text-4xl lg:text-5xl'>{project.title}</h1>
                <p className='text-xl text-muted-foreground'>
