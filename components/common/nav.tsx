@@ -1,16 +1,15 @@
 "use client"
-import { Norican } from "next/font/google";
+import { Yellowtail } from "next/font/google";
 import Link from 'next/link';
 import { Download } from 'lucide-react';
 import { Button } from '../ui/button';
 import Hamburger from './hamburger';
 import { motion } from 'framer-motion';
 import { navItems } from '@/lib/nav-items';
-const norican = Norican({
+const yellowtail = Yellowtail({
    weight: ["400"],
    style: ["normal"],
    subsets: ["latin"],
-   display: "swap",
 });
 
 const Navbar = () => {
@@ -22,8 +21,8 @@ const Navbar = () => {
                animate={{ opacity: 1, scale: 1 }}
                transition={{ duration: 0.5, ease: "easeOut" }}
             >
-               <Link href="/" className={`${norican.className} text-2xl font-bold`}>
-                  Foysal Ahmed
+               <Link href="/" className={`${yellowtail.className} text-2xl lg:text-3xl font-bold`}>
+                  Md Foysal Ahmed
                </Link>
             </motion.div>
             <div className="hidden gap-6 md:flex items-center">

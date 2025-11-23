@@ -1,16 +1,27 @@
+import { FC } from "react";
+import { StaticImageData } from "next/image";
+import { PortfolioBlog, PortfolioBlogImage } from "@/assets/blogs";
 export interface IBlogs {
-   slug: string;
-   title: string;
-   description: string;
-   date: string;
-   readTime: string;
+  slug: string;
+  title: string;
+  description: string;
+  content: FC;
+  publishDate: string;
+  updateDate: string;
+  image: StaticImageData;
+  keywords?: string[];
 }
+
 export const blogs: IBlogs[] = [
-   {
-      slug: "getting-started-with-nextjs",
-      title: "Getting Started with Next.js 15",
-      description: "Learn how to build modern web applications with Next.js 15 and React Server Components.",
-      date: "2024-01-15",
-      readTime: "5 min read",
-   },
+  {
+    slug: "how-i-built-my-high-performance-portfolio-website",
+    title: "How I Built My High-Performance Portfolio Website",
+    description:
+      "A detailed walkthrough of the technologies and design choices I made while building my portfolio website.",
+    content: PortfolioBlog,
+    publishDate: "2025-11-23",
+    updateDate: "2025-11-23",
+    image: PortfolioBlogImage,
+    keywords: ["portfolio","developer portfolio", "web development", "React", "Node.js"],
+  },
 ];

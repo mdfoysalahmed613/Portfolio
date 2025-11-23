@@ -8,7 +8,7 @@ import { projects } from '@/lib/projects'
 import { notFound } from 'next/navigation'
 import { FaGithub } from 'react-icons/fa6'
 
-type Props = {
+export type Props = {
    params: Promise<{ slug: string }>
 }
 export async function generateStaticParams() {
@@ -27,12 +27,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       }
    }
    return {
-      title: `${project.title} - ${project.category} | Foysal Ahmed`,
+      title: `${project.title} - ${project.category} | Md Foysal Ahmed`,
       description: project.description,
+      keywords: project.techstack,
       openGraph: {
          title: `${project.title} - ${project.category}`,
          description: project.description,
-         images: [project.image],
+         images: [
+            {
+               url: project.image.src,
+               width: project.image.width,
+               height: project.image.height,
+               alt: project.title,
+            }
+         ],
          type: 'article',
       },
    }
@@ -47,7 +55,7 @@ export default async function ProjectPage({ params }: Props ) {
    }
 
    return (
-      <div className='min-h-screen pb-20 pt-10'>
+      <article className='min-h-screen pb-20 pt-10'>
          <div className='max-w-5xl mx-auto'>
             <Button variant='ghost' size='sm' className='mb-8' asChild>
                <Link href='/#projects'>
@@ -182,6 +190,6 @@ export default async function ProjectPage({ params }: Props ) {
                </section>
             </div>
          </div>
-      </div>
+      </article>
    )
 }

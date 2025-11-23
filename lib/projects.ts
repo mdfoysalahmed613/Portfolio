@@ -1,8 +1,11 @@
+import { QuickBlogImage } from "@/assets/images";
+import { StaticImageData } from "next/image";
+
 export interface Project {
   slug: string;
   title: string;
   description: string;
-  image: string;
+  image: StaticImageData;
   liveUrl: string;
   githubUrl: string;
   tags: string[];
@@ -23,7 +26,7 @@ export const projects: Project[] = [
     title: "QuickBlog",
     description:
       "A modern blogging platform built with Next.js and MongoDB, featuring real-time updates and user authentication.",
-    image: "/QuickBlog.png",
+    image: QuickBlogImage,
     liveUrl: "https://quickblog.foysal.me",
     githubUrl: "https://github.com/mdfoysalahmed613/quickblog",
     tags: ["Next.js", "TypeScript", "MongoDB", "Clerk"],
