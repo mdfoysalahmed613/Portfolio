@@ -49,7 +49,7 @@ export default async function BlogPost({ params }: Props) {
    }
    const Content = blog.content;
    return (
-      <article className="max-w-6xl mx-auto py-16 px-6">
+      <article className="max-w-6xl mx-auto py-16 overflow-x-hidden">
          {/* Header */}
          <header className="mb-12">
             {/* Title */}

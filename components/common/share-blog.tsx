@@ -9,7 +9,7 @@ const copyLink = () => {
 }
 const ShareBlog = () => {
   return (
-     <Share2 onClick={copyLink} />
+     <Share2 onClick={copyLink} className='cursor-pointer' />
   )
 }
 

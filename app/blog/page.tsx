@@ -17,13 +17,13 @@ export default function BlogPage() {
 
 
    return (
-      <section className="max-w-6xl mx-auto py-8 px-6">
+      <section className="max-w-6xl mx-auto py-8">
          {/* Header */}
          <header className="mb-16 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
                Blog
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto">
                Thoughts, tutorials, and insights on web development
             </p>
          </header>
