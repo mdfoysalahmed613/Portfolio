@@ -9,11 +9,8 @@ import {
   SiShadcnui,
   SiExpress,
   SiTailwindcss,
-  SiFirebase,
   SiReactquery,
-  SiMongoose,
   SiClerk,
-  SiReacthookform,
   SiGit,
   SiGithub,
   SiPrisma,
@@ -22,6 +19,7 @@ import {
   SiUbuntu,
   SiVercel,
   SiPostman,
+  SiDocker,
 } from "react-icons/si"
 import { motion } from 'framer-motion'
 import { TbBrandFramerMotion } from 'react-icons/tb'
@@ -48,14 +46,12 @@ const Skills = () => {
   const BACKEND = [
     { icon: SiNodedotjs, label: 'Node.js' },
     { icon: SiExpress, label: 'Express.js' },
-    { icon: SiFirebase, label: 'Firebase' },
     { icon: SiClerk, label: 'Clerk' },
     { icon: SiSupabase, label: 'Supabase' },
   ]
 
   const DATABASES = [
     { icon: SiMongodb, label: 'MongoDB' },
-    { icon: SiMongoose, label: 'Mongoose' },
     { icon: SiPostgresql, label: 'PostgreSQL' },
     { icon: SiPrisma, label: 'Prisma' },
   ]
@@ -63,8 +59,8 @@ const Skills = () => {
   const TOOLS = [
     { icon: SiGit, label: 'Git' },
     { icon: SiGithub, label: 'GitHub' },
+    { icon: SiDocker, label: 'Docker' },
     { icon: SiPostman, label: 'Postman' },
-    { icon: SiUbuntu, label: 'Ubuntu' },
     { icon: SiVercel, label: 'Vercel' },
   ]
 
