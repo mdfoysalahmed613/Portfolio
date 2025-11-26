@@ -46,7 +46,6 @@ const Skills = () => {
   const BACKEND = [
     { icon: SiNodedotjs, label: 'Node.js' },
     { icon: SiExpress, label: 'Express.js' },
-    { icon: SiClerk, label: 'Clerk' },
     { icon: SiSupabase, label: 'Supabase' },
   ]
 
