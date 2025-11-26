@@ -10,19 +10,17 @@ import {
   SiExpress,
   SiTailwindcss,
   SiReactquery,
-  SiClerk,
   SiGit,
   SiGithub,
   SiPrisma,
   SiPostgresql,
   SiSupabase,
-  SiUbuntu,
   SiVercel,
-  SiPostman,
   SiDocker,
 } from "react-icons/si"
 import { motion } from 'framer-motion'
 import { TbBrandFramerMotion } from 'react-icons/tb'
+import { FaAws } from 'react-icons/fa6'
 
 
 const Skills = () => {
@@ -50,16 +48,16 @@ const Skills = () => {
   ]
 
   const DATABASES = [
-    { icon: SiMongodb, label: 'MongoDB' },
     { icon: SiPostgresql, label: 'PostgreSQL' },
     { icon: SiPrisma, label: 'Prisma' },
+    { icon: SiMongodb, label: 'MongoDB' },
   ]
 
   const TOOLS = [
     { icon: SiGit, label: 'Git' },
     { icon: SiGithub, label: 'GitHub' },
+    { icon: FaAws, label: 'AWS' },
     { icon: SiDocker, label: 'Docker' },
-    { icon: SiPostman, label: 'Postman' },
     { icon: SiVercel, label: 'Vercel' },
   ]
 
@@ -143,7 +141,7 @@ const Skills = () => {
             variants={categoryVariants}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h3 className='font-bold text-2xl text-primary mb-3'>Backend & Authentication</h3>
+            <h3 className='font-bold text-2xl text-primary mb-3'>Backend</h3>
             <motion.div
               className='flex flex-wrap gap-4'
               variants={containerVariants}
@@ -162,7 +160,7 @@ const Skills = () => {
             variants={categoryVariants}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className='font-bold text-2xl text-primary mb-3'>Databases & ORMs</h3>
+            <h3 className='font-bold text-2xl text-primary mb-3'>Databases</h3>
             <motion.div
               className='flex flex-wrap gap-4'
               variants={containerVariants}
