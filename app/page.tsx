@@ -7,7 +7,7 @@ import Skills from '@/components/home/skills'
 import WorkingProcess from '@/components/home/work-flow'
 const Page = () => {
   return (
-    <>
+    <main>
       <HeroSection />
       <Skills />
       <Services />
@@ -15,7 +15,7 @@ const Page = () => {
       <WorkingProcess />
       <Contact />
       <ScrollToTop />
-    </>
+    </main>
   )
 }
 
