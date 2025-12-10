@@ -141,7 +141,7 @@ const Skills = () => {
             variants={categoryVariants}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h3 className='font-bold text-2xl text-primary mb-3'>Backend</h3>
+            <h2 className='font-bold text-2xl text-primary mb-3'>Backend</h2>
             <motion.div
               className='flex flex-wrap gap-4'
               variants={containerVariants}
@@ -160,7 +160,7 @@ const Skills = () => {
             variants={categoryVariants}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className='font-bold text-2xl text-primary mb-3'>Databases</h3>
+            <h2 className='font-bold text-2xl text-primary mb-3'>Databases</h2>
             <motion.div
               className='flex flex-wrap gap-4'
               variants={containerVariants}
@@ -181,7 +181,7 @@ const Skills = () => {
             variants={categoryVariants}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h3 className='font-bold text-2xl text-primary mb-3'>Tools & Services</h3>
+            <h2 className='font-bold text-2xl text-primary mb-3'>Tools & Services</h2>
             <motion.div
               className='flex flex-wrap gap-4'
               variants={containerVariants}

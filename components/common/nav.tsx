@@ -16,7 +16,7 @@ const Navbar = () => {
    return (
       <header className="flex justify-between items-center py-6 w-full">
          <div className='flex md:gap-10'>
-            <motion.div
+            <motion.h1
                initial={{ opacity: 0, scale: 0.8 }}
                animate={{ opacity: 1, scale: 1 }}
                transition={{ duration: 0.5, ease: "easeOut" }}
@@ -24,8 +24,8 @@ const Navbar = () => {
                <Link href="/" className={`${yellowtail.className} text-2xl lg:text-3xl font-bold`}>
                   Md Foysal Ahmed
                </Link>
-            </motion.div>
-            <div className="hidden gap-6 md:flex items-center">
+            </motion.h1>
+            <nav className="hidden gap-6 md:flex items-center">
                {navItems?.map((item, index) => (
                   <motion.nav
                      key={index}
@@ -40,7 +40,7 @@ const Navbar = () => {
                      </Link>
                   </motion.nav>
                ))}
-            </div>
+            </nav>
          </div>
          <Hamburger />
          <motion.div

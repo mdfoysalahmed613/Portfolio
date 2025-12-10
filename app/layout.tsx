@@ -6,6 +6,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import GoogleAnalytics from "@/components/common/google-analytics";
 import Navbar from "@/components/common/nav";
 import Footer from "@/components/common/footer";
+import { ProfileImage } from "@/assets/images";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     default: "Md Foysal Ahmed | Full Stack Developer",
     template: `%s | Md Foysal Ahmed`,
   },
-  description: "Full-stack developer specializing in Next.js, TypeScript, React, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
+  description: "Full-stack developer specializing in Next.js, TypeScript, Supabase, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
   authors: [{ name: "Md Foysal Ahmed", url: process.env.NEXT_PUBLIC_BASE_URL! }],
   creator: "Md Foysal Ahmed",
   openGraph: {
@@ -48,6 +50,7 @@ export const metadata: Metadata = {
     "Node.js Developer",
     "Frontend Developer",
     "Backend Developer",
+    "Supabase Developer",
   ],
   robots: {
     index: true,
@@ -63,9 +66,39 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children, }: { children: React.ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Md Foysal Ahmed",
+    "url": "https://foysal.me",
+    "image": `${process.env.NEXT_PUBLIC_BASE_URL}${ProfileImage.src}`,
+    "sameAs": [
+      "https://github.com/mdfoysalahmed613",
+      "https://www.linkedin.com/in/mdfoysalahmed613",
+      "https://www.facebook.com/foysal613"
+    ],
+    "jobTitle": "Full Stack Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance"
+    },
+    "description": "Full-stack developer specializing in Next.js, TypeScript, Supabase, and many other modern web technologies.",
+    "email": "contact@foysal.me",
+    "telephone": "+8801581633810",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dhaka",
+      "addressCountry": "Bangladesh"
+    }
+  }
+
   return (
     <html lang="en" suppressHydrationWarning >
       <body className={`${inter.className} antialiased flex flex-col max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <GoogleAnalytics />
         <SpeedInsights />
         <Navbar />

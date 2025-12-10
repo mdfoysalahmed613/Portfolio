@@ -20,18 +20,21 @@ const HeroSection = () => {
          <motion.h1 initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-            className='font-bold text-3xl md:text-4xl xl:text-6xl'>Md Foysal Ahmed</motion.h1>
+            className='font-bold text-3xl md:text-4xl xl:text-6xl'>Md Foysal Ahmed
+         </motion.h1>
          
-         <motion.h3
+         <motion.h2
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-            className='font-bold text-lg md:text-2xl'>Full Stack Developer</motion.h3>
+            className='font-bold text-lg md:text-2xl'>Full Stack Developer
+         </motion.h2>
          
          <motion.p initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
-            className='text-muted-foreground max-w-2xl'>Building high-performance web applications with modern technologies.</motion.p>
+            className='text-muted-foreground max-w-2xl'>Building high-performance web applications with modern technologies.
+         </motion.p>
          
          <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }} className='flex gap-5 xl:gap-6'>
             <Button className='hidden md:flex' size={"lg"} asChild>
