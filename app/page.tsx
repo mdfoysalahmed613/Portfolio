@@ -11,7 +11,7 @@ const Page = () => {
       <HeroSection />
       <Skills />
       <Services />
-      <Projects />
+      {/* <Projects /> */}
       <WorkingProcess />
       <Contact />
       <ScrollToTop />
