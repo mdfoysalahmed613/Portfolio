@@ -68,13 +68,6 @@ const Footer = () => {
               >
                 <SiFacebook className='text-primary' size={20} />
               </Link>
-              <Link
-                href='mailto:mdfoysalahmed613@gmail.com'
-                className='p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors'
-                aria-label='Email'
-              >
-                <MdEmail className='text-primary' size={20} />
-              </Link>
             </div>
             <p className='text-sm text-muted-foreground pt-2'>
               Open to freelance opportunities
