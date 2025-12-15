@@ -13,11 +13,11 @@ const Footer = () => {
         <div className='py-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12'>
           {/* Brand Section */}
           <div className='space-y-4'>
-            <h3 className='text-lg font-semibold'>Md Foysal Ahmed</h3>
-            <p className='text-sm text-muted-foreground leading-relaxed'>
+            <h1 className='text-lg font-semibold'>Md Foysal Ahmed</h1>
+            <h2 className='text-sm text-muted-foreground leading-relaxed'>
               Full Stack Developer specializing in modern web technologies.
               Available for freelance projects and collaborations.
-            </p>
+            </h2>
           </div>
 
           {/* Quick Links */}
