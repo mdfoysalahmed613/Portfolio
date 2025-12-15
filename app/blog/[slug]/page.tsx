@@ -4,13 +4,17 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { blogs } from "@/lib/blogs";
-import { Props } from "@/app/projects/[slug]/page";
 import { ArrowLeft, Calendar, Share } from "lucide-react";
 import ShareBlog from "@/components/common/share-blog";
 
 export function generateStaticParams() {
    return blogs.map((blog) => ({ slug: blog.slug }));
 }
+type Props = {
+   params: {
+      slug: string;
+   };
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata | {}> {
    const { slug } = await params;

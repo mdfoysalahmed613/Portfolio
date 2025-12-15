@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { projects } from "@/lib/projects";
+// import { projects } from "@/lib/projects";
 import { blogs } from "@/lib/blogs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -22,12 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic project pages
-  const projectPages = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  // const projectPages = projects.map((project) => ({
+  //   url: `${baseUrl}/projects/${project.slug}`,
+  //   lastModified: new Date(),
+  //   changeFrequency: "monthly" as const,
+  //   priority: 0.8,
+  // }));
 
   // Dynamic blog pages
   const blogPages = blogs.map((blog) => ({
@@ -37,5 +37,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...projectPages, ...blogPages];
+  return [...staticPages, ...blogPages];
 }
