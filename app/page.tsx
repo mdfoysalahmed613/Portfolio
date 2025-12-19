@@ -1,9 +1,9 @@
 import ScrollToTop from '@/components/common/scroll-to-top'
 import Contact from '@/components/home/contact'
 import HeroSection from '@/components/home/hero'
+import WorkFlow from '@/components/home/how-i-work'
 import Services from '@/components/home/services'
 import Skills from '@/components/home/skills'
-import WorkingProcess from '@/components/home/work-flow'
 const Page = () => {
   return (
     <main>
@@ -11,7 +11,7 @@ const Page = () => {
       <Skills />
       <Services />
       {/* <Projects /> */}
-      <WorkingProcess />
+      <WorkFlow />
       <Contact />
       <ScrollToTop />
     </main>

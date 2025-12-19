@@ -68,8 +68,8 @@ const Footer = () => {
                 <SiFacebook className='text-primary' size={20} />
               </Link>
             </div>
-            <p className='text-sm text-muted-foreground pt-2'>
-              Open to freelance opportunities
+            <p className='text-xs text-muted-foreground pt-2'>
+              Available: contract, part-time, long-term • Remote-friendly • GMT+6 (Bangladesh)
             </p>
           </div>
         </div>
