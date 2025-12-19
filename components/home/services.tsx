@@ -59,7 +59,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
          >
-            How I Support Agencies
+            How I Help Agencies
          </motion.h1>
          <motion.p
             className='py-4 text-center text-muted-foreground max-w-2xl mx-auto'
