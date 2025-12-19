@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import {
-  SiMongodb,
   SiNextdotjs,
   SiTypescript,
   SiReact,
@@ -12,7 +11,6 @@ import {
   SiReactquery,
   SiGit,
   SiGithub,
-  SiPrisma,
   SiPostgresql,
   SiSupabase,
   SiVercel,
@@ -41,15 +39,10 @@ const Skills = () => {
   ]
 
   const BACKEND = [
+    { icon: SiSupabase, label: 'Supabase(Auth, Database, Storage)' },
+    { icon: SiPostgresql, label: 'PostgreSQL' },
     { icon: SiNodedotjs, label: 'Node.js' },
     { icon: SiExpress, label: 'Express.js' },
-    { icon: SiSupabase, label: 'Supabase' },
-  ]
-
-  const DATABASES = [
-    { icon: SiPostgresql, label: 'PostgreSQL' },
-    { icon: SiPrisma, label: 'Prisma' },
-    { icon: SiMongodb, label: 'MongoDB' },
   ]
 
   const TOOLS = [
@@ -104,7 +97,7 @@ const Skills = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        Production-ready stack for modern web applications.
+        Core technologies I use frequently in production environments.
       </motion.p>
 
       {/* All my skills by categorized */}
@@ -139,7 +132,7 @@ const Skills = () => {
             variants={categoryVariants}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h2 className='font-bold text-2xl text-primary mb-3'>Backend</h2>
+            <h2 className='font-bold text-2xl text-primary mb-3'>Backend & Database</h2>
             <motion.div
               className='flex flex-wrap gap-4'
               variants={containerVariants}
@@ -150,26 +143,7 @@ const Skills = () => {
                 </motion.div>
               ))}
             </motion.div>
-          </motion.div>          { /* Databases & ORMs */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={categoryVariants}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h2 className='font-bold text-2xl text-primary mb-3'>Databases</h2>
-            <motion.div
-              className='flex flex-wrap gap-4'
-              variants={containerVariants}
-            >
-              {DATABASES.map((t) => (
-                <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }}>
-                  <Tech icon={t.icon} label={t.label} />
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+          </motion.div>      
 
           {/* Tools & Services */}
           <motion.div
