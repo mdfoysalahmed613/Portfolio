@@ -33,12 +33,12 @@ const HeroSection = () => {
          <motion.p initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
-            className='text-muted-foreground max-w-2xl'>Building high-performance web applications with modern technologies.
+            className='text-muted-foreground max-w-2xl'>I helps agencies and startups build and maintain production-ready web applications using Next.js, PostgreSQL and Supabase.
          </motion.p>
 
          <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }} className='flex gap-5 xl:gap-6'>
             <Button className='hidden md:flex' size={"lg"} asChild>
-               <Link href="https://wa.me/+8801581633810" target='_blank' >
+               <Link href="https://www.linkedin.com/in/mdfoysalahmed613" target='_blank' >
                   Hire Me
                </Link>
             </Button>
@@ -49,7 +49,7 @@ const HeroSection = () => {
                </Link>
             </Button >
             <Button size={"lg"} variant={"outline"} asChild>
-               <Link href="#contact" className='flex items-center gap-2' >
+               <Link href="https://wa.me/+8801581633810" className='flex items-center gap-2' >
                   <Phone />
                   Contact
                </Link>

@@ -15,8 +15,7 @@ const Footer = () => {
           <div className='space-y-4'>
             <h1 className='text-lg font-semibold'>Md Foysal Ahmed</h1>
             <h2 className='text-sm text-muted-foreground leading-relaxed'>
-              Full Stack Developer specializing in modern web technologies.
-              Available for freelance projects and collaborations.
+              I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.
             </h2>
           </div>
 

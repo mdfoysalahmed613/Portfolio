@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     default: "Md Foysal Ahmed | Full Stack Developer",
     template: `%s | Md Foysal Ahmed`,
   },
-  description: "Full-stack developer specializing in Next.js, TypeScript, Supabase, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
+  description: "I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.",
   authors: [{ name: "Md Foysal Ahmed", url: process.env.NEXT_PUBLIC_BASE_URL! }],
   creator: "Md Foysal Ahmed",
   openGraph: {
     title: "Md Foysal Ahmed",
     description:
-      "Full-stack developer specializing in Next.js, TypeScript, React, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
+      "I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.",
     url: process.env.NEXT_PUBLIC_BASE_URL!,
     siteName: "Md Foysal Ahmed",
     locale: "en_US",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Md Foysal Ahmed",
     description:
-      "Full-stack developer specializing in Next.js, TypeScript, React, and Node.js. Building modern web applications with clean code and exceptional user experiences.",
+      "I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.",
   },
   keywords: [
     "Md Foysal Ahmed",
@@ -82,7 +82,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
       "@type": "Organization",
       "name": "Freelance"
     },
-    "description": "Full-stack developer specializing in Next.js, TypeScript, Supabase, and many other modern web technologies.",
+    "description": "I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.",
     "email": "contact@foysal.me",
     "telephone": "+8801581633810",
     "address": {

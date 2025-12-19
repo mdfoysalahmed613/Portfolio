@@ -1,66 +1,50 @@
 "use client"
 import { motion } from 'framer-motion'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../ui/card'
-import { Button } from '../ui/button'
-import { Check, Code, Layers, Globe, Rocket } from 'lucide-react'
-import Link from 'next/link'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../ui/card'
+import { Code, LayoutDashboard, Database, Wrench } from 'lucide-react'
 
-const services = [
+const capabilities = [
    {
       icon: Code,
-      title: "Basic Landing Page",
-      description: "Perfect for getting your presence online quickly with a clean, single-page design.",
-      price: "$50–150",
+      title: "Frontend & UI Development",
+      description: "Modern, performant interfaces built with best practices.",
       features: [
-         "Single page design",
-         "Responsive layout",
-         "Basic SEO optimization",
-         "Contact form integration",
-         "Fast delivery (3-5 days)"
+         "Next.js (App Router)",
+         "Tailwind, Shadcn UI",
+         "Responsive, accessible UI",
+         "Performance optimization"
       ]
    },
    {
-      icon: Layers,
-      title: "Portfolio Website",
-      description: "Showcase your work with a beautiful, multi-page portfolio that stands out.",
-      price: "$100–250",
+      icon: LayoutDashboard,
+      title: "Admin Dashboards & Internal Tools",
+      description: "Efficient internal systems for your operations teams.",
       features: [
-         "Multiple pages",
-         "Project showcase section",
-         "About & contact pages",
-         "Smooth animations",
-         "Mobile optimized",
-         "CMS integration option"
+         "Role-based access",
+         "CRUD systems",
+         "Data tables & forms",
+         "Clean UX for operations teams"
       ]
    },
    {
-      icon: Globe,
-      title: "Business Website",
-      description: "Professional multi-page website for businesses looking to establish credibility.",
-      price: "$200–400",
+      icon: Database,
+      title: "Backend & Integrations",
+      description: "Robust data layer and third-party integrations.",
       features: [
-         "3-5 custom pages",
-         "Advanced SEO",
-         "Analytics integration",
-         "Blog/News section",
-         "Contact forms",
-         "Social media integration",
-         "Performance optimized"
+         "PostgreSQL schema design",
+         "Supabase auth & RLS",
+         "REST / API integrations"
       ]
    },
    {
-      icon: Rocket,
-      title: "Full Web Application",
-      description: "Complete custom web applications tailored to your specific business needs.",
-      price: "Custom Pricing",
+      icon: Wrench,
+      title: "Ongoing Support",
+      description: "Long-term partnership for continuous improvement.",
       features: [
-         "Custom functionality",
-         "Database integration",
-         "User authentication",
-         "Admin dashboard",
-         "API development",
-         "Scalable architecture",
-         "Ongoing support available"
+         "Feature development",
+         "Bug fixes",
+         "Refactoring",
+         "Long-term maintenance"
       ]
    }
 ]
@@ -75,7 +59,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
          >
-            Services
+            How I Support Agencies
          </motion.h1>
          <motion.p
             className='py-4 text-center text-muted-foreground max-w-2xl mx-auto'
@@ -84,57 +68,42 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
          >
-            Offering a range of web development services to help bring your ideas to life, from simple landing pages to complex web applications.
+            I help agencies deliver client projects with reliable full-stack development expertise and ongoing technical support.
          </motion.p>
 
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 max-w-7xl mx-auto'>
-            {services.map((service, index) => {
-               const IconComponent = service.icon
+            {capabilities.map((capability, index) => {
+               const IconComponent = capability.icon
                return (
                   <motion.div
-                     key={service.title}
+                     key={capability.title}
                      initial={{ opacity: 0, y: 50 }}
                      whileInView={{ opacity: 1, y: 0 }}
                      viewport={{ once: true }}
                      transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                     <Card className='h-full hover:shadow-lg transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 '>
+                     <Card className='h-full hover:shadow-lg transition-all duration-300 hover:border-primary/50 hover:-translate-y-1'>
                         <CardHeader>
                            <div className='w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-2'>
                               <IconComponent className='w-6 h-6 text-primary' />
                            </div>
-                           <CardTitle className='text-xl'>{service.title}</CardTitle>
-                           <CardDescription>{service.description}</CardDescription>
+                           <CardTitle className='text-xl'>{capability.title}</CardTitle>
+                           <CardDescription>{capability.description}</CardDescription>
                         </CardHeader>
-                        <CardContent className='flex-grow'>
-                           <div className='mb-4'>
-                              <span className='text-3xl font-bold text-primary'>{service.price}</span>
-                           </div>
+                        <CardContent>
                            <ul className='space-y-2'>
-                              {service.features.map((feature, idx) => (
-                                 <li key={idx} className='flex items-start gap-2 text-sm'>
-                                    <Check className='w-4 h-4 text-primary mt-0.5 flex-shrink-0' />
+                              {capability.features.map((feature, idx) => (
+                                 <li key={idx} className='flex items-start gap-2 text-sm text-muted-foreground'>
+                                    <span className='text-primary mt-0.5'>•</span>
                                     <span>{feature}</span>
                                  </li>
                               ))}
                            </ul>
                         </CardContent>
-                        <CardFooter>
-                           <Button asChild className='w-full' variant={index === 3 ? 'default' : 'outline'}>
-                              <Link href="#contact">Get Started</Link>
-                           </Button>
-                        </CardFooter>
                      </Card>
                   </motion.div>
                )
             })}
-            <motion.p initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.5, delay: 0.1 }}
-               className='text-sm text-center text-muted-foreground mt-4 md:col-span-2 lg:col-span-4'>
-               Note: Prices are estimates and may vary based on project complexity and specific requirements. <Link href="https://wa.me/+8801687069581" target='_blank' className='text-primary font-semibold hover:underline'>Contact me</Link> for a detailed quote.
-            </motion.p>
          </div>
       </section>
    )

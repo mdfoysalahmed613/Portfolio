@@ -61,7 +61,7 @@ const Contact = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        I'm open for freelance work, collaborations, and internships. Let's work together to create something amazing!
+        Available for agency partnerships and contract work
       </motion.p>
 
       <div className='max-w-5xl mx-auto mt-8 grid md:grid-cols-3 gap-6'>

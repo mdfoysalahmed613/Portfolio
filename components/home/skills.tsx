@@ -20,7 +20,6 @@ import {
 } from "react-icons/si"
 import { motion } from 'framer-motion'
 import { TbBrandFramerMotion } from 'react-icons/tb'
-import { FaAws } from 'react-icons/fa6'
 
 
 const Skills = () => {
@@ -56,7 +55,6 @@ const Skills = () => {
   const TOOLS = [
     { icon: SiGit, label: 'Git' },
     { icon: SiGithub, label: 'GitHub' },
-    { icon: FaAws, label: 'AWS' },
     { icon: SiDocker, label: 'Docker' },
     { icon: SiVercel, label: 'Vercel' },
   ]
@@ -106,7 +104,7 @@ const Skills = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        Key skills that define my professional identity.
+        Production-ready stack for modern web applications.
       </motion.p>
 
       {/* All my skills by categorized */}

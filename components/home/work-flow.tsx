@@ -52,7 +52,7 @@ const WorkingProcess = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
          >
-            Work Flow
+            How I Work With Agencies
          </motion.h1>
          <motion.p
             className='py-4 text-center text-muted-foreground max-w-2xl mx-auto'
@@ -61,7 +61,7 @@ const WorkingProcess = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
          >
-            A transparent and efficient workflow designed to deliver quality results. Here's how we'll work together to bring your project to life.
+            I integrate seamlessly into your team's workflow with proven collaboration practices and reliable delivery.
          </motion.p>
 
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-12 max-w-7xl mx-auto'>
@@ -107,9 +107,9 @@ const WorkingProcess = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
          >
             <p className='text-muted-foreground'>
-               Ready to start your project?{' '}
+               Looking for reliable development support?{' '}
                <Link href="https://wa.me/+8801581633810" target='_blank' className='text-primary font-semibold hover:underline'>
-                  Let's talk
+                  Let's connect
                </Link>
             </p>
          </motion.div>
