@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { navItems } from '@/lib/nav-items';
+import { navItems } from '@/components/common/nav-items';
 import { motion } from 'framer-motion';
 
 const Hamburger = () => {

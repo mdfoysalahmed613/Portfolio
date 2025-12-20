@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import { FaLinkedin } from 'react-icons/fa6'
 import { SiFacebook, SiGithub } from 'react-icons/si'
-import { MdEmail } from 'react-icons/md'
-import { navItems } from '@/lib/nav-items'
+import { navItems } from '@/components/common/nav-items'
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 

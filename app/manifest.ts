@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Md Foysal Ahmed | Full Stack Developer",
     short_name: "Foysal Ahmed",
     description:
-      "Full-stack developer portfolio showcasing projects, services, and contact information for freelance work.",
+      "I helps agencies and startups build and maintain production-ready web applications using Next.js, PostgreSQL and Supabase.",
     start_url: "/",
     display: "standalone",
     background_color: "#f6f4ee",

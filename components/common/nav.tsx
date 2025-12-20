@@ -5,7 +5,8 @@ import { Download } from 'lucide-react';
 import { Button } from '../ui/button';
 import Hamburger from './hamburger';
 import { motion } from 'framer-motion';
-import { navItems } from '@/lib/nav-items';
+import { navItems } from '@/components/common/nav-items';
+
 const yellowtail = Yellowtail({
    weight: ["400"],
    style: ["normal"],

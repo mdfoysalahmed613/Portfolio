@@ -49,7 +49,6 @@ export default function BlogPage() {
 
                      {/* Content */}
                      <div className="p-6">
-                        {/* Date */}
                         <time
                            dateTime={blog.publishDate}
                            className="text-sm text-muted-foreground"

@@ -4,19 +4,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { blogs } from "@/lib/blogs";
-import { ArrowLeft, Calendar, Share } from "lucide-react";
+import { ArrowLeft, Calendar } from "lucide-react";
 import ShareBlog from "@/components/common/share-blog";
 
 export function generateStaticParams() {
    return blogs.map((blog) => ({ slug: blog.slug }));
 }
-type Props = {
-   params: {
-      slug: string;
-   };
-};
 
-export async function generateMetadata({ params }: Props): Promise<Metadata | {}> {
+export async function generateMetadata({ params }: {params: Promise<{ slug: string }>}) : Promise<Metadata | {}> {
    const { slug } = await params;
    const blog = blogs.find((b) => b.slug === slug);
 
@@ -44,19 +39,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata | {}
    };
 }
 
-export default async function BlogPost({ params }: Props) {
+export default async function BlogPost({ params }: {params: Promise<{ slug: string }>}) {
    const { slug } = await params;
    const blog = blogs.find((b) => b.slug === slug);
 
    if (!blog) {
-      return notFound();
+      return notFound(); 
    }
    const Content = blog.content;
    return (
       <article className="max-w-5xl mx-auto py-16">
-         {/* Header */}
          <header className="mb-12">
-            {/* Title */}
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground leading-tight">
                {blog.title}
             </h1>
@@ -80,7 +73,7 @@ export default async function BlogPost({ params }: Props) {
             </p>
          </header>
 
-         {/* Featured Image */}
+         {/* Featured Image
          <div className="relative aspect-[40/21] rounded-lg overflow-hidden mb-12 bg-muted">
             <Image
                src={blog.image}
@@ -90,7 +83,7 @@ export default async function BlogPost({ params }: Props) {
                priority
                sizes="(max-width: 1024px) 100vw, 1024px"
             />
-         </div>
+         </div> */}
 
          {/* Content */}
          <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-muted prose-pre:border prose-pre:border-border prose-pre:overflow-x-auto prose-pre:max-w-[calc(100vw-3rem)] prose-img:rounded-lg prose-hr:border-border">

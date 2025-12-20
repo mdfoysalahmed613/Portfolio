@@ -12,6 +12,7 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
   title: {
@@ -19,8 +20,11 @@ export const metadata: Metadata = {
     template: `%s | Md Foysal Ahmed`,
   },
   description: "I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.",
+
   authors: [{ name: "Md Foysal Ahmed", url: process.env.NEXT_PUBLIC_BASE_URL! }],
   creator: "Md Foysal Ahmed",
+
+
   openGraph: {
     title: "Md Foysal Ahmed",
     description:
@@ -63,6 +67,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  category: "Portfolio",
 };
 
 export default function RootLayout({ children, }: { children: React.ReactNode }) {
