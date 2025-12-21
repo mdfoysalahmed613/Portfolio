@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { StaticImageData } from "next/image";
-import { PortfolioBlog, PortfolioBlogImage } from "@/assets/blogs";
+import PortfolioBlog from "../assets/blogs/how-i-built-portfolio/index.mdx";
+import PortfolioBlogImage from "../assets/blogs/how-i-built-portfolio/image.jpg";
 export interface IBlog {
   slug: string;
   title: string;
