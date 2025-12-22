@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FaLinkedin } from 'react-icons/fa6'
-import { SiFacebook, SiGithub } from 'react-icons/si'
+import { SiFacebook, SiGithub, SiWhatsapp } from 'react-icons/si'
 import { navItems } from '@/components/common/nav-items'
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -65,6 +65,14 @@ const Footer = () => {
                 aria-label='Facebook'
               >
                 <SiFacebook className='text-primary' size={20} />
+              </Link>
+              <Link
+                target='_blank'
+                href='https://wa.me/+8801581633810'
+                className='p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors'
+                aria-label='WhatssApp'
+              >
+                <SiWhatsapp className='text-primary' size={20} />
               </Link>
             </div>
             <p className='text-xs text-muted-foreground pt-2'>
