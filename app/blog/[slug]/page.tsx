@@ -49,7 +49,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
    }
 
    return (
-      <article className="max-w-5xl mx-auto py-16">
+      <article className="max-w-5xl lg:mx-auto py-16">
          <header className="mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground leading-tight">
                {blog.title}

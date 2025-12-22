@@ -5,13 +5,17 @@ import WorkFlow from '@/components/home/how-i-work'
 import Projects from '@/components/home/projects'
 import Services from '@/components/home/services'
 import Skills from '@/components/home/skills'
+import { getFeaturedProjects } from '@/lib/projects'
+
 const Page = () => {
+  const projects = getFeaturedProjects()
+
   return (
     <main>
       <HeroSection />
       <Skills />
       <Services />
-      <Projects />
+      <Projects projects={projects} />
       <WorkFlow />
       <Contact />
       <ScrollToTop />

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { FaLinkedin } from 'react-icons/fa6'
-import { SiFacebook, SiGithub, SiWhatsapp } from 'react-icons/si'
+import { SiFacebook, SiGithub } from 'react-icons/si'
+import { IoLogoWhatsapp } from "react-icons/io";
 import { navItems } from '@/components/common/nav-items'
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -72,7 +73,7 @@ const Footer = () => {
                 className='p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors'
                 aria-label='WhatssApp'
               >
-                <SiWhatsapp className='text-primary' size={20} />
+                <IoLogoWhatsapp  className='text-primary' size={20} />
               </Link>
             </div>
             <p className='text-xs text-muted-foreground pt-2'>
