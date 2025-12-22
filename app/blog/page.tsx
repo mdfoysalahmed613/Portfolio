@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { blogs } from "@/lib/blogs";
+import { getAllBlogs } from "@/lib/blogs";
 import { ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-
+   const blogs = getAllBlogs();
 
    return (
       <section className="max-w-6xl mx-auto py-8">

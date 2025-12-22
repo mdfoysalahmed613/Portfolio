@@ -1,4 +1,15 @@
 ---
+title: "How I Built My High-Performance Portfolio Website"
+description: "A detailed walkthrough of the technologies and design choices I made while building my portfolio website."
+publishDate: "2025-11-23"
+image: "image.jpg"
+keywords:
+  - portfolio
+  - developer portfolio
+  - web development
+  - React
+  - Node.js
+---
 
 Your portfolio should feel like you. Mine needed to reflect the way I think about system design: purposeful architecture, smooth interactions, and fast feedback loops. This post is a full breakdown of how I shipped the new version of my site using Next.js 16, React 19, Tailwind CSS 4, and a lean component system that keeps content flexible without sacrificing performance.
 
@@ -18,6 +29,84 @@ Your portfolio should feel like you. Mine needed to reflect the way I think abou
 | Motion    | Framer Motion + Lucide + React Icons                   | Adds micro-interactions (see `components/home/hero.tsx` and `projects.tsx`)       |
 | Content   | MDX (`assets/blogs/*`) + structured JSON in `lib/*.ts` | Keeps copy in plain text while components stay reusable                           |
 | Tooling   | pnpm, ESLint, Turbopack dev server                     | Fast installs, lint-on-save, hot reloads that mirror production                   |
+
+## Code Examples
+
+Here's how I set up the blog fetching utility with frontmatter parsing:
+
+```typescript
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+export interface IBlog {
+  slug: string;
+  title: string;
+  description: string;
+  content: string;
+}
+
+export function getBlogBySlug(slug: string): IBlog | null {
+  const mdxPath = path.join(blogsDirectory, slug, "index.mdx");
+  const fileContents = fs.readFileSync(mdxPath, "utf8");
+  const { data, content } = matter(fileContents);
+
+  return {
+    slug,
+    title: data.title,
+    description: data.description,
+    content,
+  };
+}
+```
+
+For the Hero component, I used Framer Motion for smooth animations:
+
+```tsx
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+export default function HeroSection() {
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen flex items-center"
+    >
+      <div className="container mx-auto px-4">
+        <h1 className="text-5xl font-bold">Hello, I'm a Developer</h1>
+      </div>
+    </motion.section>
+  );
+}
+```
+
+The CSS setup uses Tailwind v4 with custom theme variables:
+
+```css
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #c75605;
+  --color-background: #f6f4ee;
+  --color-foreground: #4d2f19;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+```
+
+Here's a simple bash command to start the dev server:
+
+```bash
+pnpm dev
+```
 
 ## Information Architecture
 

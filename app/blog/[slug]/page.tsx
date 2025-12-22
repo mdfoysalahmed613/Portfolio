@@ -2,17 +2,21 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { blogs } from "@/lib/blogs";
+import { getBlogBySlug, getAllBlogSlugs } from "@/lib/blogs";
 import { ArrowLeft, Calendar } from "lucide-react";
 import ShareBlog from "@/components/common/share-blog";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import rehypePrettyCode from "rehype-pretty-code";
+import remarkGfm from "remark-gfm";
+import { useMDXComponents } from "@/mdx-components";
 
 export function generateStaticParams() {
-   return blogs.map((blog) => ({ slug: blog.slug }));
+   return getAllBlogSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata | {}> {
    const { slug } = await params;
-   const blog = blogs.find((b) => b.slug === slug);
+   const blog = getBlogBySlug(slug);
 
    if (!blog) return {
       title: "Blog Not Found",
@@ -27,9 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
          description: blog.description,
          images: [
             {
-               url: blog.image.src,
-               width: blog.image.width,
-               height: blog.image.height,
+               url: blog.image,
                alt: blog.title,
             }
          ],
@@ -40,12 +42,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
    const { slug } = await params;
-   const blog = blogs.find((b) => b.slug === slug);
+   const blog = getBlogBySlug(slug);
 
    if (!blog) {
       return notFound();
    }
-   const Content = blog.content;
+
    return (
       <article className="max-w-5xl mx-auto py-16">
          <header className="mb-12">
@@ -71,7 +73,24 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                {blog.description}
             </p>
          </header>
-         <Content />
+
+         <div>
+            <MDXRemote
+               source={blog.content}
+               components={useMDXComponents({})}
+               options={{
+                  mdxOptions: {
+                     remarkPlugins: [remarkGfm],
+                     rehypePlugins: [
+                        [rehypePrettyCode, {
+                           theme: "github-dark",
+                           keepBackground: true,
+                        }],
+                     ],
+                  },
+               }}
+            />
+         </div>
 
          {/* Footer Navigation */}
          <footer className="mt-16 pt-8 border-t border-border">

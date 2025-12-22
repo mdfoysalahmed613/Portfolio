@@ -59,3 +59,40 @@
     scroll-behavior: smooth;
   }
 }
+
+/* Code block styling for rehype-pretty-code */
+[data-rehype-pretty-code-figure] {
+  margin: 1.5rem 0;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  @apply rounded-lg p-4 overflow-x-auto text-sm leading-relaxed;
+  background-color: #24292e !important;
+}
+
+[data-rehype-pretty-code-figure] code {
+  @apply grid;
+  counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply px-4 border-l-2 border-transparent;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  @apply bg-white/10 border-l-primary;
+}
+
+[data-rehype-pretty-code-figure] [data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply inline-block w-4 mr-4 text-right text-gray-500;
+}
+
+[data-rehype-pretty-code-title] {
+  @apply rounded-t-lg bg-zinc-800 px-4 py-2 text-sm font-medium text-gray-200;
+}
+
+[data-rehype-pretty-code-title] + pre {
+  @apply rounded-t-none mt-0;
+}

@@ -56,15 +56,22 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
             {children}
          </blockquote>
       ),
-      code: ({ children }) => (
-         <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground">
-            {children}
-         </code>
-      ),
-      pre: ({ children }) => (
-         <pre className="bg-muted p-4 rounded-lg overflow-x-auto mb-4">
-            {children}
-         </pre>
+      // Inline code only - rehype-pretty-code handles code blocks
+      code: ({ children, ...props }) => {
+         // If it has data-* attributes, it's from rehype-pretty-code
+         const isCodeBlock = Object.keys(props).some(key => key.startsWith('data-'));
+         if (isCodeBlock) {
+            return <code {...props}>{children}</code>;
+         }
+         return (
+            <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground">
+               {children}
+            </code>
+         );
+      },
+      // Let rehype-pretty-code handle pre elements
+      pre: ({ children, ...props }) => (
+         <pre {...props}>{children}</pre>
       ),
       img: (props) => (
          <Image

@@ -1,26 +1,66 @@
-import { FC } from "react";
-import { StaticImageData } from "next/image";
-import PortfolioBlog from "../assets/blogs/how-i-built-portfolio/index.mdx";
-import PortfolioBlogImage from "../assets/blogs/how-i-built-portfolio/image.jpg";
-export interface IBlog {
-  slug: string;
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+export interface IBlogFrontmatter {
   title: string;
   description: string;
-  content: FC;
   publishDate: string;
-  image: StaticImageData;
+  image: string;
   keywords?: string[];
 }
 
-export const blogs: IBlog[] = [
-  {
-    slug: "how-i-built-my-high-performance-portfolio-website",
-    title: "How I Built My High-Performance Portfolio Website",
-    description:
-      "A detailed walkthrough of the technologies and design choices I made while building my portfolio website.",
-    content: PortfolioBlog,
-    publishDate: "2025-11-23",
-    image: PortfolioBlogImage,
-    keywords: ["portfolio","developer portfolio", "web development", "React", "Node.js"],
-  },
-];
+export interface IBlog extends IBlogFrontmatter {
+  slug: string;
+  content: string;
+}
+
+const blogsDirectory = path.join(process.cwd(), "assets/blogs");
+
+export function getAllBlogs(): IBlog[] {
+  const slugs = fs.readdirSync(blogsDirectory).filter((item) => {
+    const itemPath = path.join(blogsDirectory, item);
+    return fs.statSync(itemPath).isDirectory();
+  });
+
+  const blogs = slugs
+    .map((slug) => getBlogBySlug(slug))
+    .filter((blog): blog is IBlog => blog !== null)
+    .sort(
+      (a, b) =>
+        new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
+    );
+
+  return blogs;
+}
+
+export function getBlogBySlug(slug: string): IBlog | null {
+  const mdxPath = path.join(blogsDirectory, slug, "index.mdx");
+
+  if (!fs.existsSync(mdxPath)) {
+    return null;
+  }
+
+  const fileContents = fs.readFileSync(mdxPath, "utf8");
+  const { data, content } = matter(fileContents);
+
+  return {
+    slug,
+    title: data.title,
+    description: data.description,
+    publishDate: data.publishDate,
+    image: `/blogs/${slug}/${data.image}`,
+    keywords: data.keywords,
+    content,
+  };
+}
+
+export function getAllBlogSlugs(): string[] {
+  return fs.readdirSync(blogsDirectory).filter((item) => {
+    const itemPath = path.join(blogsDirectory, item);
+    return (
+      fs.statSync(itemPath).isDirectory() &&
+      fs.existsSync(path.join(itemPath, "index.mdx"))
+    );
+  });
+}
