@@ -51,7 +51,7 @@ const Navbar = () => {
             className='hidden md:flex'
          >
             <Button size='lg' asChild>
-               <Link href="/resume.pdf" target="_blank" download={true}>
+               <Link href="/resume.pdf" target="_blank" download={true} prefetch={false}>
                   <Download />
                   Resume
                </Link>

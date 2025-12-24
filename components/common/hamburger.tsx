@@ -12,6 +12,7 @@ const Hamburger = () => {
          <button
             className="md:hidden transition-transform duration-200 hover:scale-110 active:scale-95"
             onClick={() => setShowMenu(!showMenu)}
+            aria-label="Toggle Menu"
          >
             <div className={showMenu ? "rotate-90 transition-transform duration-300" : "transition-transform duration-300"}>
                {showMenu ? <X /> : <Menu />}

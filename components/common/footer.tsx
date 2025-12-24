@@ -21,9 +21,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className='space-y-4'>
-            <h4 className='text-sm font-semibold uppercase tracking-wider text-muted-foreground'>
+            <h3 className='text-sm font-semibold uppercase tracking-wider text-muted-foreground'>
               Quick Links
-            </h4>
+            </h3>
             <nav className='flex flex-col space-y-2'>
               {navItems?.map((item, index) => (
                 <Link
@@ -39,9 +39,9 @@ const Footer = () => {
 
           {/* Connect Section */}
           <div className='space-y-4'>
-            <h4 className='text-sm font-semibold uppercase tracking-wider text-muted-foreground'>
+            <h3 className='text-sm font-semibold uppercase tracking-wider text-muted-foreground'>
               Let's Connect
-            </h4>
+            </h3>
             <div className='flex gap-4'>
               <Link
                 target='_blank'
