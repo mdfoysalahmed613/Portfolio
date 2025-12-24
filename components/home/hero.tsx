@@ -15,11 +15,13 @@ const HeroSection = () => {
             transition={{ duration: 0.5, ease: "easeOut" }}
          >
             <Image
-               src={ProfileImage}
-               sizes="(max-width: 768px) 192px, 256px"
+               src="/profile.avif"
                alt="Foysal Ahmed - Full Stack Developer"
-               className='rounded-full object-cover aspect-square max-w-64 border-8 border-primary'
+               width={256}
+               height={256}
                priority
+               sizes="(max-width: 768px) 192px, 256px"
+               className="rounded-full object-cover border-8 border-primary"
             />
          </motion.div>
 
