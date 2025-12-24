@@ -1,36 +1,32 @@
-'use client'
-import Image from 'next/image'
 import { Button } from '../ui/button'
 import { Download, Phone } from 'lucide-react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import HeroImage from '../common/hero-image'
+import Image from 'next/image'
 
 const HeroSection = () => {
    return (
       <section className='flex flex-col items-center gap-3 md:gap-6 justify-center my-20 text-center'>
-         <HeroImage />
+         <Image
+            src="/profile.webp"
+            alt="Foysal Ahmed - Full Stack Developer"
+            width={256}
+            height={256}
+            priority
+            fetchPriority='high'
+            sizes="(max-width: 768px) 192px, 256px"
+            className="rounded-full object-cover aspect-square border-8 border-primary animate-fadeInScale"
+         />
 
-         <motion.h1 initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-            className='font-bold text-3xl md:text-4xl xl:text-6xl'>Md Foysal Ahmed
-         </motion.h1>
+         <h1 className='font-bold text-3xl md:text-4xl xl:text-6xl fade-in'>Md Foysal Ahmed
+         </h1>
 
-         <motion.h2
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-            className='font-bold text-lg md:text-2xl'>Full Stack Developer
-         </motion.h2>
+         <h2 className='font-bold text-lg md:text-2xl fade-in'>Full Stack Developer
+         </h2>
 
-         <motion.p initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
-            className='text-muted-foreground max-w-2xl'>I helps agencies and startups build and maintain production-ready web applications using Next.js, PostgreSQL and Supabase.
-         </motion.p>
+         <p className='text-muted-foreground max-w-2xl fade-in'>I helps agencies and startups build and maintain production-ready web applications using Next.js, PostgreSQL and Supabase.
+         </p>
 
-         <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }} className='flex gap-5 mt-2 xl:gap-6'>
+         <div className='flex gap-5 mt-2 xl:gap-6 fade-in'>
             <Button className='hidden md:flex' size={"lg"} asChild>
                <Link href="https://www.linkedin.com/in/mdfoysalahmed613" target='_blank' >
                   Hire Me
@@ -48,7 +44,7 @@ const HeroSection = () => {
                   Contact
                </Link>
             </Button>
-         </motion.div>
+         </div>
       </section>
    )
 }
