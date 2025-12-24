@@ -1,3 +1,5 @@
+import { getAllBlogSlugs } from "@/lib/blogs";
+import { getAllProjectSlugs } from "@/lib/projects";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -18,20 +20,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
   ];
+  const blogPages = getAllBlogSlugs().map((blog) => ({
+    url: `${baseUrl}/blog/${blog}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
-  // Dynamic project pages
-  // const projectPages = projects.map((project) => ({
-  //   url: `${baseUrl}/projects/${project.slug}`,
-  //   lastModified: new Date(),
-  //   changeFrequency: "monthly" as const,
-  //   priority: 0.8,
-  // }));
+  const projectPages = getAllProjectSlugs().map((project) => ({
+    url: `${baseUrl}/projects/${project}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
-
-
-  // Dynamic blog pages
-
-  
-
-  return [...staticPages];
+  return [...staticPages, ...blogPages, ...projectPages];
 }
