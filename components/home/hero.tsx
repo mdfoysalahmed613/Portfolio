@@ -4,7 +4,7 @@ import { Button } from '../ui/button'
 import { Download, Phone } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import ProfileImage from '@/public/profile.jpg'
+import ProfileImage from '@/public/profile.avif'
 
 const HeroSection = () => {
    return (
