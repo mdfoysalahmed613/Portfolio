@@ -4,7 +4,6 @@ import { Button } from '../ui/button'
 import { Download, Phone } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import ProfileImage from '@/public/profile.avif'
 
 const HeroSection = () => {
    return (
@@ -21,7 +20,7 @@ const HeroSection = () => {
                height={256}
                priority
                sizes="(max-width: 768px) 192px, 256px"
-               className="rounded-full object-cover border-8 border-primary"
+               className="rounded-full object-cover aspect-square border-8 border-primary"
             />
          </motion.div>
 
@@ -44,7 +43,7 @@ const HeroSection = () => {
             className='text-muted-foreground max-w-2xl'>I helps agencies and startups build and maintain production-ready web applications using Next.js, PostgreSQL and Supabase.
          </motion.p>
 
-         <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }} className='flex gap-5 xl:gap-6'>
+         <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }} className='flex gap-5 mt-2 xl:gap-6'>
             <Button className='hidden md:flex' size={"lg"} asChild>
                <Link href="https://www.linkedin.com/in/mdfoysalahmed613" target='_blank' >
                   Hire Me
