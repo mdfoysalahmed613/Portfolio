@@ -2,36 +2,41 @@ import { getAllBlogSlugs } from "@/lib/blogs";
 import { getAllProjectSlugs } from "@/lib/projects";
 import { MetadataRoute } from "next";
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://foysal.me";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://foysal.me";
+  const currentDate = new Date().toISOString();
 
   // Static pages
-  const staticPages = [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
       priority: 0.9,
     },
   ];
-  const blogPages = getAllBlogSlugs().map((blog) => ({
+
+  const blogSlugs = getAllBlogSlugs();
+  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((blog) => ({
     url: `${baseUrl}/blog/${blog}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
+    lastModified: currentDate,
+    changeFrequency: "monthly",
     priority: 0.8,
   }));
 
-  const projectPages = getAllProjectSlugs().map((project) => ({
+  const projectSlugs = getAllProjectSlugs();
+  const projectPages: MetadataRoute.Sitemap = projectSlugs.map((project) => ({
     url: `${baseUrl}/projects/${project}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
+    lastModified: currentDate,
+    changeFrequency: "monthly",
+    priority: 0.7,
   }));
 
   return [...staticPages, ...blogPages, ...projectPages];
