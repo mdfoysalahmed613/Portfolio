@@ -14,7 +14,13 @@ const HeroSection = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
          >
-            <Image src={ProfileImage} sizes="(max-width: 768px) 192px, 256px" alt="Foysal Ahmed - Full Stack Developer" className='rounded-full object-cover aspect-square max-w-64 border-8 border-primary' />
+            <Image
+               src={ProfileImage}
+               sizes="(max-width: 768px) 192px, 256px"
+               alt="Foysal Ahmed - Full Stack Developer"
+               className='rounded-full object-cover aspect-square max-w-64 border-8 border-primary'
+               priority
+            />
          </motion.div>
 
          <motion.h1 initial={{ y: 20, opacity: 0 }}
