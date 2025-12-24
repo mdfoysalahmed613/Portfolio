@@ -4,26 +4,12 @@ import { Button } from '../ui/button'
 import { Download, Phone } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import HeroImage from '../common/hero-image'
 
 const HeroSection = () => {
    return (
       <section className='flex flex-col items-center gap-3 md:gap-6 justify-center my-20 text-center'>
-         <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-         >
-            <Image
-               src="/profile.webp"
-               alt="Foysal Ahmed - Full Stack Developer"
-               width={256}
-               height={256}
-               priority
-               fetchPriority='high'
-               sizes="(max-width: 768px) 192px, 256px"
-               className="rounded-full object-cover aspect-square border-8 border-primary"
-            />
-         </motion.div>
+         <HeroImage />
 
          <motion.h1 initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
