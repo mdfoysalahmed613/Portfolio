@@ -6,7 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import GoogleAnalytics from "@/components/common/google-analytics";
 import Navbar from "@/components/common/nav";
 import Footer from "@/components/common/footer";
-import ProfileImage from '@/public/profile.avif'
+import ProfileImage from '@/public/profile.webp'
 
 const inter = Inter({
   variable: "--font-inter",

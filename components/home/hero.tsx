@@ -14,7 +14,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, ease: "easeOut" }}
          >
             <Image
-               src="/profile.avif"
+               src="/profile.webp"
                alt="Foysal Ahmed - Full Stack Developer"
                width={256}
                height={256}
