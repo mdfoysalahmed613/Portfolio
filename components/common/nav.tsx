@@ -31,8 +31,8 @@ const Navbar = () => {
             </nav>
          </div>
          <Hamburger />
-         <Button size='lg' asChild>
-            <Link href="/resume.pdf" className="fade-in" target="_blank" download={true} prefetch={false}>
+         <Button size='lg' className="hidden md:flex" asChild>
+            <Link href="/resume.pdf" className="fade-in " target="_blank" download={true} prefetch={false}>
                <Download />
                Resume
             </Link>

@@ -10,7 +10,7 @@ const Hamburger = () => {
    return (
       <>
          <button
-            className="md:hidden transition-transform duration-200 hover:scale-110 active:scale-95"
+            className="md:hidden transition-transform duration-200 "
             onClick={() => setShowMenu(!showMenu)}
             aria-label="Toggle Menu"
          >
