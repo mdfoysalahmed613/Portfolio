@@ -96,6 +96,7 @@
 [data-rehype-pretty-code-title] + pre {
   @apply rounded-t-none mt-0;
 }
+
 .animate-fadeInScale {
   animation: fadeInScale 2s ease-out forwards;
 }

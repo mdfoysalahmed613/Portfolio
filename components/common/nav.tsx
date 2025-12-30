@@ -1,4 +1,3 @@
-"use client"
 import { Yellowtail } from "next/font/google";
 import Link from 'next/link';
 import { Download } from 'lucide-react';
@@ -17,47 +16,27 @@ const Navbar = () => {
    return (
       <header className="flex justify-between items-center py-6 w-full">
          <div className='flex md:gap-10'>
-            <motion.h1
-               initial={{ opacity: 0, scale: 0.8 }}
-               animate={{ opacity: 1, scale: 1 }}
-               transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-               <Link href="/" className={`${yellowtail.className} text-2xl lg:text-3xl font-bold`}>
-                  Md Foysal Ahmed
-               </Link>
-            </motion.h1>
+            <Link href="/" className={`${yellowtail.className} text-2xl lg:text-3xl font-bold fade-in`}>
+               Md Foysal Ahmed
+            </Link>
             <nav className="hidden gap-6 md:flex items-center">
                {navItems?.map((item, index) => (
-                  <motion.nav
+                  <Link
                      key={index}
-                     initial={{ opacity: 0, y: -20 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
-                  >
-                     <Link
-                        href={item.href}
-                        className="flex items-center font-medium text-muted-foreground text-sm hover:text-muted-foreground/80">
-                        {item.title}
-                     </Link>
-                  </motion.nav>
+                     href={item.href}
+                     className="flex items-center font-medium text-muted-foreground text-sm hover:text-muted-foreground/80 fade-in">
+                     {item.title}
+                  </Link>
                ))}
             </nav>
          </div>
          <Hamburger />
-         <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className='hidden md:flex'
-         >
-            <Button size='lg' asChild>
-               <Link href="/resume.pdf" target="_blank" download={true} prefetch={false}>
-                  <Download />
-                  Resume
-               </Link>
-            </Button>
-         </motion.div>
-
+         <Button size='lg' asChild>
+            <Link href="/resume.pdf" className="fade-in" target="_blank" download={true} prefetch={false}>
+               <Download />
+               Resume
+            </Link>
+         </Button>
       </header>
    )
 }
