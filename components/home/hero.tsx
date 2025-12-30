@@ -14,19 +14,19 @@ const HeroSection = () => {
             priority
             fetchPriority='high'
             sizes="(max-width: 768px) 192px, 256px"
-            className="rounded-full object-cover aspect-square border-8 border-primary animate-fadeInScale"
+            className="rounded-full object-cover aspect-square border-8 border-primary"
          />
 
-         <h1 className='font-bold text-3xl md:text-4xl xl:text-6xl fade-in'>Md Foysal Ahmed
+         <h1 className='font-bold text-3xl md:text-4xl xl:text-6xl'>Md Foysal Ahmed
          </h1>
 
-         <h2 className='font-bold text-lg md:text-2xl fade-in'>Full Stack Developer
+         <h2 className='font-bold text-lg md:text-2xl'>Full Stack Developer
          </h2>
 
-         <p className='text-muted-foreground max-w-2xl fade-in'>I helps agencies and startups build and maintain production-ready web applications using Next.js, PostgreSQL and Supabase.
+         <p className='text-muted-foreground max-w-2xl'>I help agencies and startups build and maintain production-ready web applications using Next.js, PostgreSQL and Supabase.
          </p>
 
-         <div className='flex gap-5 mt-2 xl:gap-6 fade-in'>
+         <div className='flex gap-5 mt-2 xl:gap-6'>
             <Button className='hidden md:flex' size={"lg"} asChild>
                <Link href="https://www.linkedin.com/in/mdfoysalahmed613" target='_blank' >
                   Hire Me
