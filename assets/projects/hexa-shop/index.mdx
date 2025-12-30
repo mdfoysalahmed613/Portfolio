@@ -22,102 +22,302 @@ featured: true
 
 ## Project Overview
 
-Hexa Shop is a full-stack e-commerce application built with modern web technologies. The goal was to create a fast, accessible, and visually appealing online shopping experience.
+**Hexa Shop** is a modern, full-stack e-commerce platform built with the latest web technologies. The application features a customer-facing storefront and a comprehensive admin dashboard for managing products, categories, orders, and store settings.
 
-## Key Features
+The platform was designed with scalability, developer experience, and modern UX patterns in mind, leveraging React Server Components for optimal performance and Supabase for a complete backend-as-a-service solution.
 
-- **Product Catalog** – Browse products with filtering by category, price, and availability
-- **Shopping Cart** – Add, remove, and update quantities with real-time price calculation
-- **User Authentication** – Secure login/signup with session management
-- **Responsive Design** – Optimized for mobile, tablet, and desktop
-- **Search Functionality** – Fast product search with autocomplete suggestions
+### Key Features
 
-## Technical Implementation
+- 🛒 **Customer Storefront** — Browse products, categories, and complete purchases
+- 📊 **Admin Dashboard** — Full CRUD operations for products, categories, inventory, and orders
+- 🔐 **Role-Based Access Control** — Admin, demo admin (limited write access), and customer roles
+- 🖼️ **Image Management** — Multi-image uploads with Supabase Storage integration
+- 🎨 **Dark/Light Theme** — System-aware theme switching with persistent preferences
+- 📱 **Responsive Design** — Mobile-first approach with collapsible sidebar navigation
 
-### Frontend Architecture
+---
 
-The frontend is built with Next.js App Router for server-side rendering and optimal performance:
+## Technologies Used
 
-```tsx
-// Product card component with optimized images
-import Image from "next/image";
-import { Product } from "@/types";
+### Frontend
 
-export function ProductCard({ product }: { product: Product }) {
-  return (
-    <div className="group relative overflow-hidden rounded-lg">
-      <Image
-        src={product.image}
-        alt={product.name}
-        width={400}
-        height={400}
-        className="object-cover transition-transform group-hover:scale-105"
-      />
-      <div className="p-4">
-        <h3 className="font-semibold">{product.name}</h3>
-        <p className="text-primary font-bold">${product.price}</p>
-      </div>
-    </div>
+| Technology                | Purpose                                       |
+| ------------------------- | --------------------------------------------- |
+| **Next.js 16**            | App Router, React Server Components, SSR      |
+| **React 19**              | Latest React features including use hooks     |
+| **Tailwind CSS v4**       | Utility-first styling with CSS variables      |
+| **shadcn/ui**             | Accessible component library (new-york style) |
+| **TanStack Query**        | Server state management and caching           |
+| **TanStack Table**        | Headless table for data grids                 |
+| **React Hook Form + Zod** | Type-safe form handling and validation        |
+| **TipTap**                | Rich text editor for product descriptions     |
+| **Lucide React**          | Icon library                                  |
+
+### Backend & Infrastructure
+
+| Technology                 | Purpose                                       |
+| -------------------------- | --------------------------------------------- |
+| **Supabase**               | PostgreSQL database, Auth, Storage            |
+| **Supabase Auth**          | OAuth (Google), email/password authentication |
+| **Supabase Storage**       | Image uploads with 2MB file size limits       |
+| **Next.js Server Actions** | Type-safe server mutations with revalidation  |
+| **Middleware**             | Route protection for admin paths              |
+
+### Development Tools
+
+| Tool           | Purpose                              |
+| -------------- | ------------------------------------ |
+| **TypeScript** | End-to-end type safety               |
+| **ESLint v9**  | Code quality and consistency         |
+| **pnpm**       | Fast, disk-efficient package manager |
+
+---
+
+## Challenges Faced
+
+### 1. Supabase Client Caching in Serverless Environment
+
+**Problem:** Next.js 16's Fluid compute architecture caused issues when caching Supabase clients at module level, leading to stale authentication states and cookie synchronization problems.
+
+**Impact:** Users experienced intermittent auth failures and session inconsistencies across server components and server actions.
+
+### 2. Complex Role-Based Permissions
+
+**Problem:** The application required granular permissions with three distinct roles:
+
+- **Admin** — Full access to all operations
+- **Demo Admin** — Read access + create/update (no delete) for portfolio demonstrations
+- **Customer** — Public storefront access only
+
+**Impact:** Needed a flexible authorization system that could be checked both in middleware (route protection) and server actions (operation-level protection).
+
+### 3. Multi-Image Product Management
+
+**Problem:** Products required multiple images with primary image designation, reordering capability, and proper cleanup when images are deleted or replaced.
+
+**Impact:** Required coordination between React state, form handling, Supabase Storage uploads, and database transactions.
+
+### 4. Optimistic UI with Server State
+
+**Problem:** Balancing immediate UI feedback with server-side data consistency when performing CRUD operations through server actions.
+
+**Impact:** Users expected instant feedback while the system needed to maintain data integrity and handle potential failures gracefully.
+
+---
+
+## Solutions Implemented
+
+### 1. Fresh Supabase Client Pattern
+
+Implemented a strict "create fresh per function" pattern for server-side Supabase clients:
+
+```typescript
+// lib/supabase/server.ts
+export async function createClient() {
+  const cookieStore = await cookies();
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    {
+      cookies: {
+        getAll: () => cookieStore.getAll(),
+        setAll: (cookiesToSet) => {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            cookieStore.set(name, value, options)
+          );
+        },
+      },
+    }
   );
 }
 ```
 
-### Database Schema
+Every server action and API route creates a new client instance, ensuring proper cookie handling and authentication state.
 
-Using Prisma ORM with PostgreSQL for type-safe database operations:
+### 2. Layered Authorization System
+
+Implemented a multi-layer approach:
+
+**Layer 1 — Middleware Route Protection:**
 
 ```typescript
-model Product {
-  id          String   @id @default(cuid())
-  name        String
-  description String
-  price       Float
-  image       String
-  category    Category @relation(fields: [categoryId], references: [id])
-  categoryId  String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+// proxy.ts
+export const config = {
+  matcher: ["/admin/:path*"],
+};
+```
+
+**Layer 2 — Role Helper Functions:**
+
+```typescript
+// lib/auth/roles.ts
+export function isAdmin(user: User | null): boolean {
+  return user?.app_metadata?.role === "admin";
+}
+
+export function hasAdminAccess(user: User | null): boolean {
+  return isAdmin(user) || isDemoAdmin(user);
 }
 ```
 
-### Cart State Management
-
-Implemented a custom hook for cart management with localStorage persistence:
+**Layer 3 — Server Action Guards:**
 
 ```typescript
-export function useCart() {
-  const [items, setItems] = useState<CartItem[]>([]);
+export async function deleteCategory(id: string) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  const addItem = (product: Product, quantity: number = 1) => {
-    setItems((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
-      if (existing) {
-        return prev.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
-        );
-      }
-      return [...prev, { ...product, quantity }];
-    });
-  };
-
-  return { items, addItem, removeItem, updateQuantity, total };
+  // Only full admin can delete
+  if (!isAdmin(user)) {
+    return { ok: false, error: "Only admin users can delete records" };
+  }
+  // ... proceed with deletion
 }
 ```
 
-## Challenges & Solutions
+### 3. TanStack Query Integration with Server Actions
 
-1. **Image Optimization** – Used Next.js Image component with blur placeholders for fast loading
-2. **Cart Persistence** – Implemented localStorage sync with React state for seamless experience
-3. **SEO** – Added dynamic meta tags and structured data for product pages
+Combined TanStack Query's caching capabilities with Next.js Server Actions:
 
-## Results
+```typescript
+// hooks/use-categories.ts
+export function useAddCategory() {
+  const queryClient = useQueryClient();
 
-- **95+ Lighthouse Score** on performance
-- **Sub-second** initial page load
-- **Mobile-first** responsive design
+  return useMutation({
+    mutationFn: async (formData: FormData) => {
+      const result = await addCategory(formData);
+      if (!result.ok) throw new Error(result.error);
+      return result;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: CATEGORIES_QUERY_KEY });
+      toast.success("Category created!");
+    },
+    onError: (error: Error) => toast.error(error.message),
+  });
+}
+```
 
-## What I Learned
+This pattern provides:
 
-Building this project deepened my understanding of e-commerce patterns, payment integration workflows, and the importance of performance optimization for conversion rates.
+- Automatic cache invalidation on mutations
+- Loading and error states
+- Optimistic updates when needed
+- Toast notifications for user feedback
+
+### 4. Composable Form Architecture
+
+Standardized form pattern using React Hook Form with Zod validation:
+
+```typescript
+// Separate schema file
+export const categoryFormSchema = z.object({
+  name: z.string().min(1, "Required").max(100),
+  is_active: z.boolean(),
+});
+
+// Form component with Controller pattern
+<Controller
+  control={control}
+  name="name"
+  render={({ field, fieldState }) => (
+    <Field data-invalid={fieldState.invalid}>
+      <FieldLabel htmlFor="name">Name</FieldLabel>
+      <Input {...field} />
+      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+    </Field>
+  )}
+/>;
+```
+
+---
+
+## Architecture Highlights
+
+### Directory Structure
+
+```
+app/
+├── (root)/          # Public storefront (route group)
+├── admin/           # Protected admin dashboard
+├── auth/            # Authentication flows
+└── actions/         # Shared server actions
+
+lib/
+├── services/        # Server actions (categories.ts, products.ts)
+├── supabase/        # Client factories (server.ts, client.ts)
+└── auth/            # Role helpers
+
+components/
+├── ui/              # shadcn/ui primitives
+├── admin/           # Admin-specific components
+└── auth/            # Auth forms
+
+hooks/               # TanStack Query hooks
+providers/           # React context providers
+```
+
+### Data Flow
+
+```
+User Action → React Hook Form → Server Action → Supabase
+     ↓
+TanStack Query Mutation → Cache Invalidation → UI Update
+     ↓
+Toast Notification (Sonner)
+```
+
+---
+
+## Results Achieved
+
+### Performance Metrics
+
+- ⚡ **First Contentful Paint**: < 1.5s with React Server Components
+- 📦 **Bundle Size**: Optimized with tree-shaking and dynamic imports
+- 🔄 **Data Fetching**: Efficient with TanStack Query deduplication and caching
+
+### Developer Experience
+
+- ✅ **100% TypeScript**: End-to-end type safety from database to UI
+- 🧩 **Modular Architecture**: Clear separation of concerns
+- 📝 **Consistent Patterns**: Standardized forms, hooks, and server actions
+
+### User Experience
+
+- 🎯 **Instant Feedback**: Optimistic updates with graceful error handling
+- 🌓 **Theme Support**: Seamless dark/light mode switching
+- 📱 **Responsive**: Full functionality on mobile devices
+
+### Security
+
+- 🔒 **Multi-layer Auth**: Middleware + server-side role checks
+- 🛡️ **Demo Mode**: Safe demonstration without data loss risk
+- 🔐 **Secure Uploads**: Validated file types and size limits
+
+---
+
+## Key Learnings
+
+1. **Serverless Architecture Requires Stateless Patterns**: Module-level caching can cause subtle bugs in serverless environments. Always create fresh instances for request-scoped resources.
+
+2. **Type Safety Pays Off**: The upfront investment in TypeScript and Zod schemas prevented countless runtime errors and improved refactoring confidence.
+
+3. **Separation of Server/Client Concerns**: Clear boundaries between server and client code (Server Actions vs TanStack Query hooks) made the codebase more maintainable.
+
+4. **Component Composition Over Configuration**: Building with shadcn/ui's composable primitives allowed for consistent yet flexible UI patterns.
+
+---
+
+## Links
+
+- 🔗 [Live Demo](https://hexashop.foysal.me) — Try the demo admin experience
+- 📂 [GitHub Repository](https://github.com/mdfoysalahmed613/Hexa-Shop) — View the source code
+- 📧 [Contact](mailto:foysal@foysal.me) — Discuss this project
+
+---
+
+_Built with Next.js 16, React 19, Supabase, and modern web technologies._
