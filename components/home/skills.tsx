@@ -15,9 +15,13 @@ import {
   SiSupabase,
   SiVercel,
   SiDocker,
+  SiNestjs,
+  SiGraphql,
+  SiPrisma,
 } from "react-icons/si"
 import { motion } from 'framer-motion'
 import { TbBrandFramerMotion } from 'react-icons/tb'
+import { Panda } from 'lucide-react'
 
 
 const Skills = () => {
@@ -35,14 +39,21 @@ const Skills = () => {
     { icon: SiTailwindcss, label: 'Tailwind CSS' },
     { icon: SiShadcnui, label: 'Shadcn UI' },
     { icon: SiReactquery, label: 'TanStack Query' },
-    { icon: TbBrandFramerMotion , label: 'Motion' },
+    { icon: TbBrandFramerMotion, label: 'Motion' },
+    { icon: Panda, label: 'Zustand' },
   ]
 
   const BACKEND = [
-    { icon: SiSupabase, label: 'Supabase(Auth, Database, Storage)' },
-    { icon: SiPostgresql, label: 'PostgreSQL' },
+    { icon: SiNestjs, label: 'NestJS' },
+    { icon: SiGraphql, label: 'GraphQL' },
     { icon: SiNodedotjs, label: 'Node.js' },
     { icon: SiExpress, label: 'Express.js' },
+  ]
+
+  const DATABASE = [
+    { icon: SiSupabase, label: 'Supabase(Auth, Database, Storage)' },
+    { icon: SiPostgresql, label: 'PostgreSQL' },
+    { icon: SiPrisma, label: 'Prisma' },
   ]
 
   const TOOLS = [
@@ -132,7 +143,7 @@ const Skills = () => {
             variants={categoryVariants}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h2 className='font-bold text-2xl text-primary mb-3'>Backend & Database</h2>
+            <h2 className='font-bold text-2xl text-primary mb-3'>Backend</h2>
             <motion.div
               className='flex flex-wrap gap-4'
               variants={containerVariants}
@@ -143,7 +154,27 @@ const Skills = () => {
                 </motion.div>
               ))}
             </motion.div>
-          </motion.div>      
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={categoryVariants}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <h2 className='font-bold text-2xl text-primary mb-3'>Database</h2>
+            <motion.div
+              className='flex flex-wrap gap-4'
+              variants={containerVariants}
+            >
+              {DATABASE.map((t) => (
+                <motion.div key={t.label} variants={itemVariants} transition={{ duration: 0.5 }}>
+                  <Tech icon={t.icon} label={t.label} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
 
           {/* Tools & Services */}
           <motion.div
