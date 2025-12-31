@@ -1,13 +1,13 @@
-import ScrollToTop from '@/components/common/scroll-to-top'
-import Contact from '@/components/home/contact'
-import HeroSection from '@/components/home/hero'
-import WorkFlow from '@/components/home/how-i-work'
-import Projects from '@/components/home/projects'
-import Services from '@/components/home/services'
-import Skills from '@/components/home/skills'
 import { getFeaturedProjects } from '@/lib/projects'
+import HeroSection from './_components/hero'
+import Skills from './_components/skills'
+import Services from './_components/services'
+import Projects from './_components/projects'
+import WorkFlow from './_components/how-i-work'
+import Contact from './_components/contact'
+import ScrollToTop from './_components/scroll-to-top'
 
-const Page = () => {
+export default function Page() {
   const projects = getFeaturedProjects()
 
   return (
@@ -22,5 +22,3 @@ const Page = () => {
     </main>
   )
 }
-
-export default Page

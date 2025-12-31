@@ -1,4 +1,4 @@
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 import { Download, Phone } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'

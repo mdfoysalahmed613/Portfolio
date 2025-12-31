@@ -46,7 +46,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
             href={href}
             className="text-primary hover:underline font-medium"
             target={href?.startsWith("http") ? "_blank" : undefined}
-            rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
+            rel={href?.startsWith("http") ? "noopener" : undefined}
          >
             {children}
          </Link>
