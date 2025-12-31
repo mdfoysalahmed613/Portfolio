@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import ProjectCarousel from "@/components/common/project-carousel";
 import { IProject } from "@/lib/projects";
 import { FaGithub } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 interface ProjectsProps {
   projects: IProject[];
@@ -13,25 +14,40 @@ interface ProjectsProps {
 
 const Projects = ({ projects }: ProjectsProps) => {
   return (
-    <section id="projects" className="py-20">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of projects I&apos;ve worked on, showcasing my skills in
-            full-stack development
-          </p>
-        </div>
+    <section id="projects" className="py-20 max-w-6xl mx-auto">
+      {/* Header */}
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-4xl text-center lg:text-5xl font-bold mb-4">
+        Featured Projects
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+        A selection of projects I&apos;ve worked on, showcasing my skills in
+        full-stack development
+      </motion.p>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project) => (
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        {projects.map((project, index) => (
+          <motion.div
+            key={project.slug}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
             <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
@@ -39,7 +55,8 @@ const Projects = ({ projects }: ProjectsProps) => {
 
 function ProjectCard({ project }: { project: IProject }) {
   return (
-    <article className="group bg-card rounded-xl overflow-hidden border border-border hover:shadow-xl transition-all duration-300">
+    <article className="group bg-card rounded-xl overflow-hidden border border-border hover:shadow-xl transition-all duration-300"
+    >
       {/* Image Carousel */}
       <ProjectCarousel
         images={project.images}
