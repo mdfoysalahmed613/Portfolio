@@ -18,6 +18,7 @@ import {
    SiNestjs,
    SiGraphql,
    SiPrisma,
+   SiMongodb,
 } from "react-icons/si"
 import { motion } from 'framer-motion'
 import { TbBrandFramerMotion } from 'react-icons/tb'
@@ -54,6 +55,7 @@ const Skills = () => {
       { icon: SiSupabase, label: 'Supabase(Auth, Database, Storage)' },
       { icon: SiPostgresql, label: 'PostgreSQL' },
       { icon: SiPrisma, label: 'Prisma' },
+      { icon: SiMongodb, label: 'MongoDB' },
    ]
 
    const TOOLS = [
