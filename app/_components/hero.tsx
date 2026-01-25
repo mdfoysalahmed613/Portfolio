@@ -7,8 +7,8 @@ const HeroSection = () => {
    return (
       <section className='flex flex-col items-center gap-3 md:gap-6 justify-center my-20 text-center'>
          <Image
-            src="/profile.webp"
-            alt="Foysal Ahmed - Full Stack Developer"
+            src="/md-foysal-ahmed.jpg"
+            alt="Md Foysal Ahmed"
             width={256}
             height={256}
             priority
