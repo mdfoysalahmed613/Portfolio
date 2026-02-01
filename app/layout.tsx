@@ -23,19 +23,19 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
   title: {
-    default: "Md Foysal Ahmed | Full Stack Developer",
+    default: "Md Foysal Ahmed | Websites That Bring You Customers",
     template: `%s | Md Foysal Ahmed`,
   },
-  description: "I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.",
+  description: "I help local businesses and service providers attract more customers with fast, modern websites that convert visitors into paying clients.",
 
   authors: [{ name: "Md Foysal Ahmed", url: process.env.NEXT_PUBLIC_BASE_URL! }],
   creator: "Md Foysal Ahmed",
 
 
   openGraph: {
-    title: "Md Foysal Ahmed",
+    title: "Md Foysal Ahmed | Websites That Bring You Customers",
     description:
-      "I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.",
+      "I help local businesses and service providers attract more customers with fast, modern websites that convert visitors into paying clients.",
     url: process.env.NEXT_PUBLIC_BASE_URL!,
     siteName: "Md Foysal Ahmed",
     locale: "en_US",
@@ -43,25 +43,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Md Foysal Ahmed",
+    title: "Md Foysal Ahmed | Websites That Bring You Customers",
     description:
-      "I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.",
+      "I help local businesses and service providers attract more customers with fast, modern websites that convert visitors into paying clients.",
   },
   keywords: [
     "Md Foysal Ahmed",
-    "Foysal Ahmed",
-    "Foysal Ahmed Developer",
-    "Foysal Ahmed BD",
-    "Foysal Ahmed Portfolio",
-    "Full Stack Developer",
-    "Web Developer Portfolio",
-    "Next.js developer",
-    "React Developer",
-    "TypeScript Developer",
-    "Node.js Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "Supabase Developer",
+    "Business Website Developer",
+    "Website for Small Business",
+    "Lead Generation Website",
+    "Bangladesh Web Developer",
+    "Dhaka Web Developer",
+    "Modern Website Design",
+    "Fast Website Developer",
+    "Local Business Website",
+    "Service Business Website",
+    "Website That Gets Customers",
+    "Next.js Developer Bangladesh",
+    "Professional Business Website",
   ],
   robots: {
     index: true,
@@ -104,12 +103,12 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
       "https://www.linkedin.com/in/mdfoysalahmed613",
       "https://www.facebook.com/foysal613"
     ],
-    "jobTitle": "Full Stack Developer",
+    "jobTitle": "Web Developer for Businesses",
     "worksFor": {
       "@type": "Organization",
       "name": "Freelance"
     },
-    "description": "I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.",
+    "description": "I help local businesses and service providers attract more customers with fast, modern websites that convert visitors into paying clients.",
     "email": "contact@foysal.me",
     "telephone": "+8801581633810",
     "address": {

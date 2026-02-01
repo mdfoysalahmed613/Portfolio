@@ -22,7 +22,7 @@ const Projects = ({ projects }: ProjectsProps) => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="text-4xl text-center lg:text-5xl font-bold mb-4">
-            Featured Projects
+            Client Work
          </motion.h2>
          <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -30,8 +30,7 @@ const Projects = ({ projects }: ProjectsProps) => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            A selection of projects I&apos;ve worked on, showcasing my skills in
-            full-stack development
+            Websites built for real businesses
          </motion.p>
 
          {/* Projects Grid */}
@@ -78,7 +77,7 @@ function ProjectCard({ project }: { project: IProject }) {
 
             {/* Title */}
             <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-               <Link href={`/projects/${project.slug}`}>
+               <Link href={`${project.liveUrl}`} target="_blank" rel="noopener">
                   {project.title}
                </Link>
             </h3>
@@ -108,27 +107,19 @@ function ProjectCard({ project }: { project: IProject }) {
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-2">
                <Button size="sm" asChild>
-                  <Link href={`/projects/${project.slug}`} className="flex-1">
+                  <Link href={project.liveUrl} className="flex-1" target="_blank" rel="noopener">
                      <Eye className="w-3.5 h-3.5 mr-1.5" />
+                     Live Preview
+                  </Link>
+               </Button>
+
+               <Button size="sm" variant="outline" asChild>
+                  <Link href={`/projects/${project.slug}`} >
+                     <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
                      View Details
                   </Link>
                </Button>
-               {project.liveUrl && (
-                  <Button size="sm" variant="outline" asChild>
-                     <Link href={project.liveUrl} target="_blank" rel="noopener">
-                        <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
-                        Live
-                     </Link>
-                  </Button>
-               )}
-               {project.githubUrl && (
-                  <Button size="sm" variant="outline" asChild>
-                     <Link href={project.githubUrl} target="_blank" rel="noopener">
-                        <FaGithub className="w-3.5 h-3.5 mr-1.5" />
-                        Code
-                     </Link>
-                  </Button>
-               )}
+
             </div>
          </div>
       </article>

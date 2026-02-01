@@ -52,7 +52,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
          >
-            Get In Touch
+            Let’s Work Together
          </motion.h2>
          <motion.p
             className='py-4 text-center text-muted-foreground max-w-2xl mx-auto'
@@ -61,7 +61,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
          >
-            Available for agency partnerships and contract work
+            Let&apos;s discuss how a modern website can help grow your business. Free consultation, no obligations.
          </motion.p>
 
          <div className='max-w-5xl mx-auto mt-8 grid md:grid-cols-3 gap-6'>

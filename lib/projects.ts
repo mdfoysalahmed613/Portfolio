@@ -9,8 +9,7 @@ export interface IProjectFrontmatter {
   year: string;
   technologies: string[];
   images: string[];
-  liveUrl?: string;
-  githubUrl?: string;
+  liveUrl: string;
   featured?: boolean;
 }
 
@@ -60,7 +59,6 @@ export function getProjectBySlug(slug: string): IProject | null {
       (img: string) => `/projects/${slug}/${img}`
     ),
     liveUrl: data.liveUrl,
-    githubUrl: data.githubUrl,
     featured: data.featured ?? false,
     content,
   };

@@ -1,38 +1,38 @@
 "use client"
 import { motion } from 'framer-motion'
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Code2, FolderGit2, MessageSquare, GitBranch, ShieldCheck, ListChecks } from 'lucide-react'
+import { MessageSquare, Clock, Target, Headphones, CheckCircle, TrendingUp } from 'lucide-react'
 
 const workingPrinciples = [
    {
-      icon: Code2,
-      title: "Clean, Maintainable Code",
-      description: "Write code that your team can understand and maintain months later. No clever tricks—just clear, readable solutions."
-   },
-   {
-      icon: FolderGit2,
-      title: "Follow Project Conventions",
-      description: "Adapt to your existing codebase structure, naming patterns, and architectural decisions without friction."
-   },
-   {
       icon: MessageSquare,
-      title: "Clear Async Communication",
-      description: "Document decisions, share updates proactively, and communicate clearly across time zones without constant oversight."
+      title: "Clear Communication",
+      description: "No technical jargon. I explain everything in simple terms and keep you updated throughout the project."
    },
    {
-      icon: GitBranch,
-      title: "Proper Git Workflow",
-      description: "Small, focused PRs with descriptive commits. Easy code reviews that don't block your team's progress."
+      icon: Clock,
+      title: "Fast Delivery",
+      description: "Your website will be ready in 2-4 weeks, not months. Quick turnaround so you can start getting customers faster."
    },
    {
-      icon: ListChecks,
-      title: "Review-Friendly Delivery",
-      description: "Ship changes with quick context, clear PR notes, and careful edge-case handling so reviews stay fast and predictable."
+      icon: Target,
+      title: "Results-Focused",
+      description: "Every design decision is made to help you get more customers—not just to look pretty."
    },
    {
-      icon: ShieldCheck,
-      title: "Long-term Thinking",
-      description: "Consider performance implications, data integrity, and security from the start—not as afterthoughts."
+      icon: Headphones,
+      title: "Ongoing Support",
+      description: "After launch, I'm still here. Updates, changes, and questions—I've got you covered."
+   },
+   {
+      icon: CheckCircle,
+      title: "No Hidden Costs",
+      description: "You get a clear quote upfront. No surprise fees, no scope creep charges without your approval."
+   },
+   {
+      icon: TrendingUp,
+      title: "Built for Growth",
+      description: "Your website is built to scale with your business. Add new services, locations, or features easily."
    }
 ]
 
@@ -47,7 +47,7 @@ const WorkFlow = () => {
                viewport={{ once: true }}
                transition={{ duration: 0.5 }}
             >
-               How I Work
+               Why Choose Me
             </motion.h2>
             <motion.p
                className='py-4 text-center text-muted-foreground max-w-2xl mx-auto text-lg'
@@ -56,7 +56,7 @@ const WorkFlow = () => {
                viewport={{ once: true }}
                transition={{ duration: 0.5, delay: 0.1 }}
             >
-               I integrate seamlessly into agency workflows without slowing teams down or creating technical debt.
+               I make getting a professional website simple, affordable, and stress-free for busy business owners.
             </motion.p>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12'>
@@ -94,7 +94,7 @@ const WorkFlow = () => {
                transition={{ duration: 0.5, delay: 0.6 }}
             >
                <p className='text-xl font-medium text-foreground'>
-                  "I write stable code, work independently, and follow patterns that make future maintenance easy."
+                  &quot;Your success is my success. I don&apos;t just build websites—I help you grow your business.&quot;
                </p>
             </motion.div>
          </div>
