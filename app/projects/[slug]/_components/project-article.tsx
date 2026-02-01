@@ -44,14 +44,6 @@ export default async function ProjectArticle({ project }: ProjectArticleProps) {
                      </Link>
                   </Button>
                )}
-               {project.githubUrl && (
-                  <Button variant="outline" asChild>
-                     <Link href={project.githubUrl} target="_blank" rel="noopener">
-                        <SiGithub className="w-4 h-4 mr-2" />
-                        Source Code
-                     </Link>
-                  </Button>
-               )}
             </div>
 
             {/* Technologies */}
