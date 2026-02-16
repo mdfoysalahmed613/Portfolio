@@ -1,0 +1,130 @@
+---
+title: "ChainStore"
+description: "A modern template marketplace powered by cryptocurrency payments through HOT Pay on the NEAR blockchain, offering instant access to production-ready web templates."
+category: "Web3/Blockchain"
+year: "2025"
+technologies:
+  - Next.js
+  - TypeScript
+  - React
+  - Supabase
+  - NEAR Protocol
+  - Tailwind CSS
+  - Shadcn UI
+images:
+  - chain-store.png
+liveUrl: "https://chainstore.foysal.me"
+featured: true
+---
+
+## Project Overview
+
+**ChainStore** is a template marketplace where developers can purchase production-ready web templates using cryptocurrency. Built for the NEAR Protocol Hackathon, it integrates HOT Pay for seamless crypto payments on the NEAR blockchain.
+
+The platform demonstrates how blockchain payments can power real digital commerce — with instant delivery, no middlemen, and cryptographic payment verification.
+
+### Key Features
+
+- **Crypto Payments** — Purchase templates with cryptocurrency via HOT Pay on NEAR
+- **Instant Downloads** — Immediate access to template files after payment confirmation
+- **Live Previews** — Preview templates before purchasing with demo links
+- **User Dashboard** — View purchases, spending stats, and re-download templates
+- **Tech Stack Badges** — See the technologies used in each template at a glance
+
+---
+
+## Technologies Used
+
+### Frontend
+
+| Technology          | Purpose                                 |
+| ------------------- | --------------------------------------- |
+| **Next.js 16**      | App Router, React Server Components     |
+| **React 19**        | Modern component-based UI               |
+| **Tailwind CSS v4** | Utility-first responsive styling        |
+| **shadcn/ui**       | Accessible, production-ready components |
+| **Lucide React**    | Icon library                            |
+| **TypeScript**      | End-to-end type safety                  |
+
+### Backend & Blockchain
+
+| Technology        | Purpose                                       |
+| ----------------- | --------------------------------------------- |
+| **Supabase**      | PostgreSQL database, Auth, Row-Level Security |
+| **HOT Pay**       | Crypto payment processing on NEAR Protocol    |
+| **NEAR Protocol** | Blockchain layer for trustless payments       |
+| **Webhooks**      | Payment confirmation from HOT Pay             |
+
+---
+
+## How It Works
+
+1. **Browse** — Explore the catalog of production-ready templates with previews
+2. **Purchase** — Click "Buy with Crypto" and complete payment via HOT Pay
+3. **Download** — Template files become instantly available in your dashboard
+
+Each payment is recorded on the NEAR blockchain, providing full transparency and verifiability.
+
+---
+
+## Architecture Highlights
+
+### Payment Flow
+
+```
+User clicks "Buy with Crypto"
+  → POST /api/orders (creates pending purchase with unique memo UUID)
+  → Redirect to HOT Pay payment page
+  → User completes crypto payment on NEAR
+  → HOT Pay webhook confirms transaction
+  → Payment status page polls /api/orders/verify every 3 seconds
+  → Purchase marked "completed", download unlocked
+```
+
+### Database Design
+
+- **Templates table** — Stores template metadata, pricing, tech stack arrays, feature lists
+- **Purchases table** — Tracks memo UUIDs, NEAR transaction IDs, payment status
+- **Row-Level Security** — Users can only access their own purchase records
+
+### Key Technical Decisions
+
+- **Memo-based payment matching** — Each purchase generates a unique UUID memo that links the NEAR transaction back to the database record
+- **Polling + Webhooks** — Dual confirmation strategy: client-side polling for immediate UX feedback, server-side webhooks for reliable payment processing
+- **5-minute timeout** — Payment status page auto-expires to prevent indefinite polling
+
+---
+
+## Challenges & Solutions
+
+### 1. Payment Verification Reliability
+
+**Challenge:** Ensuring every crypto payment is accurately matched to the correct purchase without double-spending or missed transactions.
+
+**Solution:** Implemented a unique memo (UUID) system where each purchase generates a distinct identifier. The webhook handler matches incoming payments by memo, and the polling endpoint verifies status independently. This dual-path approach ensures no payment is lost.
+
+### 2. Hackathon Time Constraints
+
+**Challenge:** Building a full marketplace with blockchain integration within the hackathon timeframe.
+
+**Solution:** Leveraged Supabase for rapid backend setup (auth, database, RLS) and shadcn/ui for production-quality components. This allowed focusing development time on the HOT Pay integration and payment verification logic.
+
+---
+
+## Results
+
+- **Built for NEAR Protocol Hackathon** — $3,000 prize track from HOT Pay
+- **Instant Delivery** — No waiting after payment confirmation
+- **On-chain Payments** — Every transaction verifiable on NEAR blockchain
+- **Production-Ready** — Full auth, dashboard, and payment flow
+
+---
+
+## Links
+
+- [Live Demo](https://chainstore.foysal.me) — Browse available templates
+- [GitHub Repository](https://github.com/mdfoysalahmed613/chainstore) — View the source code
+
+---
+
+_Built with Next.js 16, NEAR Protocol, Supabase, and HOT Pay for the NEAR Protocol Hackathon._

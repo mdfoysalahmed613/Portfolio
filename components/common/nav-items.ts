@@ -9,7 +9,7 @@ export const navItems = [
   },
   {
     title: "Projects",
-    href: "/#projects",
+    href: "/projects",
   },
   {
     title: "Blog",

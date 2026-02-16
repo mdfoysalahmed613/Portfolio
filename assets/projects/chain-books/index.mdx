@@ -1,0 +1,130 @@
+---
+title: "ChainBooks"
+description: "A blockchain-powered e-book marketplace built on NEAR Protocol, enabling users to browse, purchase, and instantly download curated e-books using cryptocurrency."
+category: "Web3/Blockchain"
+year: "2025"
+technologies:
+  - Next.js
+  - TypeScript
+  - React
+  - Supabase
+  - NEAR Protocol
+  - Tailwind CSS
+  - Shadcn UI
+images:
+  - chain-books.png
+liveUrl: "https://chainbooks.foysal.me"
+featured: true
+---
+
+## Project Overview
+
+**ChainBooks** is a decentralized e-book marketplace built on NEAR Protocol. Users can browse a curated collection of books on blockchain, programming, AI, and design — then purchase them instantly using wNEAR cryptocurrency via PingPay.
+
+The platform combines traditional e-commerce UX with blockchain-powered payments, offering a seamless way to buy books with crypto while maintaining full transparency and no middlemen.
+
+### Key Features
+
+- **Crypto Payments** — Pay with wNEAR via PingPay, fully on-chain and verifiable
+- **Instant Downloads** — Immediate PDF access after successful payment, no DRM
+- **User Dashboard** — Track purchases, total spent, and download history
+- **Google OAuth** — Simple sign-in with Google via Supabase Auth
+- **Dark/Light Theme** — System-aware theme switching
+
+---
+
+## Technologies Used
+
+### Frontend
+
+| Technology          | Purpose                                 |
+| ------------------- | --------------------------------------- |
+| **Next.js 16**      | App Router, React Server Components     |
+| **React 19**        | Modern component-based UI               |
+| **Tailwind CSS v4** | Utility-first responsive styling        |
+| **shadcn/ui**       | Accessible, production-ready components |
+| **Lucide React**    | Icon library                            |
+| **TypeScript**      | End-to-end type safety                  |
+
+### Backend & Blockchain
+
+| Technology        | Purpose                                       |
+| ----------------- | --------------------------------------------- |
+| **Supabase**      | PostgreSQL database, Auth, Row-Level Security |
+| **PingPay**       | wNEAR payment processing on NEAR Protocol     |
+| **NEAR Protocol** | Blockchain layer for trustless payments       |
+| **Webhooks**      | HMAC SHA256 verified payment confirmation     |
+
+---
+
+## How It Works
+
+1. **Browse** — Explore the curated collection of e-books with detailed descriptions
+2. **Purchase** — Click "Buy with NEAR" and complete payment via PingPay checkout
+3. **Download** — After payment confirmation, PDF is instantly available in your dashboard
+
+The entire payment flow settles on-chain via NEAR Protocol, ensuring transparency and security without intermediaries.
+
+---
+
+## Architecture Highlights
+
+### Payment Flow
+
+```
+User clicks "Buy with NEAR"
+  → POST /api/orders (creates PingPay session + pending purchase)
+  → Redirect to PingPay hosted checkout
+  → User completes wNEAR payment
+  → PingPay webhook confirms payment (HMAC SHA256 verified)
+  → Purchase status updated to "completed"
+  → PDF available for download in dashboard
+```
+
+### Database Design
+
+- **Books table** — Stores book metadata, pricing in NEAR, download URLs
+- **Purchases table** — Tracks payment sessions, verification status, user purchases
+- **Row-Level Security** — Users can only access their own purchase records
+
+### Security
+
+- HMAC SHA256 webhook verification prevents payment spoofing
+- Supabase RLS ensures data isolation between users
+- Server-side authentication checks on all protected routes
+
+---
+
+## Challenges & Solutions
+
+### 1. Blockchain Payment Integration
+
+**Challenge:** Integrating NEAR Protocol payments into a traditional web app while maintaining a smooth UX.
+
+**Solution:** Used PingPay as a payment abstraction layer, handling the complexity of blockchain transactions while providing a familiar checkout experience. The webhook-based verification ensures payments are confirmed on-chain before granting access.
+
+### 2. Real-time Payment Status
+
+**Challenge:** Users need immediate feedback after completing a crypto payment, but blockchain confirmations aren't instant.
+
+**Solution:** Implemented a polling mechanism on the payment status page that checks verification every 3 seconds, with a 5-minute timeout. Combined with webhook processing, this provides near-instant confirmation for most transactions.
+
+---
+
+## Results
+
+- **0% DRM** — No lock-in, users own their purchased books
+- **< 30s Checkout** — Fast payment flow from click to confirmation
+- **On-chain Verification** — Every payment is verifiable on NEAR blockchain
+- **Instant Access** — No waiting period after payment confirmation
+
+---
+
+## Links
+
+- [Live Demo](https://chainbooks.foysal.me) — Browse the marketplace
+- [GitHub Repository](https://github.com/mdfoysalahmed613/chain-books) — View the source code
+
+---
+
+_Built with Next.js 16, NEAR Protocol, Supabase, and PingPay._

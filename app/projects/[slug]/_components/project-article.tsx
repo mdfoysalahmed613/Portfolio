@@ -6,7 +6,6 @@ import remarkGfm from "remark-gfm";
 import { useMDXComponents } from "@/mdx-components";
 import { Button } from "@/components/ui/button";
 import ProjectCarousel from "@/components/common/project-carousel";
-import { SiGithub } from "react-icons/si";
 import { IProject } from "@/lib/projects";
 
 interface ProjectArticleProps {
@@ -96,7 +95,7 @@ export default async function ProjectArticle({ project }: ProjectArticleProps) {
          <footer className="mt-16 pt-8 border-t border-border">
             <div className="flex justify-between items-center">
                <Link
-                  href="/#projects"
+                  href="/projects"
                   className="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-medium group"
                >
                   <ArrowLeft className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-translate-x-1" />

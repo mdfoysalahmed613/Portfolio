@@ -56,7 +56,7 @@ export function getProjectBySlug(slug: string): IProject | null {
     year: data.year,
     technologies: data.technologies || [],
     images: (data.images || []).map(
-      (img: string) => `/projects/${slug}/${img}`
+      (img: string) => `/projects/${slug}/${img}`,
     ),
     liveUrl: data.liveUrl,
     featured: data.featured ?? false,
@@ -72,4 +72,10 @@ export function getAllProjectSlugs(): string[] {
       fs.existsSync(path.join(itemPath, "index.mdx"))
     );
   });
+}
+
+export function getAllCategories(): string[] {
+  const projects = getAllProjects();
+  const categories = new Set(projects.map((p) => p.category));
+  return Array.from(categories).sort();
 }

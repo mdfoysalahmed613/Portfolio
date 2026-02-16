@@ -15,7 +15,7 @@ export default function Page() {
     <main>
       <HeroSection />
       <Services />
-      <Projects projects={projects} />
+      <Projects projects={projects} limit={3} showViewAll />
       <Testimonials />
       <WorkFlow />
       <Skills />
