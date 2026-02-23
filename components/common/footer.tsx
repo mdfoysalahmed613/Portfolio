@@ -90,6 +90,16 @@ const Footer = () => {
               Crafted with <span className='text-red-500'>♥</span> using Next.js
             </p>
           </div>
+          <p className='text-xs text-muted-foreground/60 text-center mt-4'>
+            Recent client work:{' '}
+            <a href='https://motobuddy.com.bd' target='_blank' rel='dofollow' className='hover:text-foreground transition-colors'>
+              Moto Buddy
+            </a>
+            {' · '}
+            <a href='https://drahmedshehata.com' target='_blank' rel='dofollow' className='hover:text-foreground transition-colors'>
+              Dr. Ahmed Shehata
+            </a>
+          </p>
         </div>
       </div>
     </footer>

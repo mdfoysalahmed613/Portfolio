@@ -97,7 +97,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
     "@type": "Person",
     "name": "Md Foysal Ahmed",
     "url": "https://foysal.me",
-    "image": `${process.env.NEXT_PUBLIC_BASE_URL}${ProfileImage.src}`,
+    "image": "https://foysal.me/md-foysal-ahmed.jpg",
     "sameAs": [
       "https://github.com/mdfoysalahmed613",
       "https://www.linkedin.com/in/mdfoysalahmed613",
