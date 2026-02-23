@@ -96,7 +96,7 @@ const Footer = () => {
               Moto Buddy
             </a>
             {' · '}
-            <a href='https://drahmedshehata.com' target='_blank' rel='dofollow' className='hover:text-foreground transition-colors'>
+            <a href='https://ahmed-shehata.vercel.app' target='_blank' rel='dofollow' className='hover:text-foreground transition-colors'>
               Dr. Ahmed Shehata
             </a>
           </p>
