@@ -73,7 +73,7 @@ const Footer = () => {
                 className='p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors'
                 aria-label='WhatssApp'
               >
-                <IoLogoWhatsapp  className='text-primary' size={20} />
+                <IoLogoWhatsapp className='text-primary' size={20} />
               </Link>
             </div>
             <p className='text-xs text-muted-foreground pt-2'>
