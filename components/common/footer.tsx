@@ -82,25 +82,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className='border-t border-border/40 py-6'>
-          <div className='flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground'>
-            <p>© {currentYear} Md Foysal Ahmed. All rights reserved.</p>
-            <p className='flex items-center gap-1'>
-              Crafted with <span className='text-red-500'>♥</span> using Next.js
-            </p>
-          </div>
-          <p className='text-xs text-muted-foreground/60 text-center mt-4'>
-            Recent client work:{' '}
-            <a href='https://motobuddy.com.bd' target='_blank' rel='dofollow' className='hover:text-foreground transition-colors'>
-              Moto Buddy
-            </a>
-            {' · '}
-            <a href='https://ahmed-shehata.vercel.app' target='_blank' rel='dofollow' className='hover:text-foreground transition-colors'>
-              Dr. Ahmed Shehata
-            </a>
-          </p>
-        </div>
       </div>
     </footer>
   )
