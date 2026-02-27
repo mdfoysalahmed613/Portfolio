@@ -20,7 +20,7 @@ const HeroSection = () => {
          <h1 className='font-bold text-3xl md:text-4xl xl:text-6xl'>Md Foysal Ahmed
          </h1>
 
-         <h2 className='font-bold text-lg md:text-2xl'>I Build Websites That Bring You Customers
+         <h2 className='font-bold text-lg md:text-2xl'>Full stack developer
          </h2>
 
          <p className='text-muted-foreground max-w-2xl'>I help local businesses and service providers attract more customers with fast, modern websites that look great and convert visitors into paying clients.
