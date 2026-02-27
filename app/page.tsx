@@ -6,7 +6,6 @@ import Projects from './_components/client-work'
 import WorkFlow from './_components/why-choose-me'
 import Contact from './_components/contact'
 import ScrollToTop from './_components/scroll-to-top'
-import Testimonials from './_components/testimonials'
 
 export default function Page() {
   const projects = getFeaturedProjects()
@@ -16,7 +15,6 @@ export default function Page() {
       <HeroSection />
       <Services />
       <Projects projects={projects} limit={3} showViewAll />
-      <Testimonials />
       <WorkFlow />
       <Skills />
       <Contact />
