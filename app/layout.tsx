@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import GoogleAnalytics from "@/components/common/google-analytics";
 import Navbar from "@/components/common/nav";
 import Footer from "@/components/common/footer";
+import { ThemeProvider } from "@/components/common/theme-provider";
 import ProfileImage from '@/public/md-foysal-ahmed.jpg'
 
 const inter = Inter({
@@ -127,16 +128,18 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body className={`${inter.className} antialiased flex flex-col max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <GoogleAnalytics />
-        <SpeedInsights />
-        <Navbar />
-        {children}
-        <Footer />
-        <Toaster position="top-center" richColors />
+        <ThemeProvider>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+          <GoogleAnalytics />
+          <SpeedInsights />
+          <Navbar />
+          {children}
+          <Footer />
+          <Toaster position="top-center" richColors />
+        </ThemeProvider>
       </body>
     </html>
   );

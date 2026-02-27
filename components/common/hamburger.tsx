@@ -4,20 +4,24 @@ import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { navItems } from '@/components/common/nav-items';
 import { motion } from 'framer-motion';
+import { ThemeToggle } from './theme-toggle';
 
 const Hamburger = () => {
    const [showMenu, setShowMenu] = useState(false);
    return (
       <>
-         <button
-            className="md:hidden transition-transform duration-200 "
-            onClick={() => setShowMenu(!showMenu)}
-            aria-label="Toggle Menu"
-         >
-            <div className={showMenu ? "rotate-90 transition-transform duration-300" : "transition-transform duration-300"}>
-               {showMenu ? <X /> : <Menu />}
-            </div>
-         </button>
+         <div className="flex items-center gap-3 md:hidden">
+            <ThemeToggle />
+            <button
+               className="transition-transform duration-200 "
+               onClick={() => setShowMenu(!showMenu)}
+               aria-label="Toggle Menu"
+            >
+               <div className={showMenu ? "rotate-90 transition-transform duration-300" : "transition-transform duration-300"}>
+                  {showMenu ? <X /> : <Menu />}
+               </div>
+            </button>
+         </div>
          {showMenu && (
             <>
                <div

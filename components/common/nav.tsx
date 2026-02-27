@@ -4,6 +4,7 @@ import { Download } from 'lucide-react';
 import { Button } from '../ui/button';
 import Hamburger from './hamburger';
 import { navItems } from '@/components/common/nav-items';
+import { ThemeToggle } from './theme-toggle';
 
 const yellowtail = Yellowtail({
    weight: ["400"],
@@ -30,12 +31,15 @@ const Navbar = () => {
             </nav>
          </div>
          <Hamburger />
-         <Button size='lg' className="hidden md:flex" asChild>
-            <Link href="/resume.pdf" target="_blank" download={true} prefetch={false}>
-               <Download />
-               Resume
-            </Link>
-         </Button>
+         <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
+            <Button size='lg' asChild>
+               <Link href="/resume.pdf" target="_blank" download={true} prefetch={false}>
+                  <Download />
+                  Resume
+               </Link>
+            </Button>
+         </div>
       </header>
    )
 }

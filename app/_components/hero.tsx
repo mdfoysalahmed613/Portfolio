@@ -27,16 +27,11 @@ const HeroSection = () => {
          </p>
 
          <div className='flex gap-5 mt-2 xl:gap-6'>
-            <Button className='hidden md:flex' size={"lg"} asChild>
-               <Link href="https://wa.me/+8801581633810">
-                  Get Free Consultation
+            <Button size={"lg"} asChild>
+               <Link href="/projects">
+                  View My Work
                </Link>
             </Button>
-            <Button className='md:hidden' size={"lg"} asChild>
-               <Link href="https://wa.me/+8801581633810">
-                  Get Free Quote
-               </Link>
-            </Button >
             <Button size={"lg"} variant={"outline"} asChild>
                <Link href="#contact" className='flex items-center gap-2' >
                   <Phone />
