@@ -25,7 +25,7 @@ const Projects = ({ projects, limit, showViewAll = false }: ProjectsProps) => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="text-4xl text-center lg:text-5xl font-bold mb-4">
-            Client Work
+            Projects
          </motion.h2>
          <motion.p
             initial={{ opacity: 0, y: 20 }}
