@@ -23,7 +23,7 @@ export default function ProjectList({ projects, categories }: ProjectListProps) 
          {/* Header */}
          <header className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-               Projects
+               Project
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
                Websites built for real businesses
