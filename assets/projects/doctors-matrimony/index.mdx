@@ -1,0 +1,189 @@
+---
+title: "Doctors Matrimony"
+description: "A Bangladeshi doctors-focused matrimony platform with public biodata search, profile submission, premium biodata, admin review workflows, transactions, notifications, and email/SMS marketing."
+category: "Matrimony Platform"
+year: "2026"
+technologies:
+  - Next.js
+  - TypeScript
+  - React
+  - NestJS
+  - PostgreSQL
+  - Prisma
+  - Tailwind CSS
+  - Shadcn UI
+  - TanStack Query
+  - TanStack Table
+  - React Hook Form
+  - Zod
+  - Recharts
+images:
+  - image-1.png
+  - image-2.png
+liveUrl: "https://doctorsmatrimonybd.com/"
+featured: true
+---
+
+## Project Overview
+
+**Doctors Matrimony** is a full-stack matrimony platform built specifically for Bangladeshi doctors and medical students. The project combines a public Bangla website for browsing and submitting biodata with a secure admin panel for reviewing profiles, managing premium listings, tracking transactions, sending notifications, and running email/SMS campaigns.
+
+The product is designed around a structured biodata workflow. Visitors can explore approved profiles, filter by personal and location criteria, view profile details, and submit a new biodata. Admins can review pending submissions, approve verified profiles, mark premium biodata, track successful marriages, manage hadia records, and monitor platform performance through charts and reports.
+
+### Key Features
+
+- **Public Bangla Website** — Home page, biodata browsing, pricing, whitelist, contact, about, FAQ, guide, Islamic content pages, success blog, and success vlog
+- **Biodata Discovery** — Public approved-profile listing with filters for gender, marital status, religion, doctor type, current status, age, height, weight, division, district, thana, and premium status
+- **Biodata Detail Pages** — Profile detail view, contact section, share card, print sheet, visitor count, and interest/save actions
+- **Create Biodata Flow** — Multi-section biodata form for personal, education, family, profession, expectation, verification, and contact information
+- **Admin Dashboard** — Overview cards for total biodatas, pending reviews, approved profiles, earnings, and biodata creation trend charts
+- **Biodata Management** — Admin list, edit, approve, update, soft-delete, trash management, premium biodata, successful marriage records, and hadia biodata
+- **Transaction Tracking** — Transaction records for premium, successful marriage, and hadia payments
+- **Marketing Tools** — Email templates, email campaigns, SMS campaigns, campaign audience preview, and campaign history
+- **Notifications** — Subscriber registration, notification feed, admin notification sending, and notification receipt tracking
+- **Intro Video Management** — Admin-controlled intro video content for the public experience
+- **Location Data** — Division, district, and thana based filtering and Bangladesh biodata distribution counts
+
+---
+
+## Technologies Used
+
+### Frontend
+
+| Technology                | Purpose                                                 |
+| ------------------------- | ------------------------------------------------------- |
+| **Next.js 16**            | App Router, public pages, admin routes, and SSR         |
+| **React 19**              | Component-based public website and admin panel          |
+| **TypeScript**            | Type safety across forms, API clients, hooks, and UI    |
+| **Tailwind CSS v4**       | Responsive styling for public pages and dashboards      |
+| **shadcn/ui + Radix UI**  | Accessible admin UI, forms, dialogs, and controls       |
+| **TanStack Query**        | API state, mutation handling, caching, and refetching   |
+| **TanStack Table**        | Admin biodata, transaction, and campaign tables         |
+| **React Hook Form + Zod** | Validated biodata and admin forms                       |
+| **Recharts**              | Dashboard and reporting charts                          |
+| **Zustand**               | Client-side filter and interface state                  |
+
+### Backend & Infrastructure
+
+| Technology          | Purpose                                                |
+| ------------------- | ------------------------------------------------------ |
+| **NestJS 11**       | Modular API for biodata, auth, marketing, and admin    |
+| **PostgreSQL**      | Relational database for biodata and operational data   |
+| **Prisma**          | Schema modeling, generated client, and database access |
+| **JWT + Passport**  | Admin authentication and protected API access          |
+| **Permission Guards** | Granular admin permission enforcement                |
+| **Nodemailer**      | Email delivery and campaign sending                    |
+| **Docker Compose**  | Local PostgreSQL development environment               |
+
+---
+
+## Platform Modules
+
+### Public Matrimony Website
+
+The public site is built for Bangla-speaking users and presents the platform as a trusted doctors-only matrimony service. It includes hero content, statistics, biodata search entry points, premium biodata sections, division and district browsing, image galleries, intro videos, trust highlights, pricing, and informational pages.
+
+### Biodata Marketplace
+
+Approved biodatas are shown publicly with searchable and filterable criteria. The system supports biodata detail pages, public stats, district/division counts, profile printing, sharing, contact visibility, and visitor tracking.
+
+### Biodata Submission
+
+The create-biodata flow collects structured information including identity, doctor type, education, medical college details, family background, profession, partner expectations, BMDC registration, WhatsApp/contact details, and pledge confirmation.
+
+### Admin Panel
+
+Admins can review pending biodatas, edit profile details, approve public visibility, manage premium and successful-marriage metadata, restore or permanently manage deleted biodatas, view reports, track transactions, manage support flows, and control role permissions.
+
+### Marketing & Notifications
+
+The admin panel includes email template management, targeted email campaigns, SMS campaigns, notification sending, subscriber feeds, and notification tracking. Campaign audiences can be built from biodata status, verification, premium, hadia, individual users, or custom filters.
+
+---
+
+## Architecture Highlights
+
+### Route Organization
+
+The frontend separates public, static content, and admin areas:
+
+```text
+app/(client)  -> public home, biodatas, pricing, whitelist, create biodata
+app/(pages)   -> informational and SEO content pages
+app/admin     -> protected dashboard, biodata, marketing, reports, transactions
+```
+
+This keeps the public matrimony experience focused while giving admins a separate operational workspace.
+
+### Modular Backend
+
+The NestJS backend is split into clear feature modules:
+
+```text
+auth, biodata, location, notification,
+email-marketing, sms-marketing, intro-video, prisma
+```
+
+The module split makes the biodata marketplace, admin tools, marketing features, and shared location data easier to maintain independently.
+
+### Prisma Data Model
+
+The database schema models the core matrimony operations:
+
+- Divisions, districts, and thanas for Bangladesh-based search and filtering
+- Biodatas with personal, education, family, profession, partner expectation, verification, contact, status, premium, and visitor fields
+- Premium info, successful marriage info, hadia info, and transaction records
+- Admin users, permissions, notifications, notification subscribers, and receipts
+- Email campaigns, SMS campaigns, and reusable email templates
+
+### Permission-Based Admin Access
+
+Admin APIs use JWT authentication with permission guards such as biodata read/write/delete, transaction management, reports, notifications, and email marketing. This allows operational access to be separated by admin responsibility.
+
+---
+
+## Challenges Faced
+
+### 1. Modeling a Detailed Biodata Form
+
+**Problem:** Doctor-focused biodata requires many domain-specific fields, including medical education, BMDC verification, current professional status, family details, marriage expectations, and contact rules.
+
+**Solution:** Built a structured Prisma schema and form system that keeps biodata data normalized enough for search and admin review while still capturing long-form profile details for the public profile page.
+
+### 2. Balancing Public Search With Privacy
+
+**Problem:** Visitors need enough information to evaluate profiles, but contact and sensitive profile data must be handled carefully.
+
+**Solution:** Public endpoints only expose approved biodatas, while admin endpoints have separate protected access. Profile detail pages support controlled contact sections, share cards, print views, and visitor counting.
+
+### 3. Admin Review and Monetization Workflow
+
+**Problem:** The platform needed to support pending review, approval, premium promotion, successful marriage records, hadia tracking, and transaction management from one admin panel.
+
+**Solution:** Added separate models and admin screens for biodata status, premium info, successful marriage info, hadia info, and transactions, then tied them into dashboard metrics and reports.
+
+### 4. Targeted Communication at Scale
+
+**Problem:** Admins needed to contact users based on biodata status, verification, premium membership, hadia records, custom filters, or individual selections.
+
+**Solution:** Built email template management, email campaign history, SMS campaigns, audience preview, and persisted campaign records with recipient counts, sent counts, and failed counts.
+
+---
+
+## Results
+
+- Delivered a production matrimony platform focused on Bangladeshi doctors and medical students
+- Built public biodata search, biodata submission, profile detail, pricing, and informational pages
+- Created an admin panel for profile review, biodata editing, premium listings, transactions, reports, notifications, and marketing
+- Implemented a NestJS and Prisma backend with PostgreSQL, JWT auth, permission guards, and modular services
+- Added real business workflows for premium biodata, successful marriages, hadia, and campaign-based communication
+
+---
+
+## Links
+
+- [Live Website](https://doctorsmatrimonybd.com/) — Browse the public Doctors Matrimony platform
+
+---
+
+_Built with Next.js, NestJS, PostgreSQL, Prisma, Tailwind CSS, shadcn/ui, TanStack Query, and Recharts._

@@ -1,0 +1,194 @@
+---
+title: "CCApply"
+description: "A multi-portal study abroad platform for students, agents, institutions, and admins with applications, documents, offers, commissions, invoices, reports, and real-time chat."
+category: "EdTech SaaS"
+year: "2026"
+technologies:
+  - Next.js
+  - TypeScript
+  - React
+  - NestJS
+  - MySQL
+  - TypeORM
+  - Tailwind CSS
+  - Shadcn UI
+  - TanStack Query
+  - React Hook Form
+  - Zod
+  - Socket.IO
+  - Recharts
+images:
+  - image-1.png
+  - image-2.png
+liveUrl: "https://ccapply.com"
+featured: true
+---
+
+## Project Overview
+
+**CCApply** is a full-stack study abroad management platform built for Creative Consultancy. It connects students, education agents, universities, and internal administrators in one operational system for discovering institutions, comparing programs, submitting applications, managing documents, tracking offer letters, processing visas, handling commissions, and communicating through live chat.
+
+The platform includes a public-facing website for discovery and a set of role-specific dashboards for daily operations. Students can search programs and apply directly, agents can manage student pipelines and commission records, institutions can maintain campuses and programs, and admins can control the complete education consultancy workflow from a centralized panel.
+
+### Key Features
+
+- **Public Study Abroad Portal** — Marketing pages, destination browsing, institution search, program search, reviews, resources, services, and visa status entry points
+- **Student Dashboard** — Profile, education history, test scores, document management, favourites, direct applications, offer letters, visa processing, and chat
+- **Agent Dashboard** — Student management, applications, fee waivers, institution/program discovery, commissions, invoices, reports, staff, and role management
+- **University Dashboard** — Institution profile, campuses, programs, student/application review, representative profile, staff, reports, and chat
+- **Admin Panel** — System-wide dashboards, institution/program/student/application management, followups, offer letters, student visa records, leads, staff, settings, and content modules
+- **Finance Workflow** — Commission rules, commission approval, invoice generation, invoice history, and analytics
+- **Application Operations** — Stage/status tracking, document uploads, application details, offer letter management, and visibility rules across roles
+- **Real-Time Communication** — Socket.IO based chat for connected users inside the platform
+- **Reporting & Analytics** — Growth analysis, conversion ratio, student analysis, pending offer letters, refund tracking, commission reports, and intake-wise summaries
+
+---
+
+## Technologies Used
+
+### Frontend
+
+| Technology                | Purpose                                               |
+| ------------------------- | ----------------------------------------------------- |
+| **Next.js 16**            | App Router, route groups, SSR, metadata, and routing  |
+| **React 19**              | Component-driven dashboard and public interfaces      |
+| **TypeScript**            | Strong typing across UI, forms, hooks, and API layers |
+| **Tailwind CSS v4**       | Responsive styling and reusable design tokens         |
+| **shadcn/ui + Radix UI**  | Accessible UI primitives for dashboards and forms     |
+| **TanStack Query**        | Server state, caching, mutations, and invalidation    |
+| **TanStack Table**        | Searchable and paginated data tables                  |
+| **React Hook Form + Zod** | Validated forms for profile, signup, and apply flows  |
+| **Socket.IO Client**      | Real-time chat communication                          |
+| **Recharts**              | Dashboard charts and reporting visuals                |
+| **Zustand**               | Lightweight client-side state management              |
+
+### Backend & Infrastructure
+
+| Technology        | Purpose                                                |
+| ----------------- | ------------------------------------------------------ |
+| **NestJS 11**     | Modular REST API architecture                          |
+| **MySQL 8**       | Relational database for operational education data     |
+| **TypeORM**       | Entity modeling, repositories, and database access     |
+| **JWT + Passport**| Authentication and protected API access                |
+| **RBAC Guards**   | Role and permission based authorization                |
+| **Socket.IO**     | WebSocket gateway for live chat                        |
+| **Multer**        | Document, avatar, logo, and media upload handling      |
+| **Nodemailer**    | Email verification and password reset flows            |
+| **Swagger**       | API documentation for backend endpoints                |
+| **Docker Compose**| Local API and MySQL development environment            |
+
+---
+
+## Platform Modules
+
+### Public Website
+
+The public website is designed for prospective students exploring study abroad options. It includes country and institution mega menus, university/program discovery, reviews, services, resources, contact pages, and a homepage with banners, counters, top institutions, program highlights, and a floating video widget.
+
+### Student Portal
+
+Students can create accounts, complete their profile, add education history and test scores, upload documents, search institutions and programs, apply to a program, track applications, review offer letters, follow visa processing, save favourites, and communicate through chat.
+
+### Agent Portal
+
+Agents can register agencies, manage students, create applications on behalf of students, upload documents, track applications and offer letters, view commission reports, generate invoices, manage staff access, and follow up through operational reports.
+
+### University Portal
+
+Universities can maintain their institution profile, create and edit campuses, manage programs, review applications, track students, maintain representative profiles, manage staff users, and review performance reports.
+
+### Admin Portal
+
+Admins control the whole platform. The admin panel includes metrics for institutions, programs, students, applications, and agents; CRUD management for universities and programs; application review; offer letter tracking; visa processing; leads; followups; staff roles; system settings; text reviews; public content; and finance workflows.
+
+---
+
+## Architecture Highlights
+
+### Multi-Role Route Structure
+
+The frontend separates the product into public and protected route groups:
+
+```text
+app/(public)      -> public website and discovery pages
+app/student       -> student auth and dashboard
+app/agent         -> agent auth and dashboard
+app/university    -> institution auth and dashboard
+app/admin         -> admin auth and protected operations
+```
+
+This keeps each portal focused while still sharing common hooks, API utilities, layout components, and design primitives.
+
+### Modular NestJS Backend
+
+The API is split by domain modules instead of one large controller layer:
+
+```text
+auth, users, student, agent, university, admin,
+application, finance, search, chat, staff,
+notifications, media, visa-process, audit-log
+```
+
+Each module owns its controller, service, DTOs, and related entities, which makes the platform easier to extend as new consultancy workflows are added.
+
+### Relational Data Model
+
+The MySQL schema models real consultancy relationships:
+
+- Users, roles, permissions, and refresh tokens
+- Students, agents, universities, campuses, countries, cities, faculties, intakes, and degree levels
+- Programs, applications, application stages, documents, offer letters, visa processes, status history, and favourites
+- Commission models, commissions, invoices, invoice items, scholarships, fee waivers, and currencies
+- Conversations, messages, notifications, leads, followups, staff roles, content templates, announcements, banners, and audit logs
+
+### Permission-Aware APIs
+
+Protected routes use JWT authentication and role guards so each user type only sees the records they should access. Shared application endpoints include visibility checks, while admin endpoints expose broader system-wide controls.
+
+---
+
+## Challenges Faced
+
+### 1. Supporting Four Different User Journeys
+
+**Problem:** Students, agents, universities, and admins all needed separate dashboards, but their workflows overlap around the same data: students, applications, documents, programs, and offer letters.
+
+**Solution:** Built dedicated portal route groups and backend modules while sharing core application, search, document, and communication services. This allowed each role to get a tailored interface without duplicating the central business logic.
+
+### 2. Complex Application Lifecycle
+
+**Problem:** A study abroad application moves through many states: profile completion, document collection, submission, review, offer, acceptance, rejection, visa processing, and finance tracking.
+
+**Solution:** Modeled application stages, status history, offer letters, documents, and visa processes as first-class entities. Admins can update status and stage, while students, agents, and universities see role-appropriate application detail screens.
+
+### 3. Finance and Commission Management
+
+**Problem:** Agents need transparent commission tracking, while admins need control over commission rules, approval, invoice generation, and payment status.
+
+**Solution:** Added finance modules for commission models, commissions, invoices, invoice items, approval states, invoice history, and analytics pages. The backend exposes separate admin and agent finance endpoints so each side has the correct level of control.
+
+### 4. Large Operational Dashboard Surface
+
+**Problem:** The platform has many dense operational screens, including tables, filters, forms, charts, documents, staff roles, settings, and reports.
+
+**Solution:** Standardized the frontend around reusable dashboard layouts, data-table patterns, form validation, query caching, toast feedback, and component primitives. This reduced UI inconsistency and made new modules faster to build.
+
+---
+
+## Results
+
+- Delivered a complete education consultancy platform with public website and four role-based portals
+- Centralized student, institution, program, application, document, offer letter, visa, finance, and staff workflows
+- Built a scalable NestJS API with JWT auth, RBAC, Swagger documentation, MySQL schema design, and modular services
+- Implemented dashboard analytics, real-time chat, searchable program discovery, document uploads, and finance reporting
+- Created a production-facing system for Creative Consultancy at **ccapply.com**
+
+---
+
+## Links
+
+- [Live Website](https://ccapply.com) — Explore the public portal and dashboard entry points
+
+---
+
+_Built with Next.js, NestJS, MySQL, TypeORM, Socket.IO, Tailwind CSS, and shadcn/ui._
