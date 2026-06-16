@@ -19,6 +19,8 @@ import {
    SiGraphql,
    SiPrisma,
    SiMongodb,
+   SiMysql,
+   SiTypeorm,
 } from "react-icons/si"
 import { motion } from 'framer-motion'
 import { TbBrandFramerMotion } from 'react-icons/tb'
@@ -52,9 +54,11 @@ const Skills = () => {
    ]
 
    const DATABASE = [
-      { icon: SiSupabase, label: 'Supabase(Auth, Database, Storage)' },
       { icon: SiPostgresql, label: 'PostgreSQL' },
       { icon: SiPrisma, label: 'Prisma' },
+      { icon: SiMysql, label: 'MySQL' },
+      { icon: SiTypeorm, label: 'TypeORM' },
+      { icon: SiSupabase, label: 'Supabase(Auth, Database, Storage)' },
       { icon: SiMongodb, label: 'MongoDB' },
    ]
 

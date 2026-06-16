@@ -1,8 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/common/project-card";
 import { IProject } from "@/lib/projects";
 import { motion } from "framer-motion";
@@ -13,7 +10,7 @@ interface ProjectsProps {
    showViewAll?: boolean;
 }
 
-const Projects = ({ projects, limit, showViewAll = false }: ProjectsProps) => {
+const Projects = ({ projects, limit }: ProjectsProps) => {
    const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
    return (
@@ -25,7 +22,7 @@ const Projects = ({ projects, limit, showViewAll = false }: ProjectsProps) => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="text-4xl text-center lg:text-5xl font-bold mb-4">
-            Project
+            Feature Projects
          </motion.h2>
          <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +48,7 @@ const Projects = ({ projects, limit, showViewAll = false }: ProjectsProps) => {
             ))}
          </div>
 
-         {showViewAll && (
+         {/* {showViewAll && (
             <motion.div
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +63,7 @@ const Projects = ({ projects, limit, showViewAll = false }: ProjectsProps) => {
                   </Link>
                </Button>
             </motion.div>
-         )}
+         )} */}
       </section>
    );
 };

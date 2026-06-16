@@ -13,10 +13,10 @@ export default function Page() {
   return (
     <main>
       <HeroSection />
-      <Services />
+      <Skills />
       <Projects projects={projects} limit={3} showViewAll />
       <WorkFlow />
-      <Skills />
+      <Services />
       <Contact />
       <ScrollToTop />
     </main>
