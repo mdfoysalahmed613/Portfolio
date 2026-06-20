@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { Phone } from 'lucide-react'
+import { Download } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -28,14 +28,14 @@ const HeroSection = () => {
 
          <div className='flex gap-5 mt-2 xl:gap-6'>
             <Button size={"lg"} asChild>
-               <Link href="/projects">
+               <Link href="#projects">
                   View My Work
                </Link>
             </Button>
             <Button size={"lg"} variant={"outline"} asChild>
-               <Link href="#contact" className='flex items-center gap-2' >
-                  <Phone />
-                  Contact
+               <Link href="/Resume.pdf" target="_blank" download={true} prefetch={false} className='flex items-center gap-2' >
+                  <Download />
+                  Resume
                </Link>
             </Button>
          </div>

@@ -1,10 +1,11 @@
 "use client"
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react';
+import { Download, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { navItems } from '@/components/common/nav-items';
 import { motion } from 'framer-motion';
 import { ThemeToggle } from './theme-toggle';
+import { Button } from '../ui/button';
 
 const Hamburger = () => {
    const [showMenu, setShowMenu] = useState(false);
@@ -49,6 +50,20 @@ const Hamburger = () => {
                      </motion.div>
 
                   ))}
+                  <motion.div
+                     initial={{ opacity: 0, y: -10 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.3, ease: "easeOut", delay: navItems.length * 0.1 }}
+                     onClick={() => setShowMenu(false)}
+                     className="mt-3"
+                  >
+                     <Button size="lg" asChild>
+                        <Link href="/Resume.pdf" target="_blank" download={true} prefetch={false}>
+                           <Download />
+                           Resume
+                        </Link>
+                     </Button>
+                  </motion.div>
                </motion.div>
             </>
          )}

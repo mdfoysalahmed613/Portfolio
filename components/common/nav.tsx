@@ -34,7 +34,7 @@ const Navbar = () => {
          <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
             <Button size='lg' asChild>
-               <Link href="/resume.pdf" target="_blank" download={true} prefetch={false}>
+               <Link href="/Resume.pdf" target="_blank" download={true} prefetch={false}>
                   <Download />
                   Resume
                </Link>

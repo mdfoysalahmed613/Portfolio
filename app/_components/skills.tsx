@@ -21,10 +21,13 @@ import {
    SiMongodb,
    SiMysql,
    SiTypeorm,
+   SiSocketdotio,
+   SiZod,
+   SiGithubactions,
 } from "react-icons/si"
 import { motion } from 'framer-motion'
 import { TbBrandFramerMotion } from 'react-icons/tb'
-import { Panda } from 'lucide-react'
+import { BarChart3, FileText, Panda } from 'lucide-react'
 
 
 const Skills = () => {
@@ -42,6 +45,9 @@ const Skills = () => {
       { icon: SiTailwindcss, label: 'Tailwind CSS' },
       { icon: SiShadcnui, label: 'Shadcn UI' },
       { icon: SiReactquery, label: 'TanStack Query' },
+      { icon: BarChart3, label: 'Recharts' },
+      { icon: FileText, label: 'Tiptap' },
+      { icon: SiZod, label: 'Zod' },
       { icon: TbBrandFramerMotion, label: 'Motion' },
       { icon: Panda, label: 'Zustand' },
    ]
@@ -49,6 +55,7 @@ const Skills = () => {
    const BACKEND = [
       { icon: SiNestjs, label: 'NestJS' },
       { icon: SiGraphql, label: 'GraphQL' },
+      { icon: SiSocketdotio, label: 'Socket.IO' },
       { icon: SiNodedotjs, label: 'Node.js' },
       { icon: SiExpress, label: 'Express.js' },
    ]
@@ -65,6 +72,8 @@ const Skills = () => {
    const TOOLS = [
       { icon: SiGit, label: 'Git' },
       { icon: SiGithub, label: 'GitHub' },
+      { icon: SiGithubactions, label: 'GitHub Actions' },
+      { icon: SiGithubactions, label: 'CI/CD' },
       { icon: SiDocker, label: 'Docker' },
       { icon: SiVercel, label: 'Vercel' },
    ]
