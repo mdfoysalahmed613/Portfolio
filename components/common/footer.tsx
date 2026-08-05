@@ -13,10 +13,10 @@ const Footer = () => {
         <div className='py-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12'>
           {/* Brand Section */}
           <div className='space-y-4'>
-            <h1 className='text-lg font-semibold'>Md Foysal Ahmed</h1>
-            <h2 className='text-sm text-muted-foreground leading-relaxed'>
+            <p className='text-lg font-semibold'>Md Foysal Ahmed</p>
+            <p className='text-sm text-muted-foreground leading-relaxed'>
               I am a full-stack developer who helps agencies and startups build and maintain production-ready web applications using Next.js and PostgreSQL.
-            </h2>
+            </p>
           </div>
 
           {/* Quick Links */}

@@ -11,9 +11,38 @@ interface BlogArticleProps {
    blog: IBlog;
 }
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://foysal.me";
+
 export default async function BlogArticle({ blog }: BlogArticleProps) {
+   const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: blog.title,
+      description: blog.description,
+      image: `${baseUrl}${blog.image}`,
+      datePublished: blog.publishDate,
+      dateModified: blog.publishDate,
+      author: {
+         "@type": "Person",
+         name: "Md Foysal Ahmed",
+         url: baseUrl,
+      },
+      publisher: {
+         "@type": "Person",
+         name: "Md Foysal Ahmed",
+      },
+      mainEntityOfPage: {
+         "@type": "WebPage",
+         "@id": `${baseUrl}/blog/${blog.slug}`,
+      },
+   };
+
    return (
       <article className="max-w-5xl lg:mx-auto py-16">
+         <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+         />
          <header className="mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground leading-tight">
                {blog.title}

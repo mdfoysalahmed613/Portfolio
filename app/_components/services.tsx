@@ -53,7 +53,7 @@ const services = [
 const Services = () => {
    return (
       <section className='py-20' id='services'>
-         <motion.h1
+         <motion.h2
             className='font-bold text-center text-4xl lg:text-5xl'
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ const Services = () => {
             transition={{ duration: 0.5 }}
          >
             Services
-         </motion.h1>
+         </motion.h2>
          <motion.p
             className='py-4 text-center text-muted-foreground max-w-2xl mx-auto'
             initial={{ opacity: 0, y: 20 }}

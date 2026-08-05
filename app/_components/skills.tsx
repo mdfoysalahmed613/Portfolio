@@ -107,7 +107,7 @@ const Skills = () => {
 
    return (
       <section className='py-20' id='skills' >
-         <motion.h1
+         <motion.h2
             className='font-bold text-center text-4xl lg:text-5xl'
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ const Skills = () => {
             transition={{ duration: 0.5 }}
          >
             Skills
-         </motion.h1>
+         </motion.h2>
          <motion.p
             className='py-4 text-center text-muted-foreground'
             initial={{ opacity: 0, y: 20 }}

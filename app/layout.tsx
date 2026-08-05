@@ -92,13 +92,15 @@ export const metadata: Metadata = {
   },
 };
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://foysal.me";
+
 export default function RootLayout({ children, }: { children: React.ReactNode }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Md Foysal Ahmed",
-    "url": "https://foysal.me",
-    "image": "https://foysal.me/md-foysal-ahmed.jpg",
+    "url": baseUrl,
+    "image": `${baseUrl}/md-foysal-ahmed.jpg`,
     "sameAs": [
       "https://github.com/mdfoysalahmed613",
       "https://www.linkedin.com/in/mdfoysalahmed613",

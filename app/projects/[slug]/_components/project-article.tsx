@@ -12,9 +12,31 @@ interface ProjectArticleProps {
    project: IProject;
 }
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://foysal.me";
+
 export default async function ProjectArticle({ project }: ProjectArticleProps) {
+   const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: project.title,
+      description: project.description,
+      ...(project.images.length > 0 && { image: `${baseUrl}${project.images[0]}` }),
+      url: `${baseUrl}/projects/${project.slug}`,
+      keywords: project.technologies.join(", "),
+      dateCreated: project.year,
+      author: {
+         "@type": "Person",
+         name: "Md Foysal Ahmed",
+         url: baseUrl,
+      },
+   };
+
    return (
       <article className="max-w-5xl lg:mx-auto py-16">
+         <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+         />
          <header className="mb-12">
             {/* Category & Year */}
             <div className="flex items-center gap-3 mb-4">
