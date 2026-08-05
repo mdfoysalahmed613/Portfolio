@@ -6,10 +6,8 @@ import { ExternalLink } from 'lucide-react'
 import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card'
 import ProjectCarousel from '@/components/common/project-carousel'
 
-import coreItLogoLight from '@/public/experience/core-it/logo-light.png'
-import coreItLogoDark from '@/public/experience/core-it/logo-dark.png'
-import globalItLogoLight from '@/public/experience/global-it-solutions/logo-light.png'
-import globalItLogoDark from '@/public/experience/global-it-solutions/logo-dark.png'
+import coreItLogo from '@/public/experience/core-it/logo.png'
+import globalItLogo from '@/public/experience/global-it-solutions/logo.png'
 
 type Role = {
    title: string
@@ -20,8 +18,7 @@ type Role = {
 type ExperienceEntry = {
    company: string
    website: string
-   logoLight: StaticImageData
-   logoDark: StaticImageData
+   logo: StaticImageData
    officeImages: string[]
    roles: Role[]
 }
@@ -30,8 +27,7 @@ const EXPERIENCE: ExperienceEntry[] = [
    {
       company: 'Core IT',
       website: 'https://www.coreitbd.com/',
-      logoLight: coreItLogoLight,
-      logoDark: coreItLogoDark,
+      logo: coreItLogo,
       officeImages: [
          '/experience/core-it/office/1st.jpeg',
          '/experience/core-it/office/0297f5bf-f349-4072-90ce-2e3fd501c580.jpeg',
@@ -53,8 +49,7 @@ const EXPERIENCE: ExperienceEntry[] = [
    {
       company: 'Global IT Solutions',
       website: 'https://www.globalitsolutions.com.bd/',
-      logoLight: globalItLogoLight,
-      logoDark: globalItLogoDark,
+      logo: globalItLogo,
       officeImages: [
          '/experience/global-it-solutions/office-1.jpg',
          '/experience/global-it-solutions/office-2.jpg',
@@ -110,18 +105,26 @@ const Experience = () => {
                      <CardHeader>
                         <div className='flex items-center gap-4'>
                            <div className='relative w-20 h-20 shrink-0 rounded-xl border bg-background flex items-center justify-center overflow-hidden p-3'>
-                              <Image src={entry.logoLight} alt={`${entry.company} logo`} className='dark:hidden w-full h-full object-contain' />
-                              <Image src={entry.logoDark} alt='' aria-hidden className='hidden dark:block w-full h-full object-contain' />
+                              <Image src={entry.logo} alt={`${entry.company} logo`} className='w-full h-full object-contain' />
                            </div>
                            <div>
-                              <CardTitle className='text-xl'>{entry.company}</CardTitle>
+                              <CardTitle className='text-xl'>
+                                 <Link
+                                    href={entry.website}
+                                    target='_blank'
+                                    rel='noopener'
+                                    className='hover:text-primary hover:underline'
+                                 >
+                                    {entry.company}
+                                 </Link>
+                              </CardTitle>
                               <Link
                                  href={entry.website}
                                  target='_blank'
-                                 rel='noopener noreferrer'
+                                 rel='noopener'
                                  className='inline-flex items-center gap-1 text-sm text-primary font-medium hover:underline mt-1'
                               >
-                                 Visit website
+                                 {entry.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}
                                  <ExternalLink className='w-3 h-3' />
                               </Link>
                            </div>
