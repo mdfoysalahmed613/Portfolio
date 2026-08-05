@@ -3,6 +3,7 @@ import HeroSection from './_components/hero'
 import Skills from './_components/skills'
 import Services from './_components/services'
 import Projects from './_components/projects'
+import Experience from './_components/experience'
 import WorkFlow from './_components/why-choose-me'
 import Contact from './_components/contact'
 import ScrollToTop from './_components/scroll-to-top'
@@ -14,6 +15,7 @@ export default function Page() {
     <main>
       <HeroSection />
       <Skills />
+      <Experience />
       <Projects projects={projects} limit={3} showViewAll />
       <WorkFlow />
       <Services />
